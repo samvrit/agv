@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Blocks="http://www.eclipse.org/papyrus/sysml/1.4/SysML/Blocks" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/sysml/1.4/SysML/Blocks http://www.eclipse.org/papyrus/sysml/1.4/SysML#//blocks">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Blocks="http://www.eclipse.org/papyrus/sysml/1.4/SysML/Blocks" xmlns:PortsAndFlows="http://www.eclipse.org/papyrus/sysml/1.4/SysML/PortsAndFlows" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/sysml/1.4/SysML/Blocks http://www.eclipse.org/papyrus/sysml/1.4/SysML#//blocks http://www.eclipse.org/papyrus/sysml/1.4/SysML/PortsAndFlows http://www.eclipse.org/papyrus/sysml/1.4/SysML#//portsandflows">
   <uml:Model xmi:id="_pNiRUJmWEeeRmJXlhU4K0Q" name="AGV System">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_pWeK4JmWEeeRmJXlhU4K0Q">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -7,11 +7,18 @@
     <packageImport xmi:type="uml:PackageImport" xmi:id="_pWn74JmWEeeRmJXlhU4K0Q">
       <importedPackage xmi:type="uml:Package" href="pathmap://SysML14_LIBRARIES/SysML-Standard-Library.uml#SysML.package_packagedElement_Libraries"/>
     </packageImport>
-    <packagedElement xmi:type="uml:Class" xmi:id="_pZwIYJmWEeeRmJXlhU4K0Q" name="Block1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_pZwIYJmWEeeRmJXlhU4K0Q" name="Domain">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_wp7MkJmlEeeRmJXlhU4K0Q" name="aGV System" type="_Hg-IsJmZEeeRmJXlhU4K0Q"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_nRB4oJmnEeeRmJXlhU4K0Q" name="Environment" type="_o3tikJmnEeeRmJXlhU4K0Q" aggregation="composite" association="_o4KOgJmnEeeRmJXlhU4K0Q"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_7QssEJmnEeeRmJXlhU4K0Q" name="Environment" type="__R53sJmnEeeRmJXlhU4K0Q" aggregation="composite" association="__SftkJmnEeeRmJXlhU4K0Q"/>
+      <nestedClassifier xmi:type="uml:Actor" xmi:id="_Qvv5gJmmEeeRmJXlhU4K0Q" name="Operator"/>
+    </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_Hg-IsJmZEeeRmJXlhU4K0Q" name="AGV System">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_iYD1AJmbEeeRmJXlhU4K0Q" name="material_transfer_rate" type="_eiGaoJmcEeeRmJXlhU4K0Q"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_3uACYJmcEeeRmJXlhU4K0Q" name="cost" type="_7MKLUJmcEeeRmJXlhU4K0Q"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="__cEhUJmcEeeRmJXlhU4K0Q" name="mechanical system" type="_nkPJgJmcEeeRmJXlhU4K0Q" aggregation="composite" association="__b6wUJmcEeeRmJXlhU4K0Q"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_GoOpM5mhEeeRmJXlhU4K0Q" name="autonomous agent" type="_HEot0JmgEeeRmJXlhU4K0Q" aggregation="composite" association="_GoOpMJmhEeeRmJXlhU4K0Q"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_CCjCE5miEeeRmJXlhU4K0Q" name="power system" type="_-STqoJmhEeeRmJXlhU4K0Q" aggregation="composite" association="_CCjCEJmiEeeRmJXlhU4K0Q"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_9ZcNIJmaEeeRmJXlhU4K0Q" name="transfer_material"/>
       <nestedClassifier xmi:type="uml:DataType" xmi:id="_eiGaoJmcEeeRmJXlhU4K0Q" name="packages/hr"/>
     </packagedElement>
@@ -39,9 +46,11 @@
       <ownedOperation xmi:type="uml:Operation" xmi:id="_CUIBoJmfEeeRmJXlhU4K0Q" name="support_mechanical_system"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_rY1KkJmeEeeRmJXlhU4K0Q" name="Actuator">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_9LOYsJmfEeeRmJXlhU4K0Q" name="speed"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_GE-dEJmfEeeRmJXlhU4K0Q" name="provide_motion"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_s3IUkJmeEeeRmJXlhU4K0Q" name="Storage Area">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_4Iih8JmfEeeRmJXlhU4K0Q" name="payload_capacity"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_HiGiYJmfEeeRmJXlhU4K0Q" name="store_material"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_6KRloJmeEeeRmJXlhU4K0Q" name="Sensor System">
@@ -71,6 +80,68 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="__itC5JmeEeeRmJXlhU4K0Q" name="mechanical system" type="_nkPJgJmcEeeRmJXlhU4K0Q" association="__itC4JmeEeeRmJXlhU4K0Q"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_HEot0JmgEeeRmJXlhU4K0Q" name="Autonomous Agent">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_x6gc8JmgEeeRmJXlhU4K0Q" name="processing_power"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_1u4GcJmgEeeRmJXlhU4K0Q" name="memory"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Hry_A5mhEeeRmJXlhU4K0Q" name="local controller" type="_30sjcJmgEeeRmJXlhU4K0Q" aggregation="composite" association="_Hry_AJmhEeeRmJXlhU4K0Q"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ma37c5mhEeeRmJXlhU4K0Q" name="central controller" type="_JFn4sJmhEeeRmJXlhU4K0Q" aggregation="composite" association="_ma37cJmhEeeRmJXlhU4K0Q"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_P_-4MJmgEeeRmJXlhU4K0Q" name="coordinate_agvs"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_XKU_AJmgEeeRmJXlhU4K0Q" name="path_planning"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_rbt0kJmgEeeRmJXlhU4K0Q" name="control_agv_params"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_30sjcJmgEeeRmJXlhU4K0Q" name="Local Controller">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_DdGxAJmhEeeRmJXlhU4K0Q" name="processing_power"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Ep-MwJmhEeeRmJXlhU4K0Q" name="memory"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_89WfUJmgEeeRmJXlhU4K0Q" name="stay_on_path"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="__kikAJmgEeeRmJXlhU4K0Q" name="receive_central_commands"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_GoOpMJmhEeeRmJXlhU4K0Q" memberEnd="_GoOpM5mhEeeRmJXlhU4K0Q _GoOpNJmhEeeRmJXlhU4K0Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_GoOpMZmhEeeRmJXlhU4K0Q" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_GoOpMpmhEeeRmJXlhU4K0Q" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_GoOpNJmhEeeRmJXlhU4K0Q" name="agv system" type="_Hg-IsJmZEeeRmJXlhU4K0Q" association="_GoOpMJmhEeeRmJXlhU4K0Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Hry_AJmhEeeRmJXlhU4K0Q" memberEnd="_Hry_A5mhEeeRmJXlhU4K0Q _Hry_BJmhEeeRmJXlhU4K0Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Hry_AZmhEeeRmJXlhU4K0Q" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Hry_ApmhEeeRmJXlhU4K0Q" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Hry_BJmhEeeRmJXlhU4K0Q" name="autonomous agent" type="_HEot0JmgEeeRmJXlhU4K0Q" association="_Hry_AJmhEeeRmJXlhU4K0Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_JFn4sJmhEeeRmJXlhU4K0Q" name="Central Controller">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_jo3t4JmhEeeRmJXlhU4K0Q" name="processing_power"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_lQ1KMJmhEeeRmJXlhU4K0Q" name="memory"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Pg2PsJmhEeeRmJXlhU4K0Q" name="coordinate_agv_paths"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_357zUJmhEeeRmJXlhU4K0Q" name="path_planning"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_ma37cJmhEeeRmJXlhU4K0Q" memberEnd="_ma37c5mhEeeRmJXlhU4K0Q _ma37dJmhEeeRmJXlhU4K0Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ma37cZmhEeeRmJXlhU4K0Q" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ma37cpmhEeeRmJXlhU4K0Q" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_ma37dJmhEeeRmJXlhU4K0Q" name="autonomous agent" type="_HEot0JmgEeeRmJXlhU4K0Q" association="_ma37cJmhEeeRmJXlhU4K0Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_-STqoJmhEeeRmJXlhU4K0Q" name="Power Supply">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Sj_bIJmiEeeRmJXlhU4K0Q" name="power_capacity"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_DBFt8JmiEeeRmJXlhU4K0Q" name="provide_power"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_CCjCEJmiEeeRmJXlhU4K0Q" memberEnd="_CCjCE5miEeeRmJXlhU4K0Q _CCjCFJmiEeeRmJXlhU4K0Q">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CCjCEZmiEeeRmJXlhU4K0Q" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CCjCEpmiEeeRmJXlhU4K0Q" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_CCjCFJmiEeeRmJXlhU4K0Q" name="agv system" type="_Hg-IsJmZEeeRmJXlhU4K0Q" association="_CCjCEJmiEeeRmJXlhU4K0Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_KzPpYJmnEeeRmJXlhU4K0Q" name="Facility"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_R_-84JmnEeeRmJXlhU4K0Q" name="Order Distribution"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_o3tikJmnEeeRmJXlhU4K0Q" name="Facility"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_o4KOgJmnEeeRmJXlhU4K0Q" memberEnd="_nRB4oJmnEeeRmJXlhU4K0Q _o4KOgZmnEeeRmJXlhU4K0Q">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_o4KOgZmnEeeRmJXlhU4K0Q" name="domain" type="_pZwIYJmWEeeRmJXlhU4K0Q" association="_o4KOgJmnEeeRmJXlhU4K0Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="__R53sJmnEeeRmJXlhU4K0Q" name="Numbr of Orders"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="__SftkJmnEeeRmJXlhU4K0Q" memberEnd="_7QssEJmnEeeRmJXlhU4K0Q __SftkZmnEeeRmJXlhU4K0Q">
+      <ownedEnd xmi:type="uml:Property" xmi:id="__SftkZmnEeeRmJXlhU4K0Q" name="domain" type="_pZwIYJmWEeeRmJXlhU4K0Q" association="__SftkJmnEeeRmJXlhU4K0Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_WBYgUJmoEeeRmJXlhU4K0Q" informationSource="_Qvv5gJmmEeeRmJXlhU4K0Q" informationTarget="_wp7MkJmlEeeRmJXlhU4K0Q"/>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_YX8vEJmoEeeRmJXlhU4K0Q" informationSource="_7QssEJmnEeeRmJXlhU4K0Q" informationTarget="_wp7MkJmlEeeRmJXlhU4K0Q"/>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_alEG4JmoEeeRmJXlhU4K0Q" name="ItemFlow1" informationSource="_nRB4oJmnEeeRmJXlhU4K0Q" informationTarget="_wp7MkJmlEeeRmJXlhU4K0Q"/>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_pPeLAJmWEeeRmJXlhU4K0Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pPnU8JmWEeeRmJXlhU4K0Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#/"/>
@@ -145,4 +216,14 @@
   <Blocks:Block xmi:id="_rY-7kJmeEeeRmJXlhU4K0Q" base_Class="_rY1KkJmeEeeRmJXlhU4K0Q"/>
   <Blocks:Block xmi:id="_s3IUkZmeEeeRmJXlhU4K0Q" base_Class="_s3IUkJmeEeeRmJXlhU4K0Q"/>
   <Blocks:Block xmi:id="_6KavkJmeEeeRmJXlhU4K0Q" base_Class="_6KRloJmeEeeRmJXlhU4K0Q"/>
+  <Blocks:Block xmi:id="_HEx3wJmgEeeRmJXlhU4K0Q" base_Class="_HEot0JmgEeeRmJXlhU4K0Q"/>
+  <Blocks:Block xmi:id="_302UcJmgEeeRmJXlhU4K0Q" base_Class="_30sjcJmgEeeRmJXlhU4K0Q"/>
+  <Blocks:Block xmi:id="_JFn4sZmhEeeRmJXlhU4K0Q" base_Class="_JFn4sJmhEeeRmJXlhU4K0Q"/>
+  <Blocks:Block xmi:id="_-Sc0kJmhEeeRmJXlhU4K0Q" base_Class="_-STqoJmhEeeRmJXlhU4K0Q"/>
+  <Blocks:PropertySpecificType xmi:id="_Qv5qgJmmEeeRmJXlhU4K0Q" base_Classifier="_Qvv5gJmmEeeRmJXlhU4K0Q"/>
+  <Blocks:Block xmi:id="_KzZaYJmnEeeRmJXlhU4K0Q" base_Class="_KzPpYJmnEeeRmJXlhU4K0Q"/>
+  <Blocks:Block xmi:id="_SAIG0JmnEeeRmJXlhU4K0Q" base_Class="_R_-84JmnEeeRmJXlhU4K0Q"/>
+  <Blocks:Block xmi:id="_o33TkJmnEeeRmJXlhU4K0Q" base_Class="_o3tikJmnEeeRmJXlhU4K0Q"/>
+  <Blocks:Block xmi:id="__SDosJmnEeeRmJXlhU4K0Q" base_Class="__R53sJmnEeeRmJXlhU4K0Q"/>
+  <PortsAndFlows:ItemFlow xmi:id="_alXB0JmoEeeRmJXlhU4K0Q" base_InformationFlow="_alEG4JmoEeeRmJXlhU4K0Q"/>
 </xmi:XMI>
