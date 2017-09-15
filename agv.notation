@@ -1083,7 +1083,7 @@
         </children>
         <children xmi:type="notation:Shape" xmi:id="_a4EmkJplEeenXujXtZ0a8A" type="FlowFinalNode_Shape">
           <children xmi:type="notation:DecorationNode" xmi:id="_a4Emk5plEeenXujXtZ0a8A" type="FlowFinalNode_FloatingNameLabel">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_a4EmlJplEeenXujXtZ0a8A" x="-13" y="-29"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_a4EmlJplEeenXujXtZ0a8A" x="2" y="-29"/>
           </children>
           <children xmi:type="notation:DecorationNode" xmi:id="_a4EmlZplEeenXujXtZ0a8A" type="FlowFinalNode_StereotypeLabel">
             <layoutConstraint xmi:type="notation:Location" xmi:id="_a4EmlpplEeenXujXtZ0a8A" y="15"/>
