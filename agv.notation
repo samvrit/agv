@@ -593,7 +593,7 @@
         <layoutConstraint xmi:type="notation:Location" xmi:id="__dalKJmcEeeRmJXlhU4K0Q" y="-20"/>
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="__dalKZmcEeeRmJXlhU4K0Q" type="Association_SourceRoleLabel">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="__dalKpmcEeeRmJXlhU4K0Q" x="26" y="16"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__dalKpmcEeeRmJXlhU4K0Q" x="60" y="61"/>
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="__dalK5mcEeeRmJXlhU4K0Q" type="Association_SourceMultiplicityLabel">
         <layoutConstraint xmi:type="notation:Location" xmi:id="__dalLJmcEeeRmJXlhU4K0Q" y="20"/>
