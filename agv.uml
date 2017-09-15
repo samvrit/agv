@@ -141,6 +141,29 @@
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_YX8vEJmoEeeRmJXlhU4K0Q" informationSource="_7QssEJmnEeeRmJXlhU4K0Q" informationTarget="_wp7MkJmlEeeRmJXlhU4K0Q"/>
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_alEG4JmoEeeRmJXlhU4K0Q" name="ItemFlow1" informationSource="_nRB4oJmnEeeRmJXlhU4K0Q" informationTarget="_wp7MkJmlEeeRmJXlhU4K0Q"/>
     <packagedElement xmi:type="uml:InformationFlow" xmi:id="_AvSJwJmqEeeRmJXlhU4K0Q" name="ItemFlow2" informationSource="_wp7MkJmlEeeRmJXlhU4K0Q" informationTarget="_nRB4oJmnEeeRmJXlhU4K0Q"/>
+    <packagedElement xmi:type="uml:Activity" xmi:id="_MrvTcJpUEeenXujXtZ0a8A" name="Activity1" node="_fgB44JpUEeenXujXtZ0a8A _hBIfQJpUEeenXujXtZ0a8A _UiXcAJpVEeenXujXtZ0a8A _b7e-oJpVEeenXujXtZ0a8A _WtRQgJpZEeenXujXtZ0a8A _bITRYJpZEeenXujXtZ0a8A _rwyGkJpZEeenXujXtZ0a8A _r2Li8JpkEeenXujXtZ0a8A _6jwxsJpkEeenXujXtZ0a8A _a34ZUJplEeenXujXtZ0a8A" group="_rx3d8JpUEeenXujXtZ0a8A _OGBG0JpZEeenXujXtZ0a8A">
+      <edge xmi:type="uml:ControlFlow" xmi:id="_7XfLIJpYEeenXujXtZ0a8A" target="_hBIfQJpUEeenXujXtZ0a8A" source="_fgB44JpUEeenXujXtZ0a8A"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_8HGDIJpYEeenXujXtZ0a8A" target="_UiXcAJpVEeenXujXtZ0a8A" source="_hBIfQJpUEeenXujXtZ0a8A"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_8met0JpYEeenXujXtZ0a8A" target="_b7e-oJpVEeenXujXtZ0a8A" source="_UiXcAJpVEeenXujXtZ0a8A"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_hV6qMJpZEeenXujXtZ0a8A" target="_WtRQgJpZEeenXujXtZ0a8A" source="_b7e-oJpVEeenXujXtZ0a8A"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_iW_FoJpZEeenXujXtZ0a8A" target="_bITRYJpZEeenXujXtZ0a8A" source="_WtRQgJpZEeenXujXtZ0a8A"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_3Wp9gJpZEeenXujXtZ0a8A" target="_rwyGkJpZEeenXujXtZ0a8A" source="_bITRYJpZEeenXujXtZ0a8A"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_eLSDwJplEeenXujXtZ0a8A" target="_r2Li8JpkEeenXujXtZ0a8A" source="_rwyGkJpZEeenXujXtZ0a8A"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_ewTcYJplEeenXujXtZ0a8A" target="_6jwxsJpkEeenXujXtZ0a8A" source="_r2Li8JpkEeenXujXtZ0a8A"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_gOobkJplEeenXujXtZ0a8A" target="_a34ZUJplEeenXujXtZ0a8A" source="_6jwxsJpkEeenXujXtZ0a8A"/>
+      <group xmi:type="uml:ActivityPartition" xmi:id="_rx3d8JpUEeenXujXtZ0a8A" name="Central Controller" node="_hBIfQJpUEeenXujXtZ0a8A _UiXcAJpVEeenXujXtZ0a8A _b7e-oJpVEeenXujXtZ0a8A"/>
+      <group xmi:type="uml:ActivityPartition" xmi:id="_OGBG0JpZEeenXujXtZ0a8A" name="AGV" node="_rwyGkJpZEeenXujXtZ0a8A _r2Li8JpkEeenXujXtZ0a8A _6jwxsJpkEeenXujXtZ0a8A"/>
+      <node xmi:type="uml:InitialNode" xmi:id="_fgB44JpUEeenXujXtZ0a8A" name="Start" outgoing="_7XfLIJpYEeenXujXtZ0a8A"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_hBIfQJpUEeenXujXtZ0a8A" name="Receive order" incoming="_7XfLIJpYEeenXujXtZ0a8A" outgoing="_8HGDIJpYEeenXujXtZ0a8A" inPartition="_rx3d8JpUEeenXujXtZ0a8A"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_UiXcAJpVEeenXujXtZ0a8A" name="Choose AGV" incoming="_8HGDIJpYEeenXujXtZ0a8A" outgoing="_8met0JpYEeenXujXtZ0a8A" inPartition="_rx3d8JpUEeenXujXtZ0a8A"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_b7e-oJpVEeenXujXtZ0a8A" name="Send pick-place command" incoming="_8met0JpYEeenXujXtZ0a8A" outgoing="_hV6qMJpZEeenXujXtZ0a8A" inPartition="_rx3d8JpUEeenXujXtZ0a8A"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_WtRQgJpZEeenXujXtZ0a8A" name="Receive command" incoming="_hV6qMJpZEeenXujXtZ0a8A" outgoing="_iW_FoJpZEeenXujXtZ0a8A"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_bITRYJpZEeenXujXtZ0a8A" name="Plan path" incoming="_iW_FoJpZEeenXujXtZ0a8A" outgoing="_3Wp9gJpZEeenXujXtZ0a8A"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_rwyGkJpZEeenXujXtZ0a8A" name="Move towards pick-up location" incoming="_3Wp9gJpZEeenXujXtZ0a8A" outgoing="_eLSDwJplEeenXujXtZ0a8A" inPartition="_OGBG0JpZEeenXujXtZ0a8A"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_r2Li8JpkEeenXujXtZ0a8A" name="Pick up required quantity of material" incoming="_eLSDwJplEeenXujXtZ0a8A" outgoing="_ewTcYJplEeenXujXtZ0a8A" inPartition="_OGBG0JpZEeenXujXtZ0a8A"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_6jwxsJpkEeenXujXtZ0a8A" name="Transport material to drop off location" incoming="_ewTcYJplEeenXujXtZ0a8A" outgoing="_gOobkJplEeenXujXtZ0a8A" inPartition="_OGBG0JpZEeenXujXtZ0a8A"/>
+      <node xmi:type="uml:FlowFinalNode" xmi:id="_a34ZUJplEeenXujXtZ0a8A" name="Exit" incoming="_gOobkJplEeenXujXtZ0a8A"/>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_pPeLAJmWEeeRmJXlhU4K0Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pPnU8JmWEeeRmJXlhU4K0Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#/"/>
