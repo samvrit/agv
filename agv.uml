@@ -7,7 +7,7 @@
     <packageImport xmi:type="uml:PackageImport" xmi:id="_pWn74JmWEeeRmJXlhU4K0Q">
       <importedPackage xmi:type="uml:Package" href="pathmap://SysML14_LIBRARIES/SysML-Standard-Library.uml#SysML.package_packagedElement_Libraries"/>
     </packageImport>
-    <packagedElement xmi:type="uml:Class" xmi:id="_pZwIYJmWEeeRmJXlhU4K0Q" name="Domain123">
+    <packagedElement xmi:type="uml:Class" xmi:id="_pZwIYJmWEeeRmJXlhU4K0Q" name="Domain">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_wp7MkJmlEeeRmJXlhU4K0Q" name="aGV System" type="_Hg-IsJmZEeeRmJXlhU4K0Q"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_nRB4oJmnEeeRmJXlhU4K0Q" name="Environment" type="_o3tikJmnEeeRmJXlhU4K0Q" aggregation="composite" association="_o4KOgJmnEeeRmJXlhU4K0Q"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_7QssEJmnEeeRmJXlhU4K0Q" name="Environment" type="__R53sJmnEeeRmJXlhU4K0Q" aggregation="composite" association="__SftkJmnEeeRmJXlhU4K0Q"/>
