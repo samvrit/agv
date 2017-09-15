@@ -129,8 +129,6 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_CCjCFJmiEeeRmJXlhU4K0Q" name="agv system" type="_Hg-IsJmZEeeRmJXlhU4K0Q" association="_CCjCEJmiEeeRmJXlhU4K0Q"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_KzPpYJmnEeeRmJXlhU4K0Q" name="Facility"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_R_-84JmnEeeRmJXlhU4K0Q" name="Order Distribution"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_o3tikJmnEeeRmJXlhU4K0Q" name="Facility"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_o4KOgJmnEeeRmJXlhU4K0Q" memberEnd="_nRB4oJmnEeeRmJXlhU4K0Q _o4KOgZmnEeeRmJXlhU4K0Q">
       <ownedEnd xmi:type="uml:Property" xmi:id="_o4KOgZmnEeeRmJXlhU4K0Q" name="domain" type="_pZwIYJmWEeeRmJXlhU4K0Q" association="_o4KOgJmnEeeRmJXlhU4K0Q"/>
@@ -221,8 +219,6 @@
   <Blocks:Block xmi:id="_JFn4sZmhEeeRmJXlhU4K0Q" base_Class="_JFn4sJmhEeeRmJXlhU4K0Q"/>
   <Blocks:Block xmi:id="_-Sc0kJmhEeeRmJXlhU4K0Q" base_Class="_-STqoJmhEeeRmJXlhU4K0Q"/>
   <Blocks:PropertySpecificType xmi:id="_Qv5qgJmmEeeRmJXlhU4K0Q" base_Classifier="_Qvv5gJmmEeeRmJXlhU4K0Q"/>
-  <Blocks:Block xmi:id="_KzZaYJmnEeeRmJXlhU4K0Q" base_Class="_KzPpYJmnEeeRmJXlhU4K0Q"/>
-  <Blocks:Block xmi:id="_SAIG0JmnEeeRmJXlhU4K0Q" base_Class="_R_-84JmnEeeRmJXlhU4K0Q"/>
   <Blocks:Block xmi:id="_o33TkJmnEeeRmJXlhU4K0Q" base_Class="_o3tikJmnEeeRmJXlhU4K0Q"/>
   <Blocks:Block xmi:id="__SDosJmnEeeRmJXlhU4K0Q" base_Class="__R53sJmnEeeRmJXlhU4K0Q"/>
   <PortsAndFlows:ItemFlow xmi:id="_alXB0JmoEeeRmJXlhU4K0Q" base_InformationFlow="_alEG4JmoEeeRmJXlhU4K0Q"/>
