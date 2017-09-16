@@ -20,9 +20,10 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_Hg-IsJmZEeeRmJXlhU4K0Q" name="AGV System">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_iYD1AJmbEeeRmJXlhU4K0Q" name="material_transfer_rate" type="_eiGaoJmcEeeRmJXlhU4K0Q"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_3uACYJmcEeeRmJXlhU4K0Q" name="cost" type="_7MKLUJmcEeeRmJXlhU4K0Q"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="__cEhUJmcEeeRmJXlhU4K0Q" name="mechanical system" type="_nkPJgJmcEeeRmJXlhU4K0Q" aggregation="composite" association="__b6wUJmcEeeRmJXlhU4K0Q"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_GoOpM5mhEeeRmJXlhU4K0Q" name="autonomous agent" type="_HEot0JmgEeeRmJXlhU4K0Q" aggregation="composite" association="_GoOpMJmhEeeRmJXlhU4K0Q"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_CCjCE5miEeeRmJXlhU4K0Q" name="power system" type="_-STqoJmhEeeRmJXlhU4K0Q" aggregation="composite" association="_CCjCEJmiEeeRmJXlhU4K0Q"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_CCjCE5miEeeRmJXlhU4K0Q" name="power system" type="_-STqoJmhEeeRmJXlhU4K0Q" aggregation="composite" association="_CCjCEJmiEeeRmJXlhU4K0Q">
+        <qualifier xmi:type="uml:Property" xmi:id="__cEhUJmcEeeRmJXlhU4K0Q" name="mechanical system" type="_nkPJgJmcEeeRmJXlhU4K0Q" aggregation="composite" association="__b6wUJmcEeeRmJXlhU4K0Q"/>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_p-_eMJpsEeek4ZWQ7ODm8Q" name="mechanical system" type="_nkPJgJmcEeeRmJXlhU4K0Q" aggregation="composite" association="_p-7z0JpsEeek4ZWQ7ODm8Q"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_q8x8IppsEeek4ZWQ7ODm8Q" name="power supply" type="_-STqoJmhEeeRmJXlhU4K0Q" aggregation="composite" association="_q8wG8JpsEeek4ZWQ7ODm8Q"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_r07FEJpsEeek4ZWQ7ODm8Q" name="control element" type="_HEot0JmgEeeRmJXlhU4K0Q" aggregation="composite" association="_r05P4JpsEeek4ZWQ7ODm8Q"/>
@@ -240,6 +241,14 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_z3XRgJpsEeek4ZWQ7ODm8Q" name="domain" type="_pZwIYJmWEeeRmJXlhU4K0Q" association="_z3WDYJpsEeek4ZWQ7ODm8Q"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_NSG0QJpyEeeqd63HJK1shw" name="AGV System_IBD">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_bLwEoJpyEeeqd63HJK1shw" name="mechanical System" type="_nkPJgJmcEeeRmJXlhU4K0Q"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_b-NcUJpyEeeqd63HJK1shw" name="power Supply" type="_-STqoJmhEeeRmJXlhU4K0Q"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cbPWkJpyEeeqd63HJK1shw" name="control Element" type="_HEot0JmgEeeRmJXlhU4K0Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_wsV4QJpyEeeqd63HJK1shw" name="Electricity" informationSource="_b-NcUJpyEeeqd63HJK1shw" informationTarget="_cbPWkJpyEeeqd63HJK1shw"/>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_1L07UJpyEeeqd63HJK1shw" name="Electricity" informationSource="_b-NcUJpyEeeqd63HJK1shw" informationTarget="_bLwEoJpyEeeqd63HJK1shw"/>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_5AOaAJpyEeeqd63HJK1shw" name="Command signal" informationSource="_cbPWkJpyEeeqd63HJK1shw" informationTarget="_bLwEoJpyEeeqd63HJK1shw"/>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_pPeLAJmWEeeRmJXlhU4K0Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pPnU8JmWEeeRmJXlhU4K0Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#/"/>
@@ -327,4 +336,7 @@
   <Blocks:Block xmi:id="_jeoIgJpsEeek4ZWQ7ODm8Q" base_Class="_jeha0JpsEeek4ZWQ7ODm8Q"/>
   <Blocks:Block xmi:id="_k4AWQJpsEeek4ZWQ7ODm8Q" base_Class="_k33MUJpsEeek4ZWQ7ODm8Q"/>
   <Blocks:Block xmi:id="_mo0MkJpsEeek4ZWQ7ODm8Q" base_Class="_mos30JpsEeek4ZWQ7ODm8Q"/>
+  <Blocks:Block xmi:id="_NSM64JpyEeeqd63HJK1shw" base_Class="_NSG0QJpyEeeqd63HJK1shw"/>
+  <PortsAndFlows:ItemFlow xmi:id="_wtmcgJpyEeeqd63HJK1shw" base_InformationFlow="_wsV4QJpyEeeqd63HJK1shw"/>
+  <PortsAndFlows:ItemFlow xmi:id="_1L9eMJpyEeeqd63HJK1shw" base_InformationFlow="_1L07UJpyEeeqd63HJK1shw"/>
 </xmi:XMI>
