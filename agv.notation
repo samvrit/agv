@@ -2115,7 +2115,7 @@
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0CQS4ZpsEeek4ZWQ7ODm8Q" id="(0.2714285714285714,0.0)"/>
     </edges>
   </notation:Diagram>
-  <notation:Diagram xmi:id="_Ogoc4JpyEeeqd63HJK1shw" type="CompositeStructure" name="System_IBD" measurementUnit="Pixel">
+  <notation:Diagram xmi:id="_Ogoc4JpyEeeqd63HJK1shw" type="CompositeStructure" name="system_ibd" measurementUnit="Pixel">
     <children xmi:type="notation:Shape" xmi:id="_OgpD8JpyEeeqd63HJK1shw" type="Class_Shape">
       <children xmi:type="notation:DecorationNode" xmi:id="_OgpD8ppyEeeqd63HJK1shw" type="Class_NameLabel"/>
       <children xmi:type="notation:DecorationNode" xmi:id="_OgpD85pyEeeqd63HJK1shw" type="Class_FloatingNameLabel">
