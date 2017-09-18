@@ -1082,7 +1082,7 @@
           </children>
           <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_a4EmkZplEeenXujXtZ0a8A"/>
           <element xmi:type="uml:FlowFinalNode" href="agv.uml#_a34ZUJplEeenXujXtZ0a8A"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a4EmkpplEeenXujXtZ0a8A" x="631" y="509"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a4EmkpplEeenXujXtZ0a8A" x="630" y="508"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_fgH_gJpUEeenXujXtZ0a8A" type="InitialNode_Shape">
           <children xmi:type="notation:DecorationNode" xmi:id="_fgImkJpUEeenXujXtZ0a8A" type="InitialNode_FloatingNameLabel">
