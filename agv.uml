@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Blocks="http://www.eclipse.org/papyrus/sysml/1.4/SysML/Blocks" xmlns:PortsAndFlows="http://www.eclipse.org/papyrus/sysml/1.4/SysML/PortsAndFlows" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/sysml/1.4/SysML/Blocks http://www.eclipse.org/papyrus/sysml/1.4/SysML#//blocks http://www.eclipse.org/papyrus/sysml/1.4/SysML/PortsAndFlows http://www.eclipse.org/papyrus/sysml/1.4/SysML#//portsandflows">
-  <uml:Model xmi:id="_pNiRUJmWEeeRmJXlhU4K0Q" name="AGV System">
+  <uml:Model xmi:id="_pNiRUJmWEeeRmJXlhU4K0Q" name="AGV System" visibility="private">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_pWeK4JmWEeeRmJXlhU4K0Q">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
     </packageImport>
@@ -31,8 +31,8 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_JxAt4ZyoEee7p9BnvM9UGg" name="control element" type="_HEot0JmgEeeRmJXlhU4K0Q" aggregation="composite" association="_Jwr9wJyoEee7p9BnvM9UGg"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_RvVPUJyoEee7p9BnvM9UGg" name="agv unit" type="_nkPJgJmcEeeRmJXlhU4K0Q" aggregation="composite" association="_RvSMAJyoEee7p9BnvM9UGg"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_9ZcNIJmaEeeRmJXlhU4K0Q" name="transfer_material"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_QZnrgJymEee7p9BnvM9UGg" name="navigate_between_nodes"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_WFx9EJymEee7p9BnvM9UGg" name="carry_payload"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_QZnrgJymEee7p9BnvM9UGg" name="Navigate between nodes"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_WFx9EJymEee7p9BnvM9UGg" name="Carry payload"/>
       <nestedClassifier xmi:type="uml:DataType" xmi:id="_eiGaoJmcEeeRmJXlhU4K0Q" name="packages/hr"/>
       <nestedClassifier xmi:type="uml:Class" xmi:id="_nkPJgJmcEeeRmJXlhU4K0Q" name="AGV Unit">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_ugd70JmcEeeRmJXlhU4K0Q" name="payload_capacity"/>
@@ -47,7 +47,7 @@
         <ownedAttribute xmi:type="uml:Property" xmi:id="_jn5Pk5voEeendM6dXK0DGQ" name="onboard battery" type="_MP8RsJvoEeendM6dXK0DGQ" aggregation="composite" association="_jn5PkJvoEeendM6dXK0DGQ"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_QeaAwZvpEeendM6dXK0DGQ" name="local controller" type="_30sjcJmgEeeRmJXlhU4K0Q" aggregation="composite" association="_QeYLkJvpEeendM6dXK0DGQ"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_qoXo4JmcEeeRmJXlhU4K0Q" name="transport_payload"/>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_ODP0kJynEee7p9BnvM9UGg" name="carry_the_payload"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_ODP0kJynEee7p9BnvM9UGg" name="Carry the payload"/>
         <nestedClassifier xmi:type="uml:Class" xmi:id="_nyeu8JmeEeeRmJXlhU4K0Q" name="Structure">
           <ownedAttribute xmi:type="uml:Property" xmi:id="_PuptEJmfEeeRmJXlhU4K0Q" name="physical_dimensions"/>
           <ownedAttribute xmi:type="uml:Property" xmi:id="_SxjdYJmfEeeRmJXlhU4K0Q" name="weight"/>
@@ -82,7 +82,7 @@
         <ownedOperation xmi:type="uml:Operation" xmi:id="_P_-4MJmgEeeRmJXlhU4K0Q" name="coordinate_agvs"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_XKU_AJmgEeeRmJXlhU4K0Q" name="path_planning"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_rbt0kJmgEeeRmJXlhU4K0Q" name="control_agv_params"/>
-        <ownedOperation xmi:type="uml:Operation" xmi:id="_F_kSAJynEee7p9BnvM9UGg" name="control_agv_destination"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_F_kSAJynEee7p9BnvM9UGg" name="Control AGV destination"/>
       </nestedClassifier>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_XBMPMJtjEeefVOJOxjNGiw" name="Environment">
