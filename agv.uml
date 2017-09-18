@@ -27,13 +27,18 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DBvx4JvqEeendM6dXK0DGQ" value="*"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_A8GUApvqEeendM6dXK0DGQ" name="control element" type="_HEot0JmgEeeRmJXlhU4K0Q" aggregation="composite" association="_A8Fs8JvqEeendM6dXK0DGQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_JotpYpvrEeendM6dXK0DGQ" name="agv unit" type="_nkPJgJmcEeeRmJXlhU4K0Q" aggregation="composite" association="_JotCUJvrEeendM6dXK0DGQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_JotpYpvrEeendM6dXK0DGQ" name="agv unit" type="_nkPJgJmcEeeRmJXlhU4K0Q" aggregation="composite" association="_JotCUJvrEeendM6dXK0DGQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__TNJ4Jy1EeegV6_VfQsNew" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__TpOwJy1EeegV6_VfQsNew" value="*"/>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_JxAt4ZyoEee7p9BnvM9UGg" name="control element" type="_HEot0JmgEeeRmJXlhU4K0Q" aggregation="composite" association="_Jwr9wJyoEee7p9BnvM9UGg"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_RvVPUJyoEee7p9BnvM9UGg" name="agv unit" type="_nkPJgJmcEeeRmJXlhU4K0Q" aggregation="composite" association="_RvSMAJyoEee7p9BnvM9UGg"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_EqudoJy1EeegV6_VfQsNew" name="docking station" type="_3zUtYJy0EeegV6_VfQsNew" aggregation="composite" association="_EqlTsJy1EeegV6_VfQsNew"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_8_yVw5y1EeegV6_VfQsNew" name="docking station" type="_3zUtYJy0EeegV6_VfQsNew" aggregation="composite" association="_8_yVwJy1EeegV6_VfQsNew"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_9ZcNIJmaEeeRmJXlhU4K0Q" name="transfer_material"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_QZnrgJymEee7p9BnvM9UGg" name="navigate_between_nodes"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_WFx9EJymEee7p9BnvM9UGg" name="carry_payload"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_waj6oJy1EeegV6_VfQsNew" name="transfer_material"/>
       <nestedClassifier xmi:type="uml:DataType" xmi:id="_eiGaoJmcEeeRmJXlhU4K0Q" name="packages/hr"/>
       <nestedClassifier xmi:type="uml:Class" xmi:id="_nkPJgJmcEeeRmJXlhU4K0Q" name="AGV Unit">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_ugd70JmcEeeRmJXlhU4K0Q" name="payload_capacity"/>
@@ -427,6 +432,12 @@
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EqlTspy1EeegV6_VfQsNew" key="nature" value="UML_Nature"/>
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_EqudoZy1EeegV6_VfQsNew" name="agv system" type="_Hg-IsJmZEeeRmJXlhU4K0Q" association="_EqlTsJy1EeegV6_VfQsNew"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_8_yVwJy1EeegV6_VfQsNew" memberEnd="_8_yVw5y1EeegV6_VfQsNew _8_8GwJy1EeegV6_VfQsNew">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8_yVwZy1EeegV6_VfQsNew" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8_yVwpy1EeegV6_VfQsNew" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_8_8GwJy1EeegV6_VfQsNew" name="agv system" type="_Hg-IsJmZEeeRmJXlhU4K0Q" association="_8_yVwJy1EeegV6_VfQsNew"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_pPeLAJmWEeeRmJXlhU4K0Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pPnU8JmWEeeRmJXlhU4K0Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
