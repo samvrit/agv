@@ -30,6 +30,7 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_JotpYpvrEeendM6dXK0DGQ" name="agv unit" type="_nkPJgJmcEeeRmJXlhU4K0Q" aggregation="composite" association="_JotCUJvrEeendM6dXK0DGQ"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_JxAt4ZyoEee7p9BnvM9UGg" name="control element" type="_HEot0JmgEeeRmJXlhU4K0Q" aggregation="composite" association="_Jwr9wJyoEee7p9BnvM9UGg"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_RvVPUJyoEee7p9BnvM9UGg" name="agv unit" type="_nkPJgJmcEeeRmJXlhU4K0Q" aggregation="composite" association="_RvSMAJyoEee7p9BnvM9UGg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_EqudoJy1EeegV6_VfQsNew" name="docking station" type="_3zUtYJy0EeegV6_VfQsNew" aggregation="composite" association="_EqlTsJy1EeegV6_VfQsNew"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_9ZcNIJmaEeeRmJXlhU4K0Q" name="transfer_material"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_QZnrgJymEee7p9BnvM9UGg" name="navigate_between_nodes"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_WFx9EJymEee7p9BnvM9UGg" name="carry_payload"/>
@@ -83,6 +84,10 @@
         <ownedOperation xmi:type="uml:Operation" xmi:id="_XKU_AJmgEeeRmJXlhU4K0Q" name="path_planning"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_rbt0kJmgEeeRmJXlhU4K0Q" name="control_agv_params"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_F_kSAJynEee7p9BnvM9UGg" name="control_agv_destination"/>
+      </nestedClassifier>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_3zUtYJy0EeegV6_VfQsNew" name="Docking Station">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_AwigAJy1EeegV6_VfQsNew" name="capacity"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_5NlE4Jy0EeegV6_VfQsNew" name="recharge_battery"/>
       </nestedClassifier>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_XBMPMJtjEeefVOJOxjNGiw" name="Environment">
@@ -417,6 +422,12 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_RvV2YJyoEee7p9BnvM9UGg" name="agv system" type="_Hg-IsJmZEeeRmJXlhU4K0Q" association="_RvSMAJyoEee7p9BnvM9UGg"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_EqlTsJy1EeegV6_VfQsNew" memberEnd="_EqudoJy1EeegV6_VfQsNew _EqudoZy1EeegV6_VfQsNew">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EqlTsZy1EeegV6_VfQsNew" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EqlTspy1EeegV6_VfQsNew" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_EqudoZy1EeegV6_VfQsNew" name="agv system" type="_Hg-IsJmZEeeRmJXlhU4K0Q" association="_EqlTsJy1EeegV6_VfQsNew"/>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_pPeLAJmWEeeRmJXlhU4K0Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pPnU8JmWEeeRmJXlhU4K0Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#/"/>
@@ -520,4 +531,5 @@
   <Blocks:Block xmi:id="_FMyQYJyKEeedDad2B7fIyQ" base_Class="_FMofYJyKEeedDad2B7fIyQ"/>
   <Blocks:Block xmi:id="_OfRIYJyKEeedDad2B7fIyQ" base_Class="_OfJMkJyKEeedDad2B7fIyQ"/>
   <Blocks:Block xmi:id="_Ov7akJyKEeedDad2B7fIyQ" base_Class="_Ov0F0JyKEeedDad2B7fIyQ"/>
+  <Blocks:Block xmi:id="_4COFAJy0EeegV6_VfQsNew" base_Class="_3zUtYJy0EeegV6_VfQsNew"/>
 </xmi:XMI>
