@@ -3831,7 +3831,7 @@
       <children xmi:type="notation:Compartment" xmi:id="_Cj1ncJymEee7p9BnvM9UGg" type="Flow Properties"/>
       <children xmi:type="notation:Compartment" xmi:id="_Cj1ncZymEee7p9BnvM9UGg" type="Parameters"/>
       <element xmi:type="uml:Class" href="agv.uml#_HEot0JmgEeeRmJXlhU4K0Q"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CjuSsZymEee7p9BnvM9UGg" x="293" y="344"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CjuSsZymEee7p9BnvM9UGg" x="301" y="341"/>
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_phnVkZykEee7p9BnvM9UGg" name="diagram_compatibility_version" stringValue="1.2.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_phnVkpykEee7p9BnvM9UGg"/>
