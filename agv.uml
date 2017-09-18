@@ -7,7 +7,7 @@
     <packageImport xmi:type="uml:PackageImport" xmi:id="_pWn74JmWEeeRmJXlhU4K0Q">
       <importedPackage xmi:type="uml:Package" href="pathmap://SysML14_LIBRARIES/SysML-Standard-Library.uml#SysML.package_packagedElement_Libraries"/>
     </packageImport>
-    <packagedElement xmi:type="uml:Class" xmi:id="_pZwIYJmWEeeRmJXlhU4K0Q" name="Domain">
+    <packagedElement xmi:type="uml:Class" xmi:id="_pZwIYJmWEeeRmJXlhU4K0Q" name="Context">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_wp7MkJmlEeeRmJXlhU4K0Q" name="aGV System" type="_Hg-IsJmZEeeRmJXlhU4K0Q"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_7QssEJmnEeeRmJXlhU4K0Q" name="Environment" type="__R53sJmnEeeRmJXlhU4K0Q" aggregation="composite" association="__SftkJmnEeeRmJXlhU4K0Q"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_x5G1EZpsEeek4ZWQ7ODm8Q" name="agv system" type="_Hg-IsJmZEeeRmJXlhU4K0Q" aggregation="composite" association="_x5Fm8JpsEeek4ZWQ7ODm8Q"/>
@@ -35,10 +35,13 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_RvVPUJyoEee7p9BnvM9UGg" name="agv unit" type="_nkPJgJmcEeeRmJXlhU4K0Q" aggregation="composite" association="_RvSMAJyoEee7p9BnvM9UGg"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_EqudoJy1EeegV6_VfQsNew" name="docking station" type="_3zUtYJy0EeegV6_VfQsNew" aggregation="composite" association="_EqlTsJy1EeegV6_VfQsNew"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_8_yVw5y1EeegV6_VfQsNew" name="docking station" type="_3zUtYJy0EeegV6_VfQsNew" aggregation="composite" association="_8_yVwJy1EeegV6_VfQsNew"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_CRvQMJy5EeeRSYsDaCd8MA" name="payload_capacity"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_EmPCYJy5EeeRSYsDaCd8MA" name="speed"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Fa1IEJy5EeeRSYsDaCd8MA" name="count"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_9ZcNIJmaEeeRmJXlhU4K0Q" name="transfer_material"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_QZnrgJymEee7p9BnvM9UGg" name="navigate_between_nodes"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_WFx9EJymEee7p9BnvM9UGg" name="carry_payload"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_waj6oJy1EeegV6_VfQsNew" name="transfer_material"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_waj6oJy1EeegV6_VfQsNew" name="transfer_material_between_nodes"/>
       <nestedClassifier xmi:type="uml:DataType" xmi:id="_eiGaoJmcEeeRmJXlhU4K0Q" name="packages/hr"/>
       <nestedClassifier xmi:type="uml:Class" xmi:id="_nkPJgJmcEeeRmJXlhU4K0Q" name="AGV Unit">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_ugd70JmcEeeRmJXlhU4K0Q" name="payload_capacity"/>
@@ -106,6 +109,7 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_5Viq8pvsEeendM6dXK0DGQ" name="manufacturing node" type="_k33MUJpsEeek4ZWQ7ODm8Q" aggregation="composite" association="_5ViD4JvsEeendM6dXK0DGQ"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_583JopvsEeendM6dXK0DGQ" name="buffer node" type="_S6YCAJvrEeendM6dXK0DGQ" aggregation="composite" association="_582ikJvsEeendM6dXK0DGQ"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_6d-5spvsEeendM6dXK0DGQ" name="delivery node" type="_gbEQ4JpsEeek4ZWQ7ODm8Q" aggregation="composite" association="_6d-SoJvsEeendM6dXK0DGQ"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_xvzH4Jy4EeeRSYsDaCd8MA" name="satisfy_orders_on_time"/>
       <nestedClassifier xmi:type="uml:Class" xmi:id="_gbEQ4JpsEeek4ZWQ7ODm8Q" name="Delivery Node"/>
       <nestedClassifier xmi:type="uml:Class" xmi:id="_jeha0JpsEeek4ZWQ7ODm8Q" name="Storage Node"/>
       <nestedClassifier xmi:type="uml:Class" xmi:id="_k33MUJpsEeek4ZWQ7ODm8Q" name="Manufacturing Node"/>
@@ -351,20 +355,20 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qhLegJyLEeedDad2B7fIyQ" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qhQXAJyLEeedDad2B7fIyQ" value="1"/>
       </ownedAttribute>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_2UetcJyLEeedDad2B7fIyQ" name="Simulate AGV System "/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_2UetcJyLEeedDad2B7fIyQ" name="sinulate_agv_system"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_E2-YcJyKEeedDad2B7fIyQ" name="Monte Carlo Model">
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_I9B88JyMEeedDad2B7fIyQ" name="Perform MC computations"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_I9B88JyMEeedDad2B7fIyQ" name="perform_MC_computations"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_FMofYJyKEeedDad2B7fIyQ" name="Analytical Model">
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_syeWQJyMEeedDad2B7fIyQ" name="Perform analytical computations"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_syeWQJyMEeedDad2B7fIyQ" name="perform_analytical_computations"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_OfJMkJyKEeedDad2B7fIyQ" name="Computer">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_yK2bEpyKEeedDad2B7fIyQ" type="_Ov0F0JyKEeedDad2B7fIyQ" aggregation="composite" association="_yKz-0JyKEeedDad2B7fIyQ"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_VpH_oJyNEeedDad2B7fIyQ" name="Run simulation"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_VpH_oJyNEeedDad2B7fIyQ" name="run_simulation"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_Ov0F0JyKEeedDad2B7fIyQ" name="MATLAB Software">
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_aPefsJyNEeedDad2B7fIyQ" name="Simulation platform"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_aPefsJyNEeedDad2B7fIyQ" name="simulation_platform"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_wnULwJyKEeedDad2B7fIyQ" memberEnd="_wnWoApyKEeedDad2B7fIyQ _wnWoA5yKEeedDad2B7fIyQ">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wnWoAJyKEeedDad2B7fIyQ" source="org.eclipse.papyrus">
