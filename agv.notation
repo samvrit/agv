@@ -938,7 +938,7 @@
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pfrxR5mWEeeRmJXlhU4K0Q"/>
       </children>
       <element xmi:type="uml:Class" href="agv.uml#_pZwIYJmWEeeRmJXlhU4K0Q"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pfrxQZmWEeeRmJXlhU4K0Q" x="52" y="38" width="855" height="355"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pfrxQZmWEeeRmJXlhU4K0Q" x="52" y="38" width="855" height="254"/>
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_pfiAQZmWEeeRmJXlhU4K0Q" name="diagram_compatibility_version" stringValue="1.2.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_pfiAQpmWEeeRmJXlhU4K0Q"/>
