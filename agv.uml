@@ -126,6 +126,42 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_AgGLYZtkEeefVOJOxjNGiw" name="external systems" type="_XBMPMJtjEeefVOJOxjNGiw" aggregation="composite" association="_AgE9QJtkEeefVOJOxjNGiw"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_W2_U4ptkEeefVOJOxjNGiw" name="facility planner" type="_BsOnUJtkEeefVOJOxjNGiw" aggregation="composite" association="_W2-GwJtkEeefVOJOxjNGiw"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_ESq6kJtjEeefVOJOxjNGiw" name="simulate_system"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_8l-yoJyJEeedDad2B7fIyQ" name="AGV System Simulation Domain">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_wnWoApyKEeedDad2B7fIyQ" type="_ESwREJyKEeedDad2B7fIyQ" aggregation="composite" association="_wnULwJyKEeedDad2B7fIyQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_xYX1Q5yKEeedDad2B7fIyQ" type="_C-RxcJyKEeedDad2B7fIyQ" aggregation="composite" association="_xYX1QJyKEeedDad2B7fIyQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_xw64IpyKEeedDad2B7fIyQ" type="_DULwAJyKEeedDad2B7fIyQ" aggregation="composite" association="_xw4b4JyKEeedDad2B7fIyQ"/>
+      </nestedClassifier>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_C-RxcJyKEeedDad2B7fIyQ" name="Users">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_0Yrkk5yKEeedDad2B7fIyQ" type="_zwqiUJyKEeedDad2B7fIyQ" aggregation="composite" association="_0YrkkJyKEeedDad2B7fIyQ"/>
+      </nestedClassifier>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_DULwAJyKEeedDad2B7fIyQ" name="Simulation Environment">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_x_mNUpyKEeedDad2B7fIyQ" type="_OfJMkJyKEeedDad2B7fIyQ" aggregation="composite" association="_x_jxEJyKEeedDad2B7fIyQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_HsYnop1AEeeT4te6romiIA" name="environment timesteps" type="_-2j2cJ0_EeeT4te6romiIA" aggregation="composite" association="_HsPdsJ1AEeeT4te6romiIA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_IWHhI51AEeeT4te6romiIA" name="node service rates" type="_F5zPsJ1AEeeT4te6romiIA" aggregation="composite" association="_IWHhIJ1AEeeT4te6romiIA"/>
+      </nestedClassifier>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_ESwREJyKEeedDad2B7fIyQ" name="AGV System Simulation">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_yctnI5yKEeedDad2B7fIyQ" type="_FMofYJyKEeedDad2B7fIyQ" aggregation="composite" association="_yctnIJyKEeedDad2B7fIyQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_yp_1MpyKEeedDad2B7fIyQ" type="_E2-YcJyKEeedDad2B7fIyQ" aggregation="composite" association="_yp9Y8JyKEeedDad2B7fIyQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qhLegJyLEeedDad2B7fIyQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qhQXAJyLEeedDad2B7fIyQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_heMOQp0_EeeT4te6romiIA" name="timesteps" type="_eZMzQJ0_EeeT4te6romiIA" aggregation="composite" association="_hd5TUJ0_EeeT4te6romiIA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_9Nyh0J0_EeeT4te6romiIA" name="agv parameters" type="_7t1yAJ0_EeeT4te6romiIA" aggregation="composite" association="_9Now0J0_EeeT4te6romiIA"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_2UetcJyLEeedDad2B7fIyQ" name="sinulate_agv_system"/>
+      </nestedClassifier>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_E2-YcJyKEeedDad2B7fIyQ" name="Monte Carlo Model">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_I9B88JyMEeedDad2B7fIyQ" name="perform_MC_computations"/>
+      </nestedClassifier>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_FMofYJyKEeedDad2B7fIyQ" name="Analytical Model">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_syeWQJyMEeedDad2B7fIyQ" name="perform_analytical_computations"/>
+      </nestedClassifier>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_OfJMkJyKEeedDad2B7fIyQ" name="Computer">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_yK2bEpyKEeedDad2B7fIyQ" type="_Ov0F0JyKEeedDad2B7fIyQ" aggregation="composite" association="_yKz-0JyKEeedDad2B7fIyQ"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_VpH_oJyNEeedDad2B7fIyQ" name="run_simulation"/>
+      </nestedClassifier>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_Ov0F0JyKEeedDad2B7fIyQ" name="MATLAB Software">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_aPefsJyNEeedDad2B7fIyQ" name="simulation_platform"/>
+      </nestedClassifier>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_WXYq8JtoEeefVOJOxjNGiw" name="Simulation Internal Block Diagram">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_cjnjsJtoEeefVOJOxjNGiw" name="simulation" visibility="public" type="_CRRqkJtjEeefVOJOxjNGiw"/>
@@ -343,38 +379,6 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_6d_gwJvsEeendM6dXK0DGQ" name="environment" type="_XBMPMJtjEeefVOJOxjNGiw" association="_6d-SoJvsEeendM6dXK0DGQ"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_8l-yoJyJEeedDad2B7fIyQ" name="AGV System Simulation Domain">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_wnWoApyKEeedDad2B7fIyQ" type="_ESwREJyKEeedDad2B7fIyQ" aggregation="composite" association="_wnULwJyKEeedDad2B7fIyQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_xYX1Q5yKEeedDad2B7fIyQ" type="_C-RxcJyKEeedDad2B7fIyQ" aggregation="composite" association="_xYX1QJyKEeedDad2B7fIyQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_xw64IpyKEeedDad2B7fIyQ" type="_DULwAJyKEeedDad2B7fIyQ" aggregation="composite" association="_xw4b4JyKEeedDad2B7fIyQ"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_C-RxcJyKEeedDad2B7fIyQ" name="Users">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_0Yrkk5yKEeedDad2B7fIyQ" type="_zwqiUJyKEeedDad2B7fIyQ" aggregation="composite" association="_0YrkkJyKEeedDad2B7fIyQ"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_DULwAJyKEeedDad2B7fIyQ" name="Simulation Environment">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_x_mNUpyKEeedDad2B7fIyQ" type="_OfJMkJyKEeedDad2B7fIyQ" aggregation="composite" association="_x_jxEJyKEeedDad2B7fIyQ"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_ESwREJyKEeedDad2B7fIyQ" name="AGV System Simulation">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_yctnI5yKEeedDad2B7fIyQ" type="_FMofYJyKEeedDad2B7fIyQ" aggregation="composite" association="_yctnIJyKEeedDad2B7fIyQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_yp_1MpyKEeedDad2B7fIyQ" type="_E2-YcJyKEeedDad2B7fIyQ" aggregation="composite" association="_yp9Y8JyKEeedDad2B7fIyQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qhLegJyLEeedDad2B7fIyQ" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qhQXAJyLEeedDad2B7fIyQ" value="1"/>
-      </ownedAttribute>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_2UetcJyLEeedDad2B7fIyQ" name="sinulate_agv_system"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_E2-YcJyKEeedDad2B7fIyQ" name="Monte Carlo Model">
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_I9B88JyMEeedDad2B7fIyQ" name="perform_MC_computations"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_FMofYJyKEeedDad2B7fIyQ" name="Analytical Model">
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_syeWQJyMEeedDad2B7fIyQ" name="perform_analytical_computations"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_OfJMkJyKEeedDad2B7fIyQ" name="Computer">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_yK2bEpyKEeedDad2B7fIyQ" type="_Ov0F0JyKEeedDad2B7fIyQ" aggregation="composite" association="_yKz-0JyKEeedDad2B7fIyQ"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_VpH_oJyNEeedDad2B7fIyQ" name="run_simulation"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_Ov0F0JyKEeedDad2B7fIyQ" name="MATLAB Software">
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_aPefsJyNEeedDad2B7fIyQ" name="simulation_platform"/>
-    </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_wnULwJyKEeedDad2B7fIyQ" memberEnd="_wnWoApyKEeedDad2B7fIyQ _wnWoA5yKEeedDad2B7fIyQ">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wnWoAJyKEeedDad2B7fIyQ" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wnWoAZyKEeedDad2B7fIyQ" key="nature" value="UML_Nature"/>
@@ -451,6 +455,10 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_NXzk4JzpEee_AM_Q4GJOHg" name="Control Signals"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_RMU_YJzpEee_AM_Q4GJOHg" name="Operator Commands"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_mFRkMJzpEee_AM_Q4GJOHg" name="Material"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_eZMzQJ0_EeeT4te6romiIA" name="AGV Timesteps"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_7t1yAJ0_EeeT4te6romiIA" name="AGV Parameters"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_-2j2cJ0_EeeT4te6romiIA" name="Environment Timesteps"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_F5zPsJ1AEeeT4te6romiIA" name="Node Service Rates"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_o2BNgJzpEee_AM_Q4GJOHg" memberEnd="_o2GGAJzpEee_AM_Q4GJOHg _o2GtEJzpEee_AM_Q4GJOHg">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_o2EQ0JzpEee_AM_Q4GJOHg" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_o2E34JzpEee_AM_Q4GJOHg" key="nature" value="UML_Nature"/>
@@ -474,6 +482,30 @@
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_a9F5YZzqEee_AM_Q4GJOHg" key="nature" value="UML_Nature"/>
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_a9GgcJzqEee_AM_Q4GJOHg" name="agv system" type="_Hg-IsJmZEeeRmJXlhU4K0Q" association="_a9ErQJzqEee_AM_Q4GJOHg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_hd5TUJ0_EeeT4te6romiIA" memberEnd="_heMOQp0_EeeT4te6romiIA _heMOQ50_EeeT4te6romiIA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_heMOQJ0_EeeT4te6romiIA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_heMOQZ0_EeeT4te6romiIA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_heMOQ50_EeeT4te6romiIA" name="agv system simulation" type="_ESwREJyKEeedDad2B7fIyQ" association="_hd5TUJ0_EeeT4te6romiIA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_9Now0J0_EeeT4te6romiIA" memberEnd="_9Nyh0J0_EeeT4te6romiIA _9Nyh0Z0_EeeT4te6romiIA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9Now0Z0_EeeT4te6romiIA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9Now0p0_EeeT4te6romiIA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_9Nyh0Z0_EeeT4te6romiIA" name="agv system simulation" type="_ESwREJyKEeedDad2B7fIyQ" association="_9Now0J0_EeeT4te6romiIA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_HsPdsJ1AEeeT4te6romiIA" memberEnd="_HsYnop1AEeeT4te6romiIA _HsYno51AEeeT4te6romiIA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HsYnoJ1AEeeT4te6romiIA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HsYnoZ1AEeeT4te6romiIA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_HsYno51AEeeT4te6romiIA" name="simulation environment" type="_DULwAJyKEeedDad2B7fIyQ" association="_HsPdsJ1AEeeT4te6romiIA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_IWHhIJ1AEeeT4te6romiIA" memberEnd="_IWHhI51AEeeT4te6romiIA _IWHhJJ1AEeeT4te6romiIA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IWHhIZ1AEeeT4te6romiIA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IWHhIp1AEeeT4te6romiIA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_IWHhJJ1AEeeT4te6romiIA" name="simulation environment" type="_DULwAJyKEeedDad2B7fIyQ" association="_IWHhIJ1AEeeT4te6romiIA"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_pPeLAJmWEeeRmJXlhU4K0Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pPnU8JmWEeeRmJXlhU4K0Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -582,4 +614,8 @@
   <Blocks:Block xmi:id="_NYHG4JzpEee_AM_Q4GJOHg" base_Class="_NXzk4JzpEee_AM_Q4GJOHg"/>
   <Blocks:Block xmi:id="_RMnTQJzpEee_AM_Q4GJOHg" base_Class="_RMU_YJzpEee_AM_Q4GJOHg"/>
   <Blocks:Block xmi:id="_mFfmoJzpEee_AM_Q4GJOHg" base_Class="_mFRkMJzpEee_AM_Q4GJOHg"/>
+  <Blocks:Block xmi:id="_ecxrsJ0_EeeT4te6romiIA" base_Class="_eZMzQJ0_EeeT4te6romiIA"/>
+  <Blocks:Block xmi:id="_7t-78J0_EeeT4te6romiIA" base_Class="_7t1yAJ0_EeeT4te6romiIA"/>
+  <Blocks:Block xmi:id="_-2tAYJ0_EeeT4te6romiIA" base_Class="_-2j2cJ0_EeeT4te6romiIA"/>
+  <Blocks:Block xmi:id="_F59AsJ1AEeeT4te6romiIA" base_Class="_F5zPsJ1AEeeT4te6romiIA"/>
 </xmi:XMI>
