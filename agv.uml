@@ -507,6 +507,57 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_IWHhJJ1AEeeT4te6romiIA" name="simulation environment" type="_DULwAJyKEeedDad2B7fIyQ" association="_IWHhIJ1AEeeT4te6romiIA"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Actor" xmi:id="_uA2CQJ1aEeeTYtPO4uDvYg" name="Facilities Planner"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_wRZvoJ1aEeeTYtPO4uDvYg" name="AGV System Simulation">
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_zRbLEJ1aEeeTYtPO4uDvYg" name="UseCase1: Perform Performance Analysis"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_5qYRMJ1aEeeTYtPO4uDvYg" name="UseCase2: Perform Sensitivity Analysis"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_9UPT0J1aEeeTYtPO4uDvYg" name="UseCase3: Perform Model Consistency Analysis"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:ExecutionEnvironment" xmi:id="_DTW9oJ1bEeeTYtPO4uDvYg" name="Computer">
+      <nestedClassifier xmi:type="uml:ExecutionEnvironment" xmi:id="_Fcf0YJ1bEeeTYtPO4uDvYg" name="Matlab"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_q3JJkJ1eEeeTYtPO4uDvYg" memberEnd="_q3JwoZ1eEeeTYtPO4uDvYg _q3KXsJ1eEeeTYtPO4uDvYg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_q3JJkZ1eEeeTYtPO4uDvYg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_q3JwoJ1eEeeTYtPO4uDvYg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_q3JwoZ1eEeeTYtPO4uDvYg" name="usecase2: perform sensitivity analysis" type="_5qYRMJ1aEeeTYtPO4uDvYg" association="_q3JJkJ1eEeeTYtPO4uDvYg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_q3KXsJ1eEeeTYtPO4uDvYg" name="facilities planner" type="_uA2CQJ1aEeeTYtPO4uDvYg" association="_q3JJkJ1eEeeTYtPO4uDvYg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_ue0a4J1eEeeTYtPO4uDvYg" memberEnd="_ue1B8p1eEeeTYtPO4uDvYg _ue1B851eEeeTYtPO4uDvYg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ue1B8J1eEeeTYtPO4uDvYg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ue1B8Z1eEeeTYtPO4uDvYg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_ue1B8p1eEeeTYtPO4uDvYg" name="computer" type="_DTW9oJ1bEeeTYtPO4uDvYg" association="_ue0a4J1eEeeTYtPO4uDvYg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_ue1B851eEeeTYtPO4uDvYg" name="usecase2: perform sensitivity analysis" type="_5qYRMJ1aEeeTYtPO4uDvYg" association="_ue0a4J1eEeeTYtPO4uDvYg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_wIVWYJ1eEeeTYtPO4uDvYg" memberEnd="_wIWkgp1eEeeTYtPO4uDvYg _wIXLkJ1eEeeTYtPO4uDvYg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wIWkgJ1eEeeTYtPO4uDvYg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wIWkgZ1eEeeTYtPO4uDvYg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_wIWkgp1eEeeTYtPO4uDvYg" name="facilities planner" type="_uA2CQJ1aEeeTYtPO4uDvYg" association="_wIVWYJ1eEeeTYtPO4uDvYg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_wIXLkJ1eEeeTYtPO4uDvYg" name="usecase1: perform performance analysis" type="_zRbLEJ1aEeeTYtPO4uDvYg" association="_wIVWYJ1eEeeTYtPO4uDvYg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_w5efcJ1eEeeTYtPO4uDvYg" memberEnd="_w5fGgp1eEeeTYtPO4uDvYg _w5fGg51eEeeTYtPO4uDvYg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_w5fGgJ1eEeeTYtPO4uDvYg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_w5fGgZ1eEeeTYtPO4uDvYg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_w5fGgp1eEeeTYtPO4uDvYg" name="usecase3: perform model consistency analysis" type="_9UPT0J1aEeeTYtPO4uDvYg" association="_w5efcJ1eEeeTYtPO4uDvYg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_w5fGg51eEeeTYtPO4uDvYg" name="facilities planner" type="_uA2CQJ1aEeeTYtPO4uDvYg" association="_w5efcJ1eEeeTYtPO4uDvYg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_xfn5cJ1eEeeTYtPO4uDvYg" memberEnd="_xfoggp1eEeeTYtPO4uDvYg _xfpHkJ1eEeeTYtPO4uDvYg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xfoggJ1eEeeTYtPO4uDvYg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xfoggZ1eEeeTYtPO4uDvYg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_xfoggp1eEeeTYtPO4uDvYg" name="computer" type="_DTW9oJ1bEeeTYtPO4uDvYg" association="_xfn5cJ1eEeeTYtPO4uDvYg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_xfpHkJ1eEeeTYtPO4uDvYg" name="usecase3: perform model consistency analysis" type="_9UPT0J1aEeeTYtPO4uDvYg" association="_xfn5cJ1eEeeTYtPO4uDvYg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_yDjF4J1eEeeTYtPO4uDvYg" memberEnd="_yDjs8p1eEeeTYtPO4uDvYg _yDkUAJ1eEeeTYtPO4uDvYg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_yDjs8J1eEeeTYtPO4uDvYg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_yDjs8Z1eEeeTYtPO4uDvYg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_yDjs8p1eEeeTYtPO4uDvYg" name="computer" type="_DTW9oJ1bEeeTYtPO4uDvYg" association="_yDjF4J1eEeeTYtPO4uDvYg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_yDkUAJ1eEeeTYtPO4uDvYg" name="usecase1: perform performance analysis" type="_zRbLEJ1aEeeTYtPO4uDvYg" association="_yDjF4J1eEeeTYtPO4uDvYg"/>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_pPeLAJmWEeeRmJXlhU4K0Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pPnU8JmWEeeRmJXlhU4K0Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#/"/>
@@ -618,4 +669,6 @@
   <Blocks:Block xmi:id="_7t-78J0_EeeT4te6romiIA" base_Class="_7t1yAJ0_EeeT4te6romiIA"/>
   <Blocks:Block xmi:id="_-2tAYJ0_EeeT4te6romiIA" base_Class="_-2j2cJ0_EeeT4te6romiIA"/>
   <Blocks:Block xmi:id="_F59AsJ1AEeeT4te6romiIA" base_Class="_F5zPsJ1AEeeT4te6romiIA"/>
+  <Blocks:Block xmi:id="_dOoFcJ1eEeeTYtPO4uDvYg" base_Class="_DTW9oJ1bEeeTYtPO4uDvYg"/>
+  <Blocks:Block xmi:id="_eaO88J1eEeeTYtPO4uDvYg" base_Class="_Fcf0YJ1bEeeTYtPO4uDvYg"/>
 </xmi:XMI>
