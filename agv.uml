@@ -619,6 +619,33 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_sMpi8p_aEeeuG9DwRy2O0A" name="analytical model" type="_FMofYJyKEeedDad2B7fIyQ" association="_sMnGsJ_aEeeuG9DwRy2O0A"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ZYJ1MKC2Eeewd4wdZHzYfA" name="Block1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_h_-moKC2Eeewd4wdZHzYfA" name="aGV System_IBD" type="_NSG0QJpyEeeqd63HJK1shw"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vbHWEKC2Eeewd4wdZHzYfA" name="aGV System" type="_Hg-IsJmZEeeRmJXlhU4K0Q"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_o_mkwKFyEeewd4wdZHzYfA" name="aGV System_IBD0" type="_NSG0QJpyEeeqd63HJK1shw"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_xQQzYKFyEeewd4wdZHzYfA" name="AGV System_IBD">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_xQQzYaFyEeewd4wdZHzYfA" name="agv Unit" type="_nkPJgJmcEeeRmJXlhU4K0Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_xQQzYqFyEeewd4wdZHzYfA" name="power Supply"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_xQQzY6FyEeewd4wdZHzYfA" name="control Element" type="_HEot0JmgEeeRmJXlhU4K0Q"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_V3As0KF-Eeewd4wdZHzYfA" name="Attribute1" type="_b_ZnYKF-Eeewd4wdZHzYfA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_JUpjAKF_Eeewd4wdZHzYfA" name="Attribute2" type="_MXu5gKF_Eeewd4wdZHzYfA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_OOPIIKF_Eeewd4wdZHzYfA" name="Attribute3" type="_QiaxQKF_Eeewd4wdZHzYfA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_xHhJQKGBEeewd4wdZHzYfA" name="ClassifierBehaviorProperty1"/>
+      </nestedClassifier>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_FyLesKC3Eeewd4wdZHzYfA" name="Block2">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_HxqDIaC3Eeewd4wdZHzYfA" name="agv Unit" type="_nkPJgJmcEeeRmJXlhU4K0Q"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_HxqDI6C3Eeewd4wdZHzYfA" name="control Element" type="_HEot0JmgEeeRmJXlhU4K0Q"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_HxqDIqC3Eeewd4wdZHzYfA" name="power Supply"/>
+      <nestedClassifier xmi:type="uml:Class" xmi:id="_HxqDIKC3Eeewd4wdZHzYfA" name="AGV System_IBD"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Actor" xmi:id="_b_ZnYKF-Eeewd4wdZHzYfA" name="Nodes"/>
+    <packagedElement xmi:type="uml:Actor" xmi:id="_MXu5gKF_Eeewd4wdZHzYfA" name="Main Executing Program"/>
+    <packagedElement xmi:type="uml:Actor" xmi:id="_QiaxQKF_Eeewd4wdZHzYfA" name="AGV Unit(s)"/>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_lfwG0KF_Eeewd4wdZHzYfA" informationSource="_xQQzYKFyEeewd4wdZHzYfA" informationTarget="_V3As0KF-Eeewd4wdZHzYfA"/>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_pFMjgKF_Eeewd4wdZHzYfA" name="Material Requirement" informationSource="_V3As0KF-Eeewd4wdZHzYfA" informationTarget="_JUpjAKF_Eeewd4wdZHzYfA"/>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_qgUBMKGAEeewd4wdZHzYfA" name="Material Requirement" informationSource="_JUpjAKF_Eeewd4wdZHzYfA" informationTarget="_OOPIIKF_Eeewd4wdZHzYfA"/>
+    <packagedElement xmi:type="uml:InformationFlow" xmi:id="_9JpT0KGAEeewd4wdZHzYfA" name="Capacity, Speed" informationSource="_OOPIIKF_Eeewd4wdZHzYfA" informationTarget="_JUpjAKF_Eeewd4wdZHzYfA"/>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_pPeLAJmWEeeRmJXlhU4K0Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pPnU8JmWEeeRmJXlhU4K0Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#/"/>
@@ -737,4 +764,9 @@
   <Blocks:Block xmi:id="_4_8rwJ_ZEeeuG9DwRy2O0A" base_Class="_4_wegJ_ZEeeuG9DwRy2O0A"/>
   <Blocks:Block xmi:id="_5b5A4J_ZEeeuG9DwRy2O0A" base_Class="_5bxsIJ_ZEeeuG9DwRy2O0A"/>
   <Blocks:Block xmi:id="_lBfj0J_aEeeuG9DwRy2O0A" base_Class="_lBYPEJ_aEeeuG9DwRy2O0A"/>
+  <Blocks:Block xmi:id="_ZlV8oKC2Eeewd4wdZHzYfA" base_Class="_ZYJ1MKC2Eeewd4wdZHzYfA"/>
+  <Blocks:Block xmi:id="_FyY6EKC3Eeewd4wdZHzYfA" base_Class="_FyLesKC3Eeewd4wdZHzYfA"/>
+  <Blocks:Block xmi:id="_Hx1CQKC3Eeewd4wdZHzYfA" base_Class="_HxqDIKC3Eeewd4wdZHzYfA"/>
+  <Blocks:Block xmi:id="_xQljgKFyEeewd4wdZHzYfA" base_Class="_xQQzYKFyEeewd4wdZHzYfA"/>
+  <Blocks:ClassifierBehaviorProperty xmi:id="_xI96wKGBEeewd4wdZHzYfA" base_Property="_xHhJQKGBEeewd4wdZHzYfA"/>
 </xmi:XMI>
