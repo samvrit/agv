@@ -176,7 +176,7 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_FL4WUJtqEeefVOJOxjNGiw" name="facility_downtime" type="_9AbX0JtpEeefVOJOxjNGiw"/>
       <nestedClassifier xmi:type="uml:Class" xmi:id="_9AbX0JtpEeefVOJOxjNGiw" name="Output"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_NSG0QJpyEeeqd63HJK1shw" name="AGV System_IBD">
+    <packagedElement xmi:type="uml:Class" xmi:id="_NSG0QJpyEeeqd63HJK1shw" name="AGV Simulation_IBD">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_bLwEoJpyEeeqd63HJK1shw" name="agv Unit" type="_nkPJgJmcEeeRmJXlhU4K0Q"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_b-NcUJpyEeeqd63HJK1shw" name="power Supply"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_cbPWkJpyEeeqd63HJK1shw" name="control Element" type="_HEot0JmgEeeRmJXlhU4K0Q"/>
@@ -650,6 +650,9 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_cMC_cKGCEeewd4wdZHzYfA" name="Main Executing Program">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_vtQVQqGCEeewd4wdZHzYfA" name="agv uni(s)" type="_lrIJAKGCEeewd4wdZHzYfA" aggregation="composite" association="_vtF9MKGCEeewd4wdZHzYfA"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_xYaPgKGCEeewd4wdZHzYfA" name="node(s)" type="_oWBB8KGCEeewd4wdZHzYfA" aggregation="composite" association="_xYRFkKGCEeewd4wdZHzYfA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_41UW4KGLEeelW6TDoKSA3w" name="material requirement" type="_yNqGYKGLEeelW6TDoKSA3w" aggregation="composite" association="_40f3gKGLEeelW6TDoKSA3w"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_7RYJo6GLEeelW6TDoKSA3w" name="agv parameters" type="_5txo4KGLEeelW6TDoKSA3w" aggregation="composite" association="_7RYJoKGLEeelW6TDoKSA3w"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Zirk86GMEeelW6TDoKSA3w" name="timesteps" type="_XtIYkKGMEeelW6TDoKSA3w" aggregation="composite" association="_Zirk8KGMEeelW6TDoKSA3w"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_jxp0AKGEEeewd4wdZHzYfA" name="compute_agv_required"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_nhuzYKGEEeewd4wdZHzYfA" name="compute_load_sharing"/>
     </packagedElement>
@@ -678,6 +681,77 @@
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xYRFkqGCEeewd4wdZHzYfA" key="nature" value="UML_Nature"/>
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_xYa2kKGCEeewd4wdZHzYfA" name="main executing program" type="_cMC_cKGCEeewd4wdZHzYfA" association="_xYRFkKGCEeewd4wdZHzYfA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_yNqGYKGLEeelW6TDoKSA3w" name="Environment Parameters">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_HetpMqGMEeelW6TDoKSA3w" name="inter-node distance" type="__kNQwKGLEeelW6TDoKSA3w" aggregation="composite" association="_HekfQKGMEeelW6TDoKSA3w"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ICwKYaGMEeelW6TDoKSA3w" name="material requirement" type="_D0IN0KGMEeelW6TDoKSA3w" aggregation="composite" association="_ICuVMKGMEeelW6TDoKSA3w"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_oVHegqGMEeelW6TDoKSA3w" name="node service raters" type="_m6t9EKGMEeelW6TDoKSA3w" aggregation="composite" association="_oU9tgKGMEeelW6TDoKSA3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_40f3gKGLEeelW6TDoKSA3w" memberEnd="_41UW4KGLEeelW6TDoKSA3w _41U98KGLEeelW6TDoKSA3w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_41TIwKGLEeelW6TDoKSA3w" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_41Tv0KGLEeelW6TDoKSA3w" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_41U98KGLEeelW6TDoKSA3w" name="main executing program" type="_cMC_cKGCEeewd4wdZHzYfA" association="_40f3gKGLEeelW6TDoKSA3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_5txo4KGLEeelW6TDoKSA3w" name="AGV Parameters">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_OJEoY6GMEeelW6TDoKSA3w" name="speed" type="_IwNtUKGMEeelW6TDoKSA3w" aggregation="composite" association="_OJEoYKGMEeelW6TDoKSA3w"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_O0BC06GMEeelW6TDoKSA3w" name="count" type="_KKFDQKGMEeelW6TDoKSA3w" aggregation="composite" association="_O0BC0KGMEeelW6TDoKSA3w"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_PZvmE6GMEeelW6TDoKSA3w" name="capacity" type="_Lu6TEKGMEeelW6TDoKSA3w" aggregation="composite" association="_PZvmEKGMEeelW6TDoKSA3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_7RYJoKGLEeelW6TDoKSA3w" memberEnd="_7RYJo6GLEeelW6TDoKSA3w _7RYJpKGLEeelW6TDoKSA3w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7RYJoaGLEeelW6TDoKSA3w" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7RYJoqGLEeelW6TDoKSA3w" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_7RYJpKGLEeelW6TDoKSA3w" name="main executing program" type="_cMC_cKGCEeewd4wdZHzYfA" association="_7RYJoKGLEeelW6TDoKSA3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="__kNQwKGLEeelW6TDoKSA3w" name="Inter-Node Distance"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_D0IN0KGMEeelW6TDoKSA3w" name="Material Requirement"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_HekfQKGMEeelW6TDoKSA3w" memberEnd="_HetpMqGMEeelW6TDoKSA3w _HetpM6GMEeelW6TDoKSA3w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HetpMKGMEeelW6TDoKSA3w" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HetpMaGMEeelW6TDoKSA3w" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_HetpM6GMEeelW6TDoKSA3w" name="environment parameters" type="_yNqGYKGLEeelW6TDoKSA3w" association="_HekfQKGMEeelW6TDoKSA3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_ICuVMKGMEeelW6TDoKSA3w" memberEnd="_ICwKYaGMEeelW6TDoKSA3w _ICwKYqGMEeelW6TDoKSA3w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ICvjUKGMEeelW6TDoKSA3w" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ICwKYKGMEeelW6TDoKSA3w" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_ICwKYqGMEeelW6TDoKSA3w" name="environment parameters" type="_yNqGYKGLEeelW6TDoKSA3w" association="_ICuVMKGMEeelW6TDoKSA3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_IwNtUKGMEeelW6TDoKSA3w" name="Speed"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_KKFDQKGMEeelW6TDoKSA3w" name="Count"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Lu6TEKGMEeelW6TDoKSA3w" name="Capacity"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_OJEoYKGMEeelW6TDoKSA3w" memberEnd="_OJEoY6GMEeelW6TDoKSA3w _OJEoZKGMEeelW6TDoKSA3w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_OJEoYaGMEeelW6TDoKSA3w" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OJEoYqGMEeelW6TDoKSA3w" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_OJEoZKGMEeelW6TDoKSA3w" name="agv parameters" type="_5txo4KGLEeelW6TDoKSA3w" association="_OJEoYKGMEeelW6TDoKSA3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_O0BC0KGMEeelW6TDoKSA3w" memberEnd="_O0BC06GMEeelW6TDoKSA3w _O0BC1KGMEeelW6TDoKSA3w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_O0BC0aGMEeelW6TDoKSA3w" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_O0BC0qGMEeelW6TDoKSA3w" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_O0BC1KGMEeelW6TDoKSA3w" name="agv parameters" type="_5txo4KGLEeelW6TDoKSA3w" association="_O0BC0KGMEeelW6TDoKSA3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_PZvmEKGMEeelW6TDoKSA3w" memberEnd="_PZvmE6GMEeelW6TDoKSA3w _PZvmFKGMEeelW6TDoKSA3w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PZvmEaGMEeelW6TDoKSA3w" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PZvmEqGMEeelW6TDoKSA3w" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_PZvmFKGMEeelW6TDoKSA3w" name="agv parameters" type="_5txo4KGLEeelW6TDoKSA3w" association="_PZvmEKGMEeelW6TDoKSA3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_XtIYkKGMEeelW6TDoKSA3w" name="Timesteps"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Zirk8KGMEeelW6TDoKSA3w" memberEnd="_Zirk86GMEeelW6TDoKSA3w _Zirk9KGMEeelW6TDoKSA3w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Zirk8aGMEeelW6TDoKSA3w" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Zirk8qGMEeelW6TDoKSA3w" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Zirk9KGMEeelW6TDoKSA3w" name="main executing program" type="_cMC_cKGCEeewd4wdZHzYfA" association="_Zirk8KGMEeelW6TDoKSA3w"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_m6t9EKGMEeelW6TDoKSA3w" name="Node Service Raters"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_oU9tgKGMEeelW6TDoKSA3w" memberEnd="_oVHegqGMEeelW6TDoKSA3w _oVHeg6GMEeelW6TDoKSA3w">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oVHegKGMEeelW6TDoKSA3w" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oVHegaGMEeelW6TDoKSA3w" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_oVHeg6GMEeelW6TDoKSA3w" name="environment parameters" type="_yNqGYKGLEeelW6TDoKSA3w" association="_oU9tgKGMEeelW6TDoKSA3w"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_pPeLAJmWEeeRmJXlhU4K0Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pPnU8JmWEeeRmJXlhU4K0Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -805,4 +879,13 @@
   <Blocks:Block xmi:id="_cMMJYKGCEeewd4wdZHzYfA" base_Class="_cMC_cKGCEeewd4wdZHzYfA"/>
   <Blocks:Block xmi:id="_lrR6AKGCEeewd4wdZHzYfA" base_Class="_lrIJAKGCEeewd4wdZHzYfA"/>
   <Blocks:Block xmi:id="_oWBB8aGCEeewd4wdZHzYfA" base_Class="_oWBB8KGCEeewd4wdZHzYfA"/>
+  <Blocks:Block xmi:id="_yN2ToKGLEeelW6TDoKSA3w" base_Class="_yNqGYKGLEeelW6TDoKSA3w"/>
+  <Blocks:Block xmi:id="_5t8oAKGLEeelW6TDoKSA3w" base_Class="_5txo4KGLEeelW6TDoKSA3w"/>
+  <Blocks:Block xmi:id="__kQ7IKGLEeelW6TDoKSA3w" base_Class="__kNQwKGLEeelW6TDoKSA3w"/>
+  <Blocks:Block xmi:id="_D0bIwKGMEeelW6TDoKSA3w" base_Class="_D0IN0KGMEeelW6TDoKSA3w"/>
+  <Blocks:Block xmi:id="_IwXeUKGMEeelW6TDoKSA3w" base_Class="_IwNtUKGMEeelW6TDoKSA3w"/>
+  <Blocks:Block xmi:id="_KKONMKGMEeelW6TDoKSA3w" base_Class="_KKFDQKGMEeelW6TDoKSA3w"/>
+  <Blocks:Block xmi:id="_LvEEEKGMEeelW6TDoKSA3w" base_Class="_Lu6TEKGMEeelW6TDoKSA3w"/>
+  <Blocks:Block xmi:id="_XtRigKGMEeelW6TDoKSA3w" base_Class="_XtIYkKGMEeelW6TDoKSA3w"/>
+  <Blocks:Block xmi:id="_m63uEKGMEeelW6TDoKSA3w" base_Class="_m6t9EKGMEeelW6TDoKSA3w"/>
 </xmi:XMI>
