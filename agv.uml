@@ -803,6 +803,16 @@
       <node xmi:type="uml:OpaqueAction" xmi:id="_OMFiAKL-EeeiSPQMJOQDHg" name="Display Tornado Diagram" incoming="_MnXxgKL_EeeiSPQMJOQDHg" outgoing="_NkvYsKL_EeeiSPQMJOQDHg" inPartition="_TxxDAKL8EeeiSPQMJOQDHg"/>
       <node xmi:type="uml:FlowFinalNode" xmi:id="_7GmpcKL-EeeiSPQMJOQDHg" name="Stop" incoming="_NkvYsKL_EeeiSPQMJOQDHg" inPartition="_MX0Z8KL8EeeiSPQMJOQDHg"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Activity" xmi:id="_j7Hk0KL_EeeiSPQMJOQDHg" name="UseCase 3: Perform Model Consistency Anaysis" node="_ofjHYKMBEeeiSPQMJOQDHg _uvFLwKMBEeeiSPQMJOQDHg _HwXe8KMCEeeiSPQMJOQDHg _Jj7HQKMCEeeiSPQMJOQDHg" group="_WlDQsKMBEeeiSPQMJOQDHg">
+      <edge xmi:type="uml:ControlFlow" xmi:id="_RZ2hsKMCEeeiSPQMJOQDHg" target="_uvFLwKMBEeeiSPQMJOQDHg" source="_ofjHYKMBEeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_SdoS4KMCEeeiSPQMJOQDHg" target="_HwXe8KMCEeeiSPQMJOQDHg" source="_uvFLwKMBEeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_TUykYKMCEeeiSPQMJOQDHg" target="_Jj7HQKMCEeeiSPQMJOQDHg" source="_HwXe8KMCEeeiSPQMJOQDHg"/>
+      <group xmi:type="uml:ActivityPartition" xmi:id="_WlDQsKMBEeeiSPQMJOQDHg" name="User : AGV System Analyst" node="_ofjHYKMBEeeiSPQMJOQDHg _uvFLwKMBEeeiSPQMJOQDHg _HwXe8KMCEeeiSPQMJOQDHg _Jj7HQKMCEeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:InitialNode" xmi:id="_ofjHYKMBEeeiSPQMJOQDHg" name="Start" outgoing="_RZ2hsKMCEeeiSPQMJOQDHg" inPartition="_WlDQsKMBEeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_uvFLwKMBEeeiSPQMJOQDHg" name="Compare outputs of Deterministic model and stochastic model" incoming="_RZ2hsKMCEeeiSPQMJOQDHg" outgoing="_SdoS4KMCEeeiSPQMJOQDHg" inPartition="_WlDQsKMBEeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_HwXe8KMCEeeiSPQMJOQDHg" name="Tabulate Results" incoming="_SdoS4KMCEeeiSPQMJOQDHg" outgoing="_TUykYKMCEeeiSPQMJOQDHg" inPartition="_WlDQsKMBEeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:FlowFinalNode" xmi:id="_Jj7HQKMCEeeiSPQMJOQDHg" name="Stop" incoming="_TUykYKMCEeeiSPQMJOQDHg" inPartition="_WlDQsKMBEeeiSPQMJOQDHg"/>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_pPeLAJmWEeeRmJXlhU4K0Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pPnU8JmWEeeRmJXlhU4K0Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#/"/>
