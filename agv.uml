@@ -513,7 +513,7 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_IWHhJJ1AEeeT4te6romiIA" name="simulation environment" type="_DULwAJyKEeedDad2B7fIyQ" association="_IWHhIJ1AEeeT4te6romiIA"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Actor" xmi:id="_uA2CQJ1aEeeTYtPO4uDvYg" name="Facilities Planner"/>
+    <packagedElement xmi:type="uml:Actor" xmi:id="_uA2CQJ1aEeeTYtPO4uDvYg" name="AGV Systems Analyst"/>
     <packagedElement xmi:type="uml:Package" xmi:id="_wRZvoJ1aEeeTYtPO4uDvYg" name="AGV System Simulation">
       <packagedElement xmi:type="uml:UseCase" xmi:id="_zRbLEJ1aEeeTYtPO4uDvYg" name="UseCase1: Perform Performance Analysis"/>
       <packagedElement xmi:type="uml:UseCase" xmi:id="_5qYRMJ1aEeeTYtPO4uDvYg" name="UseCase2: Perform Sensitivity Analysis"/>
