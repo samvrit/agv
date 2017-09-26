@@ -779,6 +779,30 @@
       <node xmi:type="uml:OpaqueAction" xmi:id="_LfpGsKL6EeeiSPQMJOQDHg" name="Enter Input Values" incoming="_Tkn0UKL7EeeiSPQMJOQDHg" outgoing="_U7oqkKL7EeeiSPQMJOQDHg" inPartition="_Pxz78KL5EeeiSPQMJOQDHg"/>
       <node xmi:type="uml:FlowFinalNode" xmi:id="_TSPgUKL6EeeiSPQMJOQDHg" name="Exit Simulator" incoming="_cXcU0KL7EeeiSPQMJOQDHg" inPartition="_Pxz78KL5EeeiSPQMJOQDHg"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Activity" xmi:id="_Edg10KL8EeeiSPQMJOQDHg" name="UseCase2 : Perform Sensitivity Analysis" node="_q5AEUKL8EeeiSPQMJOQDHg _yN-GwKL8EeeiSPQMJOQDHg _6Tv7EKL8EeeiSPQMJOQDHg _fBToIKL9EeeiSPQMJOQDHg _wOyn0KL9EeeiSPQMJOQDHg _5oRfsKL9EeeiSPQMJOQDHg _L_STQKL-EeeiSPQMJOQDHg _OMFiAKL-EeeiSPQMJOQDHg _7GmpcKL-EeeiSPQMJOQDHg" group="_MX0Z8KL8EeeiSPQMJOQDHg _OyXJwKL8EeeiSPQMJOQDHg">
+      <edge xmi:type="uml:ControlFlow" xmi:id="__we-oKL-EeeiSPQMJOQDHg" target="_yN-GwKL8EeeiSPQMJOQDHg" source="_q5AEUKL8EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_E3FsEKL_EeeiSPQMJOQDHg" target="_6Tv7EKL8EeeiSPQMJOQDHg" source="_yN-GwKL8EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_Hcr1UKL_EeeiSPQMJOQDHg" target="_wOyn0KL9EeeiSPQMJOQDHg" source="_6Tv7EKL8EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_IhaBsKL_EeeiSPQMJOQDHg" target="_fBToIKL9EeeiSPQMJOQDHg" source="_wOyn0KL9EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_J2DgcKL_EeeiSPQMJOQDHg" target="_5oRfsKL9EeeiSPQMJOQDHg" source="_fBToIKL9EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_LIyToKL_EeeiSPQMJOQDHg" target="_L_STQKL-EeeiSPQMJOQDHg" source="_5oRfsKL9EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_MnXxgKL_EeeiSPQMJOQDHg" target="_OMFiAKL-EeeiSPQMJOQDHg" source="_L_STQKL-EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_NkvYsKL_EeeiSPQMJOQDHg" target="_7GmpcKL-EeeiSPQMJOQDHg" source="_OMFiAKL-EeeiSPQMJOQDHg"/>
+      <group xmi:type="uml:ActivityPartition" xmi:id="_MX0Z8KL8EeeiSPQMJOQDHg" name="User : AGV System Analyst" node="_q5AEUKL8EeeiSPQMJOQDHg _yN-GwKL8EeeiSPQMJOQDHg _6Tv7EKL8EeeiSPQMJOQDHg _wOyn0KL9EeeiSPQMJOQDHg _7GmpcKL-EeeiSPQMJOQDHg"/>
+      <group xmi:type="uml:ActivityPartition" xmi:id="_OyXJwKL8EeeiSPQMJOQDHg" name="AGV System Simulator">
+        <subpartition xmi:type="uml:ActivityPartition" xmi:id="_RcoXoKL8EeeiSPQMJOQDHg" name="Deterministic Module" node="_fBToIKL9EeeiSPQMJOQDHg _5oRfsKL9EeeiSPQMJOQDHg"/>
+        <subpartition xmi:type="uml:ActivityPartition" xmi:id="_TxxDAKL8EeeiSPQMJOQDHg" name="Stochastic Module" node="_L_STQKL-EeeiSPQMJOQDHg _OMFiAKL-EeeiSPQMJOQDHg"/>
+      </group>
+      <node xmi:type="uml:InitialNode" xmi:id="_q5AEUKL8EeeiSPQMJOQDHg" name="Start" outgoing="__we-oKL-EeeiSPQMJOQDHg" inPartition="_MX0Z8KL8EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_yN-GwKL8EeeiSPQMJOQDHg" name="Determine Range for each parameter" incoming="__we-oKL-EeeiSPQMJOQDHg" outgoing="_E3FsEKL_EeeiSPQMJOQDHg" inPartition="_MX0Z8KL8EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_6Tv7EKL8EeeiSPQMJOQDHg" name="Create a table with max, base and min values" incoming="_E3FsEKL_EeeiSPQMJOQDHg" outgoing="_Hcr1UKL_EeeiSPQMJOQDHg" inPartition="_MX0Z8KL8EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_fBToIKL9EeeiSPQMJOQDHg" name="Run Simulation" incoming="_IhaBsKL_EeeiSPQMJOQDHg" outgoing="_J2DgcKL_EeeiSPQMJOQDHg" inPartition="_RcoXoKL8EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_wOyn0KL9EeeiSPQMJOQDHg" name="Specify distribution type for each input" incoming="_Hcr1UKL_EeeiSPQMJOQDHg" outgoing="_IhaBsKL_EeeiSPQMJOQDHg" inPartition="_MX0Z8KL8EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_5oRfsKL9EeeiSPQMJOQDHg" name="Display Tornado Diagram" incoming="_J2DgcKL_EeeiSPQMJOQDHg" outgoing="_LIyToKL_EeeiSPQMJOQDHg" inPartition="_RcoXoKL8EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_L_STQKL-EeeiSPQMJOQDHg" name="Run Simulation" incoming="_LIyToKL_EeeiSPQMJOQDHg" outgoing="_MnXxgKL_EeeiSPQMJOQDHg" inPartition="_TxxDAKL8EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_OMFiAKL-EeeiSPQMJOQDHg" name="Display Tornado Diagram" incoming="_MnXxgKL_EeeiSPQMJOQDHg" outgoing="_NkvYsKL_EeeiSPQMJOQDHg" inPartition="_TxxDAKL8EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:FlowFinalNode" xmi:id="_7GmpcKL-EeeiSPQMJOQDHg" name="Stop" incoming="_NkvYsKL_EeeiSPQMJOQDHg" inPartition="_MX0Z8KL8EeeiSPQMJOQDHg"/>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_pPeLAJmWEeeRmJXlhU4K0Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pPnU8JmWEeeRmJXlhU4K0Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#/"/>
