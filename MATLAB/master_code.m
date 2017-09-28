@@ -39,6 +39,14 @@ mu_M = 120;             % Assumed Manufacturing rate = 12 units/hr
 
 rho_M = lambda_M/mu_M
 
+% Manufacturing Transportation Node
+
+lambda_M = mu_SM; 
+mu_M = 120;             % Assumed Manufacturing rate = 12 units/hr
+
+rho_M = lambda_M/mu_M
+
+% Testing git
 
 
 
