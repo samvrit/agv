@@ -753,6 +753,66 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_oVHeg6GMEeelW6TDoKSA3w" name="environment parameters" type="_yNqGYKGLEeelW6TDoKSA3w" association="_oU9tgKGMEeelW6TDoKSA3w"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Activity" xmi:id="_ILiHEKL5EeeiSPQMJOQDHg" name="UseCase 1: Perform Performance Analyis" node="_on_yYKL5EeeiSPQMJOQDHg _tX0XgKL5EeeiSPQMJOQDHg _xpscYKL5EeeiSPQMJOQDHg _4yjVcKL5EeeiSPQMJOQDHg _8NMQUKL5EeeiSPQMJOQDHg __80jwKL5EeeiSPQMJOQDHg _DAS70KL6EeeiSPQMJOQDHg _HKedQKL6EeeiSPQMJOQDHg _LfpGsKL6EeeiSPQMJOQDHg _TSPgUKL6EeeiSPQMJOQDHg" group="_Pxz78KL5EeeiSPQMJOQDHg _TfIiQKL5EeeiSPQMJOQDHg">
+      <edge xmi:type="uml:ControlFlow" xmi:id="__RSeAKL6EeeiSPQMJOQDHg" target="_tX0XgKL5EeeiSPQMJOQDHg" source="_on_yYKL5EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_Iu62EKL7EeeiSPQMJOQDHg" target="_xpscYKL5EeeiSPQMJOQDHg" source="_tX0XgKL5EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_KmD94KL7EeeiSPQMJOQDHg" target="_4yjVcKL5EeeiSPQMJOQDHg" source="_xpscYKL5EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_O8jdAKL7EeeiSPQMJOQDHg" target="_8NMQUKL5EeeiSPQMJOQDHg" source="_4yjVcKL5EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_RNF8QKL7EeeiSPQMJOQDHg" target="__80jwKL5EeeiSPQMJOQDHg" source="_8NMQUKL5EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_Tkn0UKL7EeeiSPQMJOQDHg" target="_LfpGsKL6EeeiSPQMJOQDHg" source="__80jwKL5EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_U7oqkKL7EeeiSPQMJOQDHg" target="_DAS70KL6EeeiSPQMJOQDHg" source="_LfpGsKL6EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_W2i4EKL7EeeiSPQMJOQDHg" target="_HKedQKL6EeeiSPQMJOQDHg" source="_DAS70KL6EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_cXcU0KL7EeeiSPQMJOQDHg" target="_TSPgUKL6EeeiSPQMJOQDHg" source="_HKedQKL6EeeiSPQMJOQDHg"/>
+      <group xmi:type="uml:ActivityPartition" xmi:id="_Pxz78KL5EeeiSPQMJOQDHg" name="User: AGV System Analyst" node="_on_yYKL5EeeiSPQMJOQDHg _tX0XgKL5EeeiSPQMJOQDHg _xpscYKL5EeeiSPQMJOQDHg __80jwKL5EeeiSPQMJOQDHg _LfpGsKL6EeeiSPQMJOQDHg _TSPgUKL6EeeiSPQMJOQDHg"/>
+      <group xmi:type="uml:ActivityPartition" xmi:id="_TfIiQKL5EeeiSPQMJOQDHg" name="AGV System Simulator">
+        <subpartition xmi:type="uml:ActivityPartition" xmi:id="_WIiNcKL5EeeiSPQMJOQDHg" name="Deterministic Module" node="_4yjVcKL5EeeiSPQMJOQDHg _8NMQUKL5EeeiSPQMJOQDHg"/>
+        <subpartition xmi:type="uml:ActivityPartition" xmi:id="_YQKBQKL5EeeiSPQMJOQDHg" name="Stochastic Modeule" node="_DAS70KL6EeeiSPQMJOQDHg _HKedQKL6EeeiSPQMJOQDHg"/>
+      </group>
+      <node xmi:type="uml:InitialNode" xmi:id="_on_yYKL5EeeiSPQMJOQDHg" name="Start" outgoing="__RSeAKL6EeeiSPQMJOQDHg" inPartition="_Pxz78KL5EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_tX0XgKL5EeeiSPQMJOQDHg" name="Select Deterministic Module" incoming="__RSeAKL6EeeiSPQMJOQDHg" outgoing="_Iu62EKL7EeeiSPQMJOQDHg" inPartition="_Pxz78KL5EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_xpscYKL5EeeiSPQMJOQDHg" name="Enter Input Values" incoming="_Iu62EKL7EeeiSPQMJOQDHg" outgoing="_KmD94KL7EeeiSPQMJOQDHg" inPartition="_Pxz78KL5EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_4yjVcKL5EeeiSPQMJOQDHg" name="Perform Simulation" incoming="_KmD94KL7EeeiSPQMJOQDHg" outgoing="_O8jdAKL7EeeiSPQMJOQDHg" inPartition="_WIiNcKL5EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_8NMQUKL5EeeiSPQMJOQDHg" name="Display/Store Results" incoming="_O8jdAKL7EeeiSPQMJOQDHg" outgoing="_RNF8QKL7EeeiSPQMJOQDHg" inPartition="_WIiNcKL5EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="__80jwKL5EeeiSPQMJOQDHg" name="Select Stochastic Module" incoming="_RNF8QKL7EeeiSPQMJOQDHg" outgoing="_Tkn0UKL7EeeiSPQMJOQDHg" inPartition="_Pxz78KL5EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_DAS70KL6EeeiSPQMJOQDHg" name="Perform Simulation" incoming="_U7oqkKL7EeeiSPQMJOQDHg" outgoing="_W2i4EKL7EeeiSPQMJOQDHg" inPartition="_YQKBQKL5EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_HKedQKL6EeeiSPQMJOQDHg" name="Display/Store Results" incoming="_W2i4EKL7EeeiSPQMJOQDHg" outgoing="_cXcU0KL7EeeiSPQMJOQDHg" inPartition="_YQKBQKL5EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_LfpGsKL6EeeiSPQMJOQDHg" name="Enter Input Values" incoming="_Tkn0UKL7EeeiSPQMJOQDHg" outgoing="_U7oqkKL7EeeiSPQMJOQDHg" inPartition="_Pxz78KL5EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:FlowFinalNode" xmi:id="_TSPgUKL6EeeiSPQMJOQDHg" name="Exit Simulator" incoming="_cXcU0KL7EeeiSPQMJOQDHg" inPartition="_Pxz78KL5EeeiSPQMJOQDHg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Activity" xmi:id="_Edg10KL8EeeiSPQMJOQDHg" name="UseCase2 : Perform Sensitivity Analysis" node="_q5AEUKL8EeeiSPQMJOQDHg _yN-GwKL8EeeiSPQMJOQDHg _6Tv7EKL8EeeiSPQMJOQDHg _fBToIKL9EeeiSPQMJOQDHg _wOyn0KL9EeeiSPQMJOQDHg _5oRfsKL9EeeiSPQMJOQDHg _L_STQKL-EeeiSPQMJOQDHg _OMFiAKL-EeeiSPQMJOQDHg _7GmpcKL-EeeiSPQMJOQDHg" group="_MX0Z8KL8EeeiSPQMJOQDHg _OyXJwKL8EeeiSPQMJOQDHg">
+      <edge xmi:type="uml:ControlFlow" xmi:id="__we-oKL-EeeiSPQMJOQDHg" target="_yN-GwKL8EeeiSPQMJOQDHg" source="_q5AEUKL8EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_E3FsEKL_EeeiSPQMJOQDHg" target="_6Tv7EKL8EeeiSPQMJOQDHg" source="_yN-GwKL8EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_Hcr1UKL_EeeiSPQMJOQDHg" target="_wOyn0KL9EeeiSPQMJOQDHg" source="_6Tv7EKL8EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_IhaBsKL_EeeiSPQMJOQDHg" target="_fBToIKL9EeeiSPQMJOQDHg" source="_wOyn0KL9EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_J2DgcKL_EeeiSPQMJOQDHg" target="_5oRfsKL9EeeiSPQMJOQDHg" source="_fBToIKL9EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_LIyToKL_EeeiSPQMJOQDHg" target="_L_STQKL-EeeiSPQMJOQDHg" source="_5oRfsKL9EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_MnXxgKL_EeeiSPQMJOQDHg" target="_OMFiAKL-EeeiSPQMJOQDHg" source="_L_STQKL-EeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_NkvYsKL_EeeiSPQMJOQDHg" target="_7GmpcKL-EeeiSPQMJOQDHg" source="_OMFiAKL-EeeiSPQMJOQDHg"/>
+      <group xmi:type="uml:ActivityPartition" xmi:id="_MX0Z8KL8EeeiSPQMJOQDHg" name="User : AGV System Analyst" node="_q5AEUKL8EeeiSPQMJOQDHg _yN-GwKL8EeeiSPQMJOQDHg _6Tv7EKL8EeeiSPQMJOQDHg _wOyn0KL9EeeiSPQMJOQDHg _7GmpcKL-EeeiSPQMJOQDHg"/>
+      <group xmi:type="uml:ActivityPartition" xmi:id="_OyXJwKL8EeeiSPQMJOQDHg" name="AGV System Simulator">
+        <subpartition xmi:type="uml:ActivityPartition" xmi:id="_RcoXoKL8EeeiSPQMJOQDHg" name="Deterministic Module" node="_fBToIKL9EeeiSPQMJOQDHg _5oRfsKL9EeeiSPQMJOQDHg"/>
+        <subpartition xmi:type="uml:ActivityPartition" xmi:id="_TxxDAKL8EeeiSPQMJOQDHg" name="Stochastic Module" node="_L_STQKL-EeeiSPQMJOQDHg _OMFiAKL-EeeiSPQMJOQDHg"/>
+      </group>
+      <node xmi:type="uml:InitialNode" xmi:id="_q5AEUKL8EeeiSPQMJOQDHg" name="Start" outgoing="__we-oKL-EeeiSPQMJOQDHg" inPartition="_MX0Z8KL8EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_yN-GwKL8EeeiSPQMJOQDHg" name="Determine Range for each parameter" incoming="__we-oKL-EeeiSPQMJOQDHg" outgoing="_E3FsEKL_EeeiSPQMJOQDHg" inPartition="_MX0Z8KL8EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_6Tv7EKL8EeeiSPQMJOQDHg" name="Create a table with max, base and min values" incoming="_E3FsEKL_EeeiSPQMJOQDHg" outgoing="_Hcr1UKL_EeeiSPQMJOQDHg" inPartition="_MX0Z8KL8EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_fBToIKL9EeeiSPQMJOQDHg" name="Run Simulation" incoming="_IhaBsKL_EeeiSPQMJOQDHg" outgoing="_J2DgcKL_EeeiSPQMJOQDHg" inPartition="_RcoXoKL8EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_wOyn0KL9EeeiSPQMJOQDHg" name="Specify distribution type for each input" incoming="_Hcr1UKL_EeeiSPQMJOQDHg" outgoing="_IhaBsKL_EeeiSPQMJOQDHg" inPartition="_MX0Z8KL8EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_5oRfsKL9EeeiSPQMJOQDHg" name="Display Tornado Diagram" incoming="_J2DgcKL_EeeiSPQMJOQDHg" outgoing="_LIyToKL_EeeiSPQMJOQDHg" inPartition="_RcoXoKL8EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_L_STQKL-EeeiSPQMJOQDHg" name="Run Simulation" incoming="_LIyToKL_EeeiSPQMJOQDHg" outgoing="_MnXxgKL_EeeiSPQMJOQDHg" inPartition="_TxxDAKL8EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_OMFiAKL-EeeiSPQMJOQDHg" name="Display Tornado Diagram" incoming="_MnXxgKL_EeeiSPQMJOQDHg" outgoing="_NkvYsKL_EeeiSPQMJOQDHg" inPartition="_TxxDAKL8EeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:FlowFinalNode" xmi:id="_7GmpcKL-EeeiSPQMJOQDHg" name="Stop" incoming="_NkvYsKL_EeeiSPQMJOQDHg" inPartition="_MX0Z8KL8EeeiSPQMJOQDHg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Activity" xmi:id="_j7Hk0KL_EeeiSPQMJOQDHg" name="UseCase 3: Perform Model Consistency Anaysis" node="_ofjHYKMBEeeiSPQMJOQDHg _uvFLwKMBEeeiSPQMJOQDHg _HwXe8KMCEeeiSPQMJOQDHg _Jj7HQKMCEeeiSPQMJOQDHg" group="_WlDQsKMBEeeiSPQMJOQDHg">
+      <edge xmi:type="uml:ControlFlow" xmi:id="_RZ2hsKMCEeeiSPQMJOQDHg" target="_uvFLwKMBEeeiSPQMJOQDHg" source="_ofjHYKMBEeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_SdoS4KMCEeeiSPQMJOQDHg" target="_HwXe8KMCEeeiSPQMJOQDHg" source="_uvFLwKMBEeeiSPQMJOQDHg"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_TUykYKMCEeeiSPQMJOQDHg" target="_Jj7HQKMCEeeiSPQMJOQDHg" source="_HwXe8KMCEeeiSPQMJOQDHg"/>
+      <group xmi:type="uml:ActivityPartition" xmi:id="_WlDQsKMBEeeiSPQMJOQDHg" name="User : AGV System Analyst" node="_ofjHYKMBEeeiSPQMJOQDHg _uvFLwKMBEeeiSPQMJOQDHg _HwXe8KMCEeeiSPQMJOQDHg _Jj7HQKMCEeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:InitialNode" xmi:id="_ofjHYKMBEeeiSPQMJOQDHg" name="Start" outgoing="_RZ2hsKMCEeeiSPQMJOQDHg" inPartition="_WlDQsKMBEeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_uvFLwKMBEeeiSPQMJOQDHg" name="Compare outputs of Deterministic model and stochastic model" incoming="_RZ2hsKMCEeeiSPQMJOQDHg" outgoing="_SdoS4KMCEeeiSPQMJOQDHg" inPartition="_WlDQsKMBEeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_HwXe8KMCEeeiSPQMJOQDHg" name="Tabulate Results" incoming="_SdoS4KMCEeeiSPQMJOQDHg" outgoing="_TUykYKMCEeeiSPQMJOQDHg" inPartition="_WlDQsKMBEeeiSPQMJOQDHg"/>
+      <node xmi:type="uml:FlowFinalNode" xmi:id="_Jj7HQKMCEeeiSPQMJOQDHg" name="Stop" incoming="_TUykYKMCEeeiSPQMJOQDHg" inPartition="_WlDQsKMBEeeiSPQMJOQDHg"/>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_pPeLAJmWEeeRmJXlhU4K0Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pPnU8JmWEeeRmJXlhU4K0Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#/"/>
