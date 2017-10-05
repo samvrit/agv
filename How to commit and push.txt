@@ -1,0 +1,13 @@
+git commit -p 
+
+y
+y
+y
+
+i for insert
+insert comment
+press escape 
+:wq
+
+git branch 
+git push
