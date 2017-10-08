@@ -51,7 +51,7 @@ rho_M = lambda_M/mu_M;          % Manufacturing Node utilization
 
 W_M = 1/(mu_M-lambda_M);        % Wait time for Manufacturing process (hours/unit)
 
-%% Manufacturing Transportation Node
+%% Pseudo Manufacturing Transportation Node
 
 lambda_MB = mu_M;        
 mean_load_MB = 10;              % 10 units
@@ -82,7 +82,7 @@ W_BP = 1/(mu_BP-lambda_B);      % Wait time for Buffer node (hr/units)
 
 %% Packaging Node
 
-lambda_P = mu_MB;        
+lambda_P = mu_BP;        
 mu_P = 600;                     % Assumed Packaging rate = 1200 units/hr
 
 rho_P = lambda_P/mu_P;          % Packaging Node utilization
@@ -109,7 +109,3 @@ Table = array2table(all_data, 'RowNames' , {'Delivery Node','Storage Node','Manu
     'VariableNames', {'Lambda','Mu','Rho','Wait_time'});
 
 disp(Table)
-
-
-
-
