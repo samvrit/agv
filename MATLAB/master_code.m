@@ -82,7 +82,7 @@ W_BP = 1/(mu_BP-lambda_B);      % Wait time for Buffer node (hr/units)
 
 %% Packaging Node
 
-lambda_P = mu_MB;        
+lambda_P = mu_BP;        
 mu_P = 600;                     % Assumed Packaging rate = 1200 units/hr
 
 rho_P = lambda_P/mu_P;          % Packaging Node utilization
