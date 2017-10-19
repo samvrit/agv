@@ -2,9 +2,11 @@
 % % % 
 % % % AGV Function
 
-function [lead_time, idle_time, data_table] = agv_plant(agv_speed,agv_mean_load,agv_count,arrival_rate,node_distances,mfg_rate,pkg_rate)
+function [lead_time, idle_time, data_table] = agv_plant(agv_speed, ...
+          agv_mean_load, agv_count, arrival_rate, node_distances, ...
+          mfg_rate, pkg_rate)
 
-if(nargin < 2)
+if(nargin < 7)
     agv_speed = 5.4;                % km/h [based on Otto]
     
     mu_M = 300;                     % Assumed Manufacturing rate = 300 units/hr
@@ -123,7 +125,7 @@ idle_time = rho_M;
 data_table = Table;
 
 %% Display output
-disp(Table)
-fprintf('Wait Time = %.2f mins \n \n', W*60)
+% disp(Table)
+% fprintf('Wait Time = %.2f mins \n \n', W*60)
 
 end
