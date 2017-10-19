@@ -2,7 +2,7 @@
 % % % 
 % % % AGV Function
 
-function [lead_time, idle_time, data_table] = agv_plant(agv_speed, ...
+function [data_table, lead_time, idle_time] = agv_plant(agv_speed, ...
           agv_mean_load, agv_count, arrival_rate, node_distances, ...
           mfg_rate, pkg_rate)
 
@@ -122,10 +122,10 @@ Table = array2table(all_data, 'RowNames' , {'Delivery Node','Storage Node','Manu
 %% Return outputs
 lead_time = W;
 idle_time = rho_M;
-data_table = Table;
+data_table = all_data;
 
 %% Display output
-% disp(Table)
-% fprintf('Wait Time = %.2f mins \n \n', W*60)
+ %disp(Table)
+ %fprintf('Wait Time = %.2f mins \n \n', W*60)
 
 end
