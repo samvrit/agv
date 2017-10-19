@@ -57,11 +57,14 @@ handles.output = hObject;
 
 % Update handles structure
 guidata(hObject, handles);
+% The following line adds a timer to the GUI, which calls the function
+% 'update_display()' every 0.01 seconds and supplies the 'handles' as an
+% argument to the function
 handles.timer = timer(...
     'ExecutionMode', 'fixedRate', ...       % Run timer repeatedly.
     'Period', 0.01, ...                        % Initial period is 1 sec.
     'TimerFcn', {@update_display, handles}); % Specify callback function.
-start(handles.timer)
+start(handles.timer)    % start the timer
 % UIWAIT makes agv_analytical wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
@@ -194,6 +197,8 @@ function figure1_CloseRequestFcn(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hint: delete(hObject) closes the figure
+% While closing the GUI, the timer has to be stopped and deleted. The
+% following commands do that
 T = timerfind;
 if ~isempty(T)
     stop(T)
@@ -201,7 +206,17 @@ if ~isempty(T)
 end
 delete(hObject);
 
+% This function is called by the timer every 0.01 seconds
+% This function gets all the inputs from the GUI, calls the agv_plant
+% function with appropriate arguments, gets the outputs of the function and
+% updates the displays
 function update_display(hObject, eventdata, handles)
+% Some GUI objects are sliders and others are text inputs. The information
+% for sliders is in 'value', and for text inputs, they are in 'string'. The
+% name of the GUI object (handles.<name>) corresponds to the 'Tag' in the
+% GUI design. The data is stacked in accordance with the inputs to the
+% agv_plant function.
+
 agv_speed = get(handles.speed,'value');
 set(handles.display_speed,'string',agv_speed);
 
@@ -237,7 +252,7 @@ pkg_rate = str2double(get(handles.packaging,'string'));
 [data_table, lead_time, idle_time] = agv_plant(agv_speed,agv_mean_load, agv_count, arrival_rate, node_distances, mfg_rate, pkg_rate);
 data_tuple = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_rate,pkg_rate,lead_time,idle_time];
 
-set(handles.data_tuple_hidden,'value',data_tuple);
+set(handles.data_tuple_hidden,'value',data_tuple);  % store the data tuple in a hidden field so that it can be used to write into Excel
 set(handles.display_data_table,'data',data_table);
 set(handles.display_lead_time,'string',num2str(lead_time));
 set(handles.display_idle_time,'string',num2str(idle_time));
@@ -499,8 +514,11 @@ function save_result_Callback(hObject, eventdata, handles)
 % hObject    handle to save_result (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+% Read the Excel file, get the index of the last row, and write the data
+% tuple in the next row
 A = xlsread('results_analytical.xlsx');
 end_index = size(A,1);
-write_index = end_index+2;
+write_index = end_index+2;  % 2 is added to account for the Headings row
 data_tuple = get(handles.data_tuple_hidden,'value');
 xlswrite('results_analytical.xlsx',data_tuple,['A',num2str(write_index),':R',num2str(write_index)]);

@@ -6,7 +6,16 @@ function [data_table, lead_time, idle_time] = agv_plant(agv_speed, ...
           agv_mean_load, agv_count, arrival_rate, node_distances, ...
           mfg_rate, pkg_rate)
 
-if(nargin < 7)
+% The inuputs to the function are:
+% agv_speed -> Speed of the AGV in km/h (scalar)
+% agv_mean_load -> Mean capacity of the robots between each node in units (1x4 array)
+% agv_count -> Number of AGVs between two nodes (1x4 array)
+% arrival_rate -> Arrival rate of material in units/hr (scalar)
+% node_distances -> Distance between nodes in km (1x4 array)
+% mfg_rate -> Manufacturing rate in units/hr (scalar)
+% pkg_rate -> Packaging rate in units/hr (scalar)
+
+if(nargin < 7)  % if the number of inputs to the function is less than 7, use fixed values
     agv_speed = 5.4;                % km/h [based on Otto]
     
     lambda_D = 200;                 % Delivery Node arrival rate
@@ -115,9 +124,9 @@ all_data = [lambda_D, mu_DS, rho_DS, W_DS;
             lambda_MB, mu_MB, rho_MB, W_MB;
             lambda_B, mu_BP, rho_BP, W_BP;
             lambda_P, mu_P, rho_P, W_P;];
-
-Table = array2table(all_data, 'RowNames' , {'Delivery Node','Storage Node','Manufacturing Node','Manufacturing Transport','Buffer Node','Packaging Node'},...
-    'VariableNames', {'Lambda','Mu','Rho','Wait_time'});
+% 
+% Table = array2table(all_data, 'RowNames' , {'Delivery Node','Storage Node','Manufacturing Node','Manufacturing Transport','Buffer Node','Packaging Node'},...
+%     'VariableNames', {'Lambda','Mu','Rho','Wait_time'});
 
 %% Return outputs
 lead_time = W;
