@@ -217,13 +217,13 @@ function update_display(hObject, eventdata, handles)
 % GUI design. The data is stacked in accordance with the inputs to the
 % agv_plant function.
 
-agv_speed = get(handles.speed,'value');
+agv_speed = round(get(handles.speed,'value'),1);
 set(handles.display_speed,'string',agv_speed);
 
-n_DS = get(handles.count_DS,'value');
-n_SM = get(handles.count_SM,'value');
-n_MB = get(handles.count_MB,'value');
-n_BP = get(handles.count_BP,'value');
+n_DS = round(get(handles.count_DS,'value'));
+n_SM = round(get(handles.count_SM,'value'));
+n_MB = round(get(handles.count_MB,'value'));
+n_BP = round(get(handles.count_BP,'value'));
 
 set(handles.display_count_DS,'string',n_DS);
 set(handles.display_count_SM,'string',n_SM);

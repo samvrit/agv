@@ -129,8 +129,8 @@ all_data = [lambda_D, mu_DS, rho_DS, W_DS;
 %     'VariableNames', {'Lambda','Mu','Rho','Wait_time'});
 
 %% Return outputs
-lead_time = W;
-idle_time = rho_M;
+lead_time = round(W,3);
+idle_time = round(rho_M,2);
 data_table = all_data;
 
 %% Display output
