@@ -22,7 +22,7 @@ function varargout = agv_analytical(varargin)
 
 % Edit the above text to modify the response to help agv_analytical
 
-% Last Modified by GUIDE v2.5 19-Oct-2017 10:09:33
+% Last Modified by GUIDE v2.5 19-Oct-2017 11:23:49
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -235,7 +235,9 @@ mfg_rate = str2double(get(handles.manufacturing,'string'));
 pkg_rate = str2double(get(handles.packaging,'string'));
 
 [data_table, lead_time, idle_time] = agv_plant(agv_speed,agv_mean_load, agv_count, arrival_rate, node_distances, mfg_rate, pkg_rate);
+data_tuple = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_rate,pkg_rate,lead_time,idle_time];
 
+set(handles.data_tuple_hidden,'value',data_tuple);
 set(handles.display_data_table,'data',data_table);
 set(handles.display_lead_time,'string',num2str(lead_time));
 set(handles.display_idle_time,'string',num2str(idle_time));
@@ -497,3 +499,8 @@ function save_result_Callback(hObject, eventdata, handles)
 % hObject    handle to save_result (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+A = xlsread('results_analytical.xlsx');
+end_index = size(A,1);
+write_index = end_index+2;
+data_tuple = get(handles.data_tuple_hidden,'value');
+xlswrite('results_analytical.xlsx',data_tuple,['A',num2str(write_index),':R',num2str(write_index)]);
