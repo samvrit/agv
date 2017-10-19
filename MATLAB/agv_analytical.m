@@ -517,8 +517,10 @@ function save_result_Callback(hObject, eventdata, handles)
 
 % Read the Excel file, get the index of the last row, and write the data
 % tuple in the next row
+set(handles.save_result,'Enable','off');    % disable the button while action is being performed
 A = xlsread('results_analytical.xlsx');
 end_index = size(A,1);
 write_index = end_index+2;  % 2 is added to account for the Headings row
 data_tuple = get(handles.data_tuple_hidden,'value');
 xlswrite('results_analytical.xlsx',data_tuple,['A',num2str(write_index),':R',num2str(write_index)]);
+set(handles.save_result,'Enable','on'); % enable the button after action is performed
