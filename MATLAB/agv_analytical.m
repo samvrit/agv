@@ -22,7 +22,7 @@ function varargout = agv_analytical(varargin)
 
 % Edit the above text to modify the response to help agv_analytical
 
-% Last Modified by GUIDE v2.5 19-Oct-2017 01:54:29
+% Last Modified by GUIDE v2.5 19-Oct-2017 10:09:33
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -231,8 +231,8 @@ node_distances(3) = str2double(get(handles.distance_MB,'string'));
 node_distances(4) = str2double(get(handles.distance_BP,'string'));
 
 arrival_rate = str2double(get(handles.arrival,'string'));
-mfg_rate = str2double(get(handles.arrival,'string'));
-pkg_rate = str2double(get(handles.arrival,'string'));
+mfg_rate = str2double(get(handles.manufacturing,'string'));
+pkg_rate = str2double(get(handles.packaging,'string'));
 
 [data_table, lead_time, idle_time] = agv_plant(agv_speed,agv_mean_load, agv_count, arrival_rate, node_distances, mfg_rate, pkg_rate);
 
@@ -490,3 +490,10 @@ function distance_BP_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes on button press in save_result.
+function save_result_Callback(hObject, eventdata, handles)
+% hObject    handle to save_result (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)

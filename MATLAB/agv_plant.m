@@ -9,9 +9,9 @@ function [data_table, lead_time, idle_time] = agv_plant(agv_speed, ...
 if(nargin < 7)
     agv_speed = 5.4;                % km/h [based on Otto]
     
+    lambda_D = 200;                 % Delivery Node arrival rate
     mu_M = 300;                     % Assumed Manufacturing rate = 300 units/hr
     mu_P = 600;                     % Assumed Packaging rate = 1200 units/hr
-    lambda_D = 200;                 % Delivery Node arrival rate
     
     mean_load_DS = 10;              % 10 units
     n_DS = 1;                       % No. of AGVs 
