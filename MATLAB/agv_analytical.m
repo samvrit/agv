@@ -22,7 +22,7 @@ function varargout = agv_analytical(varargin)
 
 % Edit the above text to modify the response to help agv_analytical
 
-% Last Modified by GUIDE v2.5 19-Oct-2017 11:23:49
+% Last Modified by GUIDE v2.5 20-Oct-2017 16:48:22
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -254,7 +254,15 @@ data_tuple = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_
 
 set(handles.data_tuple_hidden,'value',data_tuple);  % store the data tuple in a hidden field so that it can be used to write into Excel
 set(handles.display_data_table,'data',data_table);
-set(handles.display_lead_time,'string',num2str(lead_time));
+button_state = get(handles.units_toggle,'Value');
+if button_state == get(handles.units_toggle,'Max')
+	set(handles.display_lead_time,'string',num2str(lead_time*60));
+    set(handles.lead_time_text,'string','System Lead Time (min)');
+elseif button_state == get(handles.units_toggle,'Min')
+	set(handles.display_lead_time,'string',num2str(lead_time));
+    set(handles.lead_time_text,'string','System Lead Time (hours)');
+end
+
 set(handles.display_idle_time,'string',num2str(idle_time));
 
 function load_DS_Callback(hObject, eventdata, handles)
@@ -524,3 +532,12 @@ write_index = end_index+2;  % 2 is added to account for the Headings row
 data_tuple = get(handles.data_tuple_hidden,'value');
 xlswrite('results_analytical.xlsx',data_tuple,['A',num2str(write_index),':R',num2str(write_index)]);
 set(handles.save_result,'Enable','on'); % enable the button after action is performed
+
+
+% --- Executes on button press in units_toggle.
+function units_toggle_Callback(hObject, eventdata, handles)
+% hObject    handle to units_toggle (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of units_toggle
