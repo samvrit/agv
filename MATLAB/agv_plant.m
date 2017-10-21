@@ -64,7 +64,7 @@ mu_DS = mean_load_DS*n_DS/((2*d_DS/agv_speed)+(2/60));
 
 rho_DS = lambda_D/mu_DS;        % Delivery Node utilization
 
-W_DS = 1/(mu_DS-lambda_D);      % Wait time for delivery node (hr/units)
+W_DS = (1/mu_DS) + (rho_DS/(2*mu_DS*(1-rho_DS)));      % Wait time for delivery node (hr/units)
 
 %% Storage Node
 
@@ -74,7 +74,7 @@ mu_SM = mean_load_SM*n_SM/((2*d_SM/agv_speed)+2/60);
 
 rho_SM = lambda_S/mu_SM;        % Storage Node utilization
 
-W_SM = 1/(mu_SM-lambda_S);      % Wait time for Storage node (hr/units)
+W_SM = (1/mu_SM) + (rho_SM/(2*mu_SM*(1-rho_SM)));      % Wait time for Storage node (hr/units)
 
 %% Manufacturing Node
 
@@ -82,7 +82,7 @@ lambda_M = mu_SM;               % Manufacturing Node arrival rate
 
 rho_M = lambda_M/mu_M;          % Manufacturing Node utilization
 
-W_M = 1/(mu_M-lambda_M);        % Wait time for Manufacturing process (hours/unit)
+W_M = (1/mu_M) + (rho_M/(2*mu_M*(1-rho_M)));        % Wait time for Manufacturing process (hours/unit)
 
 %% Pseudo Manufacturing Transportation Node
 
@@ -92,7 +92,7 @@ mu_MB = mean_load_MB*n_MB/((2*d_MB/agv_speed)+2/60);
 
 rho_MB = lambda_MB/mu_MB;
 
-W_MB = 1/(mu_MB-lambda_MB);     % Wait time for Manufacturing Transport node (hr/units)
+W_MB = (1/mu_MB) + (rho_MB/(2*mu_MB*(1-rho_MB)));     % Wait time for Manufacturing Transport node (hr/units)
 
 %% Buffer Node
 
@@ -102,9 +102,9 @@ mu_BP = mean_load_BP*n_BP/((2*d_BP/agv_speed)+2/60);
 
 rho_BP = lambda_B/mu_BP;
 
-W_BP = 1/(mu_BP-lambda_B);      % Wait time for Buffer node (hr/units)
+W_BP = (1/mu_BP) + (rho_BP/(2*mu_BP*(1-rho_BP)));      % Wait time for Buffer node (hr/units)
 
-%% Packaging Node
+%% Packaging Node (assuming Exponential distribution because it is done by humans) 
 
 lambda_P = mu_BP;
 

@@ -262,8 +262,16 @@ elseif button_state == get(handles.units_toggle,'Min')
 	set(handles.display_lead_time,'string',num2str(lead_time));
     set(handles.lead_time_text,'string','System Lead Time (hours)');
 end
-
 set(handles.display_idle_time,'string',num2str(idle_time));
+
+negative_index = data_table(data_table(:,3)>=1);
+if(size(negative_index,1)>0)
+    set(handles.nogo,'BackgroundColor',[1 0 0]);
+    set(handles.go,'BackgroundColor',[0.94 0.94 0.94]);
+else
+    set(handles.go,'BackgroundColor',[0 1 0]);
+    set(handles.nogo,'BackgroundColor',[0.94 0.94 0.94]);
+end
 
 function load_DS_Callback(hObject, eventdata, handles)
 % hObject    handle to load_DS (see GCBO)
