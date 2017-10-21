@@ -254,6 +254,8 @@ data_tuple = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_
 
 set(handles.data_tuple_hidden,'value',data_tuple);  % store the data tuple in a hidden field so that it can be used to write into Excel
 set(handles.display_data_table,'data',data_table);
+
+% Read the toggle button status to switch between output units for System Lead Time
 button_state = get(handles.units_toggle,'Value');
 if button_state == get(handles.units_toggle,'Max')
 	set(handles.display_lead_time,'string',num2str(lead_time*60));
@@ -264,6 +266,8 @@ elseif button_state == get(handles.units_toggle,'Min')
 end
 set(handles.display_idle_time,'string',num2str(idle_time));
 
+% Display a green box when system is stable, and a red box when system is
+% unstable
 negative_index = data_table(data_table(:,3)>=1);
 if(size(negative_index,1)>0)
     set(handles.nogo,'BackgroundColor',[1 0 0]);
