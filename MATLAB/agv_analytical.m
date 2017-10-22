@@ -62,7 +62,7 @@ guidata(hObject, handles);
 % argument to the function
 handles.timer = timer(...
     'ExecutionMode', 'fixedRate', ...       % Run timer repeatedly.
-    'Period', 0.01, ...                        % Initial period is 1 sec.
+    'Period', 0.1, ...                        % Initial period is 1 sec.
     'TimerFcn', {@update_display, handles}); % Specify callback function.
 start(handles.timer)    % start the timer
 % UIWAIT makes agv_analytical wait for user response (see UIRESUME)
