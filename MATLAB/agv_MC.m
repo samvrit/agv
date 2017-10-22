@@ -90,7 +90,6 @@ mu_MB = mean_load_MB*n_MB/((2*d_MB/agv_speed)+2/60);
 
 rho_MB = lambda_MB/mu_MB;
 
-
 %% Buffer Node (D/D/1)
 
 lambda_B = mu_MB;        
@@ -106,14 +105,13 @@ beta = 1/lambda_P;
 
 rho_P = lambda_P/mu_P;          % Packaging Node utilization
 
-
 %% Monte Carlo code starts
+
+%%%% Delivery Node %%%%
 
 % Initializing System Time
 T_s(1,1) = 0;                          
 n = 1;
-
-%%%% Delivery Node %%%% 
 
 while T_s < 24                                % for T_S in a 24 hr period
     
@@ -183,6 +181,5 @@ std(system_lead_time)
 
 % Plot of System Lead Time for every piece of raw material in the system. 
 plot(system_lead_time) 
-
 
 % end
