@@ -138,7 +138,7 @@ all_data = [lambda_D, mu_DS, rho_DS, W_DS;
 
 %% Return outputs
 lead_time = round(W,3);
-idle_time = round(rho_M,2);
+idle_time = round(1-rho_M,2);
 data_table = all_data;
 
 %% Display output
