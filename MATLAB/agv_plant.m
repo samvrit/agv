@@ -107,7 +107,8 @@ mu_BP = mean_load_BP*n_BP/((2*d_BP/agv_speed)+2/60);
 
 rho_BP = lambda_B/mu_BP;
 
-W_BP = (1/mu_BP) + (rho_BP/(2*mu_BP*(1-rho_BP)));      % Wait time for Buffer node (hr/units)
+% W_BP = (1/mu_BP) + (rho_BP/(2*mu_BP*(1-rho_BP)));      % Wait time for Buffer node (hr/units)
+W_BP = (1/mu_BP);
 
 %% Packaging Node (D/M/1) 
 
