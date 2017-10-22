@@ -107,7 +107,8 @@ mu_BP = mean_load_BP*n_BP/((2*d_BP/agv_speed)+2/60);
 
 rho_BP = lambda_B/mu_BP;
 
-W_BP = (1/mu_BP) + (rho_BP/(2*mu_BP*(1-rho_BP)));      % Wait time for Buffer node (hr/units)
+% W_BP = (1/mu_BP) + (rho_BP/(2*mu_BP*(1-rho_BP)));      % Wait time for Buffer node (hr/units)
+W_BP = (1/mu_BP);
 
 %% Packaging Node (D/M/1) 
 
@@ -138,7 +139,7 @@ all_data = [lambda_D, mu_DS, rho_DS, W_DS;
 
 %% Return outputs
 lead_time = round(W,3);
-idle_time = round(rho_M,2);
+idle_time = round(1-rho_M,2);
 data_table = all_data;
 
 %% Display output
