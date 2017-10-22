@@ -67,8 +67,6 @@ mu_DS = mean_load_DS*n_DS/((2*d_DS/agv_speed)+(2/60));
 
 rho_DS = lambda_D/mu_DS;        % Delivery Node utilization
 
-W_DS = (1/mu_DS) + (rho_DS/(2*mu_DS*(1-rho_DS)));      % Wait time for delivery node (hr/units)
-
 %% Storage Node (D/D/1)
 
 lambda_S = mu_DS;               % Storage Node arrival rate
@@ -77,20 +75,12 @@ mu_SM = mean_load_SM*n_SM/((2*d_SM/agv_speed)+2/60);
 
 rho_SM = lambda_S/mu_SM;        % Storage Node utilization
 
-% W_SM = (1/mu_SM) + (rho_SM/(2*mu_SM*(1-rho_SM)));      % Wait time for Storage node (hr/units)
-W_SM = (1/mu_SM);      % Wait time for Storage node (hr/units)
-
 %% Manufacturing Node (D/M/1)
 
 lambda_M = mu_SM;               % Manufacturing Node arrival rate
 beta = 1/lambda_M;
 
 rho_M = lambda_M/mu_M;          % Manufacturing Node utilization
-
-% W_M = (1/mu_M) + (rho_M/(2*mu_M*(1-rho_M)));        % Wait time for Manufacturing process (hours/unit)
-
-delta = -lambertw(0, -beta*mu_M*exp(-beta*mu_M))/(beta*mu_M); % reference: https://en.wikipedia.org/wiki/D/M/1_queue
-W_M = (1/mu_M)*delta/(1-delta);
 
 %% Pseudo Manufacturing Transportation Node (M/D/1)
 
@@ -100,7 +90,6 @@ mu_MB = mean_load_MB*n_MB/((2*d_MB/agv_speed)+2/60);
 
 rho_MB = lambda_MB/mu_MB;
 
-W_MB = (1/mu_MB) + (rho_MB/(2*mu_MB*(1-rho_MB)));     % Wait time for Manufacturing Transport node (hr/units)
 
 %% Buffer Node (D/D/1)
 
@@ -110,9 +99,6 @@ mu_BP = mean_load_BP*n_BP/((2*d_BP/agv_speed)+2/60);
 
 rho_BP = lambda_B/mu_BP;
 
-% W_BP = (1/mu_BP) + (rho_BP/(2*mu_BP*(1-rho_BP)));      % Wait time for Buffer node (hr/units)
-W_BP = (1/mu_BP);
-
 %% Packaging Node (D/M/1) 
 
 lambda_P = mu_BP;
@@ -120,17 +106,15 @@ beta = 1/lambda_P;
 
 rho_P = lambda_P/mu_P;          % Packaging Node utilization
 
-% W_P = 1/(mu_P-lambda_P);        % Wait time for Manufacturing process (hours/unit)
-delta = -lambertw(0, -beta*mu_P*exp(-beta*mu_P))/(beta*mu_P);
-W_P = (1/mu_P)*delta/(1-delta);
 
 %% Monte Carlo code starts
-
-%%%% Delivery Node %%%%
 
 % Initializing System Time
 T_s(1,1) = 0;                          
 n = 1;
+
+%%%% Delivery Node %%%% 
+
 while T_s < 24                                % for T_S in a 24 hr period
     
     n = n+1;
@@ -191,13 +175,14 @@ end
 
 T_prog  = [T_s,W_q_D_matrix,X_DS,W_q_S, X_SM, X_M,X_MB, W_q_B, X_BP, X_P];
 
+% Total Wait time for each item entering the system. (It is a sum of column 2 - 9 of T_prog)
+system_lead_time = sum(T_prog(:,2:10),2);  
 
-total_wait_time = sum(T_prog(:,2:10),2);
+mean_total_wait_time = mean(system_lead_time)
+std(system_lead_time)
 
-mean_total_wait_time = mean(total_wait_time)
-std(total_wait_time)
-
-plot(total_wait_time)
+% Plot of System Lead Time for every piece of raw material in the system. 
+plot(system_lead_time) 
 
 
 % end
