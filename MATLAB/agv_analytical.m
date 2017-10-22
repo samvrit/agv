@@ -22,7 +22,7 @@ function varargout = agv_analytical(varargin)
 
 % Edit the above text to modify the response to help agv_analytical
 
-% Last Modified by GUIDE v2.5 19-Oct-2017 11:23:49
+% Last Modified by GUIDE v2.5 20-Oct-2017 16:48:22
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -217,13 +217,13 @@ function update_display(hObject, eventdata, handles)
 % GUI design. The data is stacked in accordance with the inputs to the
 % agv_plant function.
 
-agv_speed = get(handles.speed,'value');
+agv_speed = round(get(handles.speed,'value'),1);
 set(handles.display_speed,'string',agv_speed);
 
-n_DS = get(handles.count_DS,'value');
-n_SM = get(handles.count_SM,'value');
-n_MB = get(handles.count_MB,'value');
-n_BP = get(handles.count_BP,'value');
+n_DS = round(get(handles.count_DS,'value'));
+n_SM = round(get(handles.count_SM,'value'));
+n_MB = round(get(handles.count_MB,'value'));
+n_BP = round(get(handles.count_BP,'value'));
 
 set(handles.display_count_DS,'string',n_DS);
 set(handles.display_count_SM,'string',n_SM);
@@ -254,8 +254,28 @@ data_tuple = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_
 
 set(handles.data_tuple_hidden,'value',data_tuple);  % store the data tuple in a hidden field so that it can be used to write into Excel
 set(handles.display_data_table,'data',data_table);
-set(handles.display_lead_time,'string',num2str(lead_time));
+
+% Read the toggle button status to switch between output units for System Lead Time
+button_state = get(handles.units_toggle,'Value');
+if button_state == get(handles.units_toggle,'Max')
+	set(handles.display_lead_time,'string',num2str(lead_time*60));
+    set(handles.lead_time_text,'string','System Lead Time (min)');
+elseif button_state == get(handles.units_toggle,'Min')
+	set(handles.display_lead_time,'string',num2str(lead_time));
+    set(handles.lead_time_text,'string','System Lead Time (hours)');
+end
 set(handles.display_idle_time,'string',num2str(idle_time));
+
+% Display a green box when system is stable, and a red box when system is
+% unstable
+negative_index = data_table(data_table(:,3)>=1);
+if(size(negative_index,1)>0)
+    set(handles.nogo,'BackgroundColor',[1 0 0]);
+    set(handles.go,'BackgroundColor',[0.94 0.94 0.94]);
+else
+    set(handles.go,'BackgroundColor',[0 1 0]);
+    set(handles.nogo,'BackgroundColor',[0.94 0.94 0.94]);
+end
 
 function load_DS_Callback(hObject, eventdata, handles)
 % hObject    handle to load_DS (see GCBO)
@@ -517,8 +537,19 @@ function save_result_Callback(hObject, eventdata, handles)
 
 % Read the Excel file, get the index of the last row, and write the data
 % tuple in the next row
+set(handles.save_result,'Enable','off');    % disable the button while action is being performed
 A = xlsread('results_analytical.xlsx');
 end_index = size(A,1);
 write_index = end_index+2;  % 2 is added to account for the Headings row
 data_tuple = get(handles.data_tuple_hidden,'value');
 xlswrite('results_analytical.xlsx',data_tuple,['A',num2str(write_index),':R',num2str(write_index)]);
+set(handles.save_result,'Enable','on'); % enable the button after action is performed
+
+
+% --- Executes on button press in units_toggle.
+function units_toggle_Callback(hObject, eventdata, handles)
+% hObject    handle to units_toggle (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of units_toggle
