@@ -70,7 +70,7 @@ W_DS = (1/mu_DS) + (rho_DS/(2*mu_DS*(1-rho_DS)));      % Wait time for delivery 
 
 lambda_S = mu_DS;               % Storage Node arrival rate
 
-mu_SM = mean_load_SM*n_SM/((2*d_SM/agv_speed)+2/60);
+mu_SM = mean_load_SM*n_SM/((2*d_SM/agv_speed)+(2/60));
 
 rho_SM = lambda_S/mu_SM;        % Storage Node utilization
 
@@ -93,7 +93,7 @@ W_M = (1/mu_M)*delta/(1-delta);
 
 lambda_MB = mu_M;
 
-mu_MB = mean_load_MB*n_MB/((2*d_MB/agv_speed)+2/60);
+mu_MB = mean_load_MB*n_MB/((2*d_MB/agv_speed)+(2/60));
 
 rho_MB = lambda_MB/mu_MB;
 
@@ -103,7 +103,7 @@ W_MB = (1/mu_MB) + (rho_MB/(2*mu_MB*(1-rho_MB)));     % Wait time for Manufactur
 
 lambda_B = mu_MB;        
 
-mu_BP = mean_load_BP*n_BP/((2*d_BP/agv_speed)+2/60);
+mu_BP = mean_load_BP*n_BP/((2*d_BP/agv_speed)+(2/60));
 
 rho_BP = lambda_B/mu_BP;
 
