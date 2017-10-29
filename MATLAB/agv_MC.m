@@ -30,7 +30,7 @@ clc
     d_DS = 0.040;                   % distance between D and S = 40m = 0.04km
     
     mean_load_SM = 1;              % 10 units
-    n_SM = 10;                       % No. of AGVs
+    n_SM = 12;                       % No. of AGVs
     d_SM = 0.030;                   % distance between D and S = 30m = 0.03km
     
     mean_load_MB = 1;              % 10 units
@@ -125,7 +125,6 @@ T_s = T_s(1:n-1,1);
 n = n-1;
 disp(T_s)
 disp(n)
-W_q_D_matrix;
 
 X_DS(1:n,1) = 1/mu_DS;
 
@@ -159,16 +158,16 @@ end
 % Initializing Time Progression Matrix for each piece of raw material in the
 % system.
 % The 11 columns of this matrix represent the System 
-% 1. T_s
-% 2. W_q_D
-% 3. X_DS
-% 4. W_q_S
-% 5. X_SM
-% 6. X_M
-% 7. X_MB
-% 8. W_q_B
-% 9. X_BP
-% 10. X_P
+% 1. T_s    (System Time)
+% 2. W_q_D  (Interarrical times at Delivery Node)
+% 3. X_DS   (Service time for transporting AGV from D to S)
+% 4. W_q_S  (Time spent at Storage node (Is 0 because deterministic))
+% 5. X_SM   (Service time for transporting AGV from S to M)
+% 6. X_M    (Manufacturing Service time)
+% 7. X_MB   (Service time for transporting AGV from M to B )
+% 8. W_q_B  (Time spent at Buffer node (Is 0 because deterministic))
+% 9. X_BP   (Service time for transporting AGV from B to P)
+% 10. X_P   (Packaging Service time)
 
 
 T_prog  = [T_s,W_q_D_matrix,X_DS,W_q_S, X_SM, X_M,X_MB, W_q_B, X_BP, X_P];
@@ -177,9 +176,10 @@ T_prog  = [T_s,W_q_D_matrix,X_DS,W_q_S, X_SM, X_M,X_MB, W_q_B, X_BP, X_P];
 system_lead_time = sum(T_prog(:,2:10),2);  
 
 mean_total_wait_time = mean(system_lead_time)
-std(system_lead_time)
+stddev_total_wait_time = std(system_lead_time)
 
 % Plot of System Lead Time for every piece of raw material in the system. 
-plot(system_lead_time) 
-
+plot(system_lead_time.*60)
+xlabel('Units in the System')
+ylabel('System Lead Time (mins)')
 % end
