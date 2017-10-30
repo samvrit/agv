@@ -23,20 +23,20 @@ if(nargin < 7)  % if the number of inputs to the function is less than 7, use fi
     mu_M = 300;                     % Assumed Manufacturing rate = 300 units/hr
     mu_P = 600;                     % Assumed Packaging rate = 1200 units/hr
     
-    mean_load_DS = 10;              % 10 units
-    n_DS = 1;                       % No. of AGVs 
+    mean_load_DS = 1;              % 10 units
+    n_DS = 10;                       % No. of AGVs 
     d_DS = 0.040;                   % distance between D and S = 40m = 0.04km
     
-    mean_load_SM = 10;              % 10 units
-    n_SM = 1;                       % No. of AGVs 
+    mean_load_SM = 1;              % 10 units
+    n_SM = 12;                       % No. of AGVs 
     d_SM = 0.030;                   % distance between D and S = 30m = 0.03km
     
-    mean_load_MB = 10;              % 10 units
-    n_MB = 2;                       % No. of AGVs 
+    mean_load_MB = 1;              % 10 units
+    n_MB = 13;                       % No. of AGVs 
     d_MB = 0.020;                   % distance between D and S = 20m = 0.0200km
     
-    mean_load_BP = 10;              % 10 units
-    n_BP = 3;                       % No. of AGVs 
+    mean_load_BP = 1;              % 10 units
+    n_BP = 19;                       % No. of AGVs 
     d_BP = 0.070;                   % distance between B and P = 70m = 0.070km
 else
     lambda_D = arrival_rate;
