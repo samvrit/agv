@@ -68,7 +68,7 @@ W_DS = (1/mu_DS) + (rho_DS/(2*mu_DS*(1-rho_DS)));      % Wait time for delivery 
 
 %% Storage Node (D/D/1)
 
-lambda_S = mu_DS;               % Storage Node arrival rate
+lambda_S = lambda_D;               % Storage Node arrival rate
 
 mu_SM = mean_load_SM*n_SM/((2*d_SM/agv_speed)+(2/60));
 
@@ -79,7 +79,7 @@ W_SM = (1/mu_SM);      % Wait time for Storage node (hr/units)
 
 %% Manufacturing Node (D/M/1)
 
-lambda_M = mu_SM;               % Manufacturing Node arrival rate
+lambda_M = lambda_S;               % Manufacturing Node arrival rate
 beta = 1/lambda_M;
 
 rho_M = lambda_M/mu_M;          % Manufacturing Node utilization
@@ -91,7 +91,7 @@ W_M = (1/mu_M)*delta/(1-delta);
 
 %% Pseudo Manufacturing Transportation Node (M/D/1)
 
-lambda_MB = mu_M;
+lambda_MB = lambda_M;
 
 mu_MB = mean_load_MB*n_MB/((2*d_MB/agv_speed)+(2/60));
 
@@ -101,7 +101,7 @@ W_MB = (1/mu_MB) + (rho_MB/(2*mu_MB*(1-rho_MB)));     % Wait time for Manufactur
 
 %% Buffer Node (D/D/1)
 
-lambda_B = mu_MB;        
+lambda_B = lambda_MB;        
 
 mu_BP = mean_load_BP*n_BP/((2*d_BP/agv_speed)+(2/60));
 
@@ -112,7 +112,7 @@ W_BP = (1/mu_BP);
 
 %% Packaging Node (D/M/1) 
 
-lambda_P = mu_BP;
+lambda_P = lambda_B;
 beta = 1/lambda_P;
 
 rho_P = lambda_P/mu_P;          % Packaging Node utilization
