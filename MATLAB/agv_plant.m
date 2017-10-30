@@ -1,6 +1,7 @@
 % % % ENSE 623 Project - AGV System Simulation
 % % % 
-% % % AGV Function
+% % % AGV Function 
+% Testing the git on matlab
 
 function [data_table, lead_time, idle_time] = agv_plant(agv_speed, ...
           agv_mean_load, agv_count, arrival_rate, node_distances, ...
