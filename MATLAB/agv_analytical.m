@@ -272,9 +272,13 @@ negative_index = data_table(data_table(:,3)>=1);
 if(size(negative_index,1)>0)
     set(handles.nogo,'BackgroundColor',[1 0 0]);
     set(handles.go,'BackgroundColor',[0.94 0.94 0.94]);
+    set(handles.nogo,'String','System Unstable!');
+    set(handles.go,'String','');
 else
     set(handles.go,'BackgroundColor',[0 1 0]);
     set(handles.nogo,'BackgroundColor',[0.94 0.94 0.94]);
+    set(handles.go,'String','System Stable!');
+    set(handles.nogo,'String','');
 end
 
 function load_DS_Callback(hObject, eventdata, handles)
