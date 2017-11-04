@@ -2,26 +2,49 @@ pd1 = makedist('Exponential','mu',1/200); % Arrival time distribution
 % pd2 = makedist('Exponential','mu',1/12); % Service time distribution
 
 t = 1000000;
-a_prev = 0;
-c_prev = 0;
-queue_wait_time = zeros(1,t);
-wait_time = zeros(1,t);
+a_prev_D = 0;
+a_prev_S = 0;
+c_prev_D = 0;
+c_prev_S = 0;
+queue_wait_time = zeros(t,2);
+wait_time = zeros(t,2);
+total_wait_time = zeros(t,1);
 
 for i = 1:t
-    a_curr = a_prev + random(pd1);      % current arrival time
-    %serv_time = random(pd2);
-    serv_time = 1/201.37;
+    %% Delivery Node
+    a_curr_D = a_prev_D + random(pd1);      % current arrival time
+    serv_time_D = 1/201.37;
     
-    if a_curr >= c_prev       % check if arrival is after previous service
-        queue_wait_time(i) = 0;       % if yes, then wait time is zero
+    if a_curr_D >= c_prev_D       % check if arrival is after previous service
+        queue_wait_time(i,1) = 0;       % if yes, then wait time is zero
     else
-        queue_wait_time(i) = c_prev - a_curr;     % else calculate wait time
+        queue_wait_time(i,1) = c_prev_D - a_curr_D;     % else calculate wait time
     end
-    c_curr = a_curr + queue_wait_time(i) + serv_time; % calculate completion time
-    wait_time(i) = queue_wait_time(i) + serv_time; % calculate time in system
+    c_curr_D = a_curr_D + queue_wait_time(i,1) + serv_time_D; % calculate completion time
+    wait_time(i,1) = queue_wait_time(i,1) + serv_time_D; % calculate time in system
     
-    a_prev = a_curr;        % update arrival time
-    c_prev = c_curr;        % update completion time
+    a_prev_D = a_curr_D;        % update arrival time
+    c_prev_D = c_curr_D;        % update completion time
+    
+    %% Storage Node
+    a_curr_S = c_curr_D;
+    serv_time_S = 1/221.5;
+    
+    if a_curr_S >= c_prev_S
+        queue_wait_time(i,2) = 0;
+    else
+        queue_wait_time(i,2) = c_prev_S - a_curr_S;
+    end
+    c_curr_S = a_curr_S + queue_wait_time(i,2) + serv_time_S;
+    wait_time(i,2) = queue_wait_time(i,2) + serv_time_S;
+    
+    total_wait_time(i) = wait_time(i,1) + wait_time(i,2);
+    
+    a_prev_S = a_curr_S;
+    c_prev_S = c_curr_S;
+    
+    %% Manufacturing Node
+    
 end
-disp(mean(wait_time));
-fprintf('Variance = %0.4f \n',var(wait_time));
+disp(mean(total_wait_time));
+fprintf('Standard Error = %0.4f \n',std(total_wait_time)/sqrt(t));
