@@ -22,7 +22,7 @@ function varargout = agv_analytical(varargin)
 
 % Edit the above text to modify the response to help agv_analytical
 
-% Last Modified by GUIDE v2.5 20-Oct-2017 16:48:22
+% Last Modified by GUIDE v2.5 05-Nov-2017 17:45:30
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -557,3 +557,13 @@ function units_toggle_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hint: get(hObject,'Value') returns toggle state of units_toggle
+
+
+% --- Executes on button press in menu.
+function menu_Callback(hObject, eventdata, handles)
+% hObject    handle to menu (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+guidata(hObject, handles);
+agv_simulation
+close(handles.figure1);
