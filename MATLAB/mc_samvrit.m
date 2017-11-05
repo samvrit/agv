@@ -1,14 +1,66 @@
-pd1 = makedist('Exponential','mu',1/200); % Arrival time distribution
-pd2 = makedist('Exponential','mu',1/300); % Manufacturing rate distribution
-pd3 = makedist('Exponential','mu',1/600); % Packaging rate distribution
+function [lead_time, idle_time, total_wait_time] = mc_samvrit(agv_speed, ...
+          agv_mean_load, agv_count, arrival_rate, node_distances, ...
+          mfg_rate, pkg_rate, t)
+      
+if(nargin < 7)  % if the number of inputs to the function is less than 7, use fixed values
+    t = 1000000;
+    agv_speed = 4.9;                % km/h [based on Otto]
+    
+    lambda_D = 200;                 % Delivery Node arrival rate
+    mu_M = 300;                     % Assumed Manufacturing rate = 300 units/hr
+    mu_P = 600;                     % Assumed Packaging rate = 1200 units/hr
+    
+    mean_load_DS = 1;              % 1 unit
+    n_DS = 10;                       % No. of AGVs 
+    d_DS = 0.040;                   % distance between D and S = 40m = 0.04km
+    
+    mean_load_SM = 1;              % 1 unit
+    n_SM = 11;                       % No. of AGVs 
+    d_SM = 0.040;                   % distance between D and S = 30m = 0.03km
+    
+    mean_load_MB = 1;              % 1 unit
+    n_MB = 15;                       % No. of AGVs 
+    d_MB = 0.040;                   % distance between D and S = 20m = 0.0200km
+    
+    mean_load_BP = 1;              % 1 unit
+    n_BP = 16;                       % No. of AGVs 
+    d_BP = 0.040;                   % distance between B and P = 70m = 0.070km
+else
+    lambda_D = arrival_rate;
+    mu_M = mfg_rate;
+    mu_P = pkg_rate;
+    
+    mean_load_DS = agv_mean_load(1);
+    mean_load_SM = agv_mean_load(2);
+    mean_load_MB = agv_mean_load(3);
+    mean_load_BP = agv_mean_load(4);
+    
+    n_DS = agv_count(1);
+    n_SM = agv_count(2);
+    n_MB = agv_count(3);
+    n_BP = agv_count(4);
+    
+    d_DS = node_distances(1);
+    d_SM = node_distances(2);
+    d_MB = node_distances(3);
+    d_BP = node_distances(4);
+end
 
-t = 1000000;
+pd1 = makedist('Exponential','mu',1/lambda_D); % Arrival time distribution
+pd2 = makedist('Exponential','mu',1/mu_M); % Manufacturing rate distribution
+pd3 = makedist('Exponential','mu',1/mu_P); % Packaging rate distribution
+
+mu_DS = mean_load_DS*n_DS/((2*d_DS/agv_speed)+(2/60));
+mu_SM = mean_load_SM*n_SM/((2*d_SM/agv_speed)+(2/60));
+mu_MB = mean_load_MB*n_MB/((2*d_MB/agv_speed)+(2/60));
+mu_BP = mean_load_BP*n_BP/((2*d_BP/agv_speed)+(2/60));
+
+serv_time_D = 1/mu_DS;
+serv_time_S = 1/mu_SM;
+serv_time_M2 = 1/mu_MB;
+serv_time_B = 1/mu_BP;
+
 a_prev_D = 0;
-a_prev_S = 0;
-a_prev_M1 = 0;
-a_prev_M2 = 0;
-a_prev_B = 0;
-a_prev_P = 0;
 c_prev_D = 0;
 c_prev_S = 0;
 c_prev_M1 = 0;
@@ -16,11 +68,6 @@ c_prev_M2 = 0;
 c_prev_B = 0;
 c_prev_P = 0;
 mfg_empty_time = 0;
-
-serv_time_D = 1/201.37;
-serv_time_S = 1/221.5;
-serv_time_M2 = 1/302.05;
-serv_time_B = 1/322.2;
 
 queue_wait_time = zeros(t,6);
 wait_time = zeros(t,6);
@@ -55,7 +102,6 @@ for i = 1:t
     
     total_wait_time(i) = total_wait_time(i) + wait_time(i,2);
     
-    a_prev_S = a_curr_S;
     c_prev_S = c_curr_S;
     
     %% Manufacturing Node
@@ -73,7 +119,6 @@ for i = 1:t
     
     total_wait_time(i) = total_wait_time(i) + wait_time(i,3);
     
-    a_prev_M1 = a_curr_M1;
     c_prev_M1 = c_curr_M1;
     
     %% Pseudo Manufacturing Transport Node
@@ -89,7 +134,6 @@ for i = 1:t
     
     total_wait_time(i) = total_wait_time(i) + wait_time(i,4);
     
-    a_prev_M2 = a_curr_M2;
     c_prev_M2 = c_curr_M2;
     
     %% Buffer Node
@@ -105,7 +149,6 @@ for i = 1:t
     
     total_wait_time(i) = total_wait_time(i) + wait_time(i,5);
     
-    a_prev_B = a_curr_B;
     c_prev_B = c_curr_B;
     
     %% Packaging Node
@@ -122,11 +165,13 @@ for i = 1:t
     
     total_wait_time(i) = total_wait_time(i) + wait_time(i,6);
     
-    a_prev_P = a_curr_P;
     c_prev_P = c_curr_P;
     
 end
-mfg_idle_time = mfg_empty_time/c_curr_P;
-disp(mean(total_wait_time));
-disp(mfg_idle_time);
+lead_time = mean(total_wait_time);
+idle_time = mfg_empty_time/c_curr_P;
+
+fprintf('Mean System Lead Time = %0.4f \n',mean(total_wait_time));
+fprintf('Manufacturing Node Idle Time = %0.4f \n',idle_time);
 fprintf('Standard Error = %0.4f \n',std(total_wait_time)/sqrt(t));
+end
