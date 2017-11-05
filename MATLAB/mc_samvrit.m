@@ -15,6 +15,13 @@ c_prev_M1 = 0;
 c_prev_M2 = 0;
 c_prev_B = 0;
 c_prev_P = 0;
+mfg_empty_time = 0;
+
+serv_time_D = 1/201.37;
+serv_time_S = 1/221.5;
+serv_time_M2 = 1/302.05;
+serv_time_B = 1/322.2;
+
 queue_wait_time = zeros(t,6);
 wait_time = zeros(t,6);
 total_wait_time = zeros(t,1);
@@ -22,7 +29,6 @@ total_wait_time = zeros(t,1);
 for i = 1:t
     %% Delivery Node
     a_curr_D = a_prev_D + random(pd1);      % current arrival time
-    serv_time_D = 1/201.37;
     
     if a_curr_D >= c_prev_D       % check if arrival is after previous service
         queue_wait_time(i,1) = 0;       % if yes, then wait time is zero
@@ -37,8 +43,7 @@ for i = 1:t
     c_prev_D = c_curr_D;        % update completion time
     
     %% Storage Node
-    a_curr_S = c_curr_D;
-    serv_time_S = 1/221.5;
+    a_curr_S = c_curr_D;    % arrival at storage node is same as the departure time from delivery node
     
     if a_curr_S >= c_prev_S
         queue_wait_time(i,2) = 0;
@@ -58,6 +63,7 @@ for i = 1:t
     serv_time_M1 = random(pd2);
     
     if a_curr_M1 >= c_prev_M1
+        mfg_empty_time = mfg_empty_time + (a_curr_M1 - c_prev_M1);
         queue_wait_time(i,3) = 0;
     else
         queue_wait_time(i,3) = c_prev_M1 - a_curr_M1;
@@ -72,7 +78,6 @@ for i = 1:t
     
     %% Pseudo Manufacturing Transport Node
     a_curr_M2 = c_curr_M1;
-    serv_time_M2 = 1/302.05;
     
     if a_curr_M2 >= c_prev_M2
         queue_wait_time(i,4) = 0;
@@ -89,7 +94,6 @@ for i = 1:t
     
     %% Buffer Node
     a_curr_B = c_curr_M2;
-    serv_time_B = 1/322.2;
     
     if a_curr_B >= c_prev_B
         queue_wait_time(i,5) = 0;
@@ -122,5 +126,7 @@ for i = 1:t
     c_prev_P = c_curr_P;
     
 end
+mfg_idle_time = mfg_empty_time/c_curr_P;
 disp(mean(total_wait_time));
+disp(mfg_idle_time);
 fprintf('Standard Error = %0.4f \n',std(total_wait_time)/sqrt(t));

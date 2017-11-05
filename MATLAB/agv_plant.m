@@ -17,7 +17,7 @@ function [data_table, lead_time, idle_time] = agv_plant(agv_speed, ...
 % pkg_rate -> Packaging rate in units/hr (scalar)
 
 if(nargin < 7)  % if the number of inputs to the function is less than 7, use fixed values
-    agv_speed = 5.4;                % km/h [based on Otto]
+    agv_speed = 4.9;                % km/h [based on Otto]
     
     lambda_D = 200;                 % Delivery Node arrival rate
     mu_M = 300;                     % Assumed Manufacturing rate = 300 units/hr
@@ -28,16 +28,16 @@ if(nargin < 7)  % if the number of inputs to the function is less than 7, use fi
     d_DS = 0.040;                   % distance between D and S = 40m = 0.04km
     
     mean_load_SM = 1;              % 10 units
-    n_SM = 12;                       % No. of AGVs 
-    d_SM = 0.030;                   % distance between D and S = 30m = 0.03km
+    n_SM = 11;                       % No. of AGVs 
+    d_SM = 0.040;                   % distance between D and S = 30m = 0.03km
     
     mean_load_MB = 1;              % 10 units
-    n_MB = 13;                       % No. of AGVs 
-    d_MB = 0.020;                   % distance between D and S = 20m = 0.0200km
+    n_MB = 15;                       % No. of AGVs 
+    d_MB = 0.040;                   % distance between D and S = 20m = 0.0200km
     
     mean_load_BP = 1;              % 10 units
-    n_BP = 19;                       % No. of AGVs 
-    d_BP = 0.070;                   % distance between B and P = 70m = 0.070km
+    n_BP = 16;                       % No. of AGVs 
+    d_BP = 0.040;                   % distance between B and P = 70m = 0.070km
 else
     lambda_D = arrival_rate;
     mu_M = mfg_rate;
