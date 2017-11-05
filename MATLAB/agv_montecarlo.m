@@ -174,6 +174,7 @@ function save_result_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 set(handles.save_result,'Enable','off');    % disable the button while action is being performed
+set(handles.run_sim,'Enable','off');
 pause(0.05);
 A = xlsread('results_montecarlo.xlsx');
 end_index = size(A,1);
@@ -648,7 +649,6 @@ set(handles.arrival,'Enable','off');
 set(handles.manufacturing,'Enable','off');
 set(handles.packaging,'Enable','off');
 set(handles.sim_iterations,'Enable','off');
-set(handles.run_sim,'Enable','off');
 pause(0.05);
 agv_speed = round(get(handles.speed,'value'),1);
 set(handles.display_speed,'string',agv_speed);
