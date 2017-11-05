@@ -1,9 +1,9 @@
-function [lead_time, idle_time, total_wait_time] = mc_samvrit(agv_speed, ...
+function [lead_time, ste, idle_time, total_wait_time] = mc_samvrit(agv_speed, ...
           agv_mean_load, agv_count, arrival_rate, node_distances, ...
           mfg_rate, pkg_rate, t)
       
-if(nargin < 7)  % if the number of inputs to the function is less than 7, use fixed values
-    t = 1000000;
+if(nargin < 8)  % if the number of inputs to the function is less than 7, use fixed values
+    t = 10000;
     agv_speed = 4.9;                % km/h [based on Otto]
     
     lambda_D = 200;                 % Delivery Node arrival rate
@@ -170,8 +170,8 @@ for i = 1:t
 end
 lead_time = mean(total_wait_time);
 idle_time = mfg_empty_time/c_curr_P;
-
-fprintf('Mean System Lead Time = %0.4f \n',mean(total_wait_time));
-fprintf('Manufacturing Node Idle Time = %0.4f \n',idle_time);
-fprintf('Standard Error = %0.4f \n',std(total_wait_time)/sqrt(t));
+ste = std(total_wait_time)/sqrt(t);
+%fprintf('Mean System Lead Time = %0.4f \n',mean(total_wait_time));
+%fprintf('Manufacturing Node Idle Time = %0.4f \n',idle_time);
+%fprintf('Standard Error = %0.4f \n',std(total_wait_time)/sqrt(t));
 end
