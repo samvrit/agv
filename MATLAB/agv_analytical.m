@@ -22,7 +22,7 @@ function varargout = agv_analytical(varargin)
 
 % Edit the above text to modify the response to help agv_analytical
 
-% Last Modified by GUIDE v2.5 05-Nov-2017 18:44:16
+% Last Modified by GUIDE v2.5 05-Nov-2017 22:21:34
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -67,7 +67,41 @@ handles.timer = timer(...
 start(handles.timer)    % start the timer
 % UIWAIT makes agv_analytical wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
-
+if nargin == 4
+    data_tuple = varargin{1};
+    agv_speed = data_tuple(1,1);
+    agv_count = data_tuple(1,2:5);
+    agv_mean_load = data_tuple(1,6:9);
+    agv_node_distances = data_tuple(1,10:13);
+    arrival_rate = data_tuple(1,14);
+    mfg_rate = data_tuple(1,15);
+    pkg_rate = data_tuple(1,16);
+        
+    set(handles.speed,'Value',agv_speed);
+    set(handles.count_DS,'Value',agv_count(1));
+    set(handles.count_SM,'Value',agv_count(2));
+    set(handles.count_MB,'Value',agv_count(3));
+    set(handles.count_BP,'Value',agv_count(4));
+    
+    set(handles.load_DS,'String',num2str(agv_mean_load(1)));
+    set(handles.load_SM,'String',num2str(agv_mean_load(2)));
+    set(handles.load_MB,'String',num2str(agv_mean_load(3)));
+    set(handles.load_BP,'String',num2str(agv_mean_load(4)));
+    
+    set(handles.distance_DS,'String',num2str(agv_node_distances(1)));
+    set(handles.distance_SM,'String',num2str(agv_node_distances(2)));
+    set(handles.distance_MB,'String',num2str(agv_node_distances(3)));
+    set(handles.distance_BP,'String',num2str(agv_node_distances(4)));
+    
+    set(handles.arrival,'String',num2str(arrival_rate));
+    set(handles.manufacturing,'String',num2str(mfg_rate));
+    set(handles.packaging,'String',num2str(pkg_rate));
+end
+handles.timer = timer(...
+    'ExecutionMode', 'fixedRate', ...       % Run timer repeatedly.
+    'Period', 0.1, ...                        % Initial period is 1 sec.
+    'TimerFcn', {@update_display, handles}); % Specify callback function.
+start(handles.timer)
 
 % --- Outputs from this function are returned to the command line.
 function varargout = agv_analytical_OutputFcn(hObject, eventdata, handles) 
@@ -88,7 +122,7 @@ function speed_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
-
+update_display(hObject,eventdata,handles);
 
 % --- Executes during object creation, after setting all properties.
 function speed_CreateFcn(hObject, eventdata, handles)
@@ -110,7 +144,7 @@ function count_SM_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
-
+update_display(hObject,eventdata,handles);
 
 % --- Executes during object creation, after setting all properties.
 function count_SM_CreateFcn(hObject, eventdata, handles)
@@ -132,7 +166,7 @@ function count_MB_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
-
+update_display(hObject,eventdata,handles);
 
 % --- Executes during object creation, after setting all properties.
 function count_MB_CreateFcn(hObject, eventdata, handles)
@@ -154,7 +188,7 @@ function count_BP_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
-
+update_display(hObject,eventdata,handles);
 
 % --- Executes during object creation, after setting all properties.
 function count_BP_CreateFcn(hObject, eventdata, handles)
@@ -176,7 +210,7 @@ function count_DS_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
-
+update_display(hObject,eventdata,handles);
 
 % --- Executes during object creation, after setting all properties.
 function count_DS_CreateFcn(hObject, eventdata, handles)
@@ -288,7 +322,7 @@ function load_DS_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of load_DS as text
 %        str2double(get(hObject,'String')) returns contents of load_DS as a double
-
+update_display(hObject,eventdata,handles);
 
 % --- Executes during object creation, after setting all properties.
 function load_DS_CreateFcn(hObject, eventdata, handles)
@@ -311,7 +345,7 @@ function load_SM_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of load_SM as text
 %        str2double(get(hObject,'String')) returns contents of load_SM as a double
-
+update_display(hObject,eventdata,handles);
 
 % --- Executes during object creation, after setting all properties.
 function load_SM_CreateFcn(hObject, eventdata, handles)
@@ -334,7 +368,7 @@ function load_MB_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of load_MB as text
 %        str2double(get(hObject,'String')) returns contents of load_MB as a double
-
+update_display(hObject,eventdata,handles);
 
 % --- Executes during object creation, after setting all properties.
 function load_MB_CreateFcn(hObject, eventdata, handles)
@@ -357,7 +391,7 @@ function load_BP_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of load_BP as text
 %        str2double(get(hObject,'String')) returns contents of load_BP as a double
-
+update_display(hObject,eventdata,handles);
 
 % --- Executes during object creation, after setting all properties.
 function load_BP_CreateFcn(hObject, eventdata, handles)
@@ -380,7 +414,7 @@ function arrival_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of arrival as text
 %        str2double(get(hObject,'String')) returns contents of arrival as a double
-
+update_display(hObject,eventdata,handles);
 
 % --- Executes during object creation, after setting all properties.
 function arrival_CreateFcn(hObject, eventdata, handles)
@@ -403,7 +437,7 @@ function manufacturing_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of manufacturing as text
 %        str2double(get(hObject,'String')) returns contents of manufacturing as a double
-
+update_display(hObject,eventdata,handles);
 
 % --- Executes during object creation, after setting all properties.
 function manufacturing_CreateFcn(hObject, eventdata, handles)
@@ -426,7 +460,7 @@ function packaging_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of packaging as text
 %        str2double(get(hObject,'String')) returns contents of packaging as a double
-
+update_display(hObject,eventdata,handles);
 
 % --- Executes during object creation, after setting all properties.
 function packaging_CreateFcn(hObject, eventdata, handles)
@@ -449,7 +483,7 @@ function distance_DS_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of distance_DS as text
 %        str2double(get(hObject,'String')) returns contents of distance_DS as a double
-
+update_display(hObject,eventdata,handles);
 
 % --- Executes during object creation, after setting all properties.
 function distance_DS_CreateFcn(hObject, eventdata, handles)
@@ -472,7 +506,7 @@ function distance_SM_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of distance_SM as text
 %        str2double(get(hObject,'String')) returns contents of distance_SM as a double
-
+update_display(hObject,eventdata,handles);
 
 % --- Executes during object creation, after setting all properties.
 function distance_SM_CreateFcn(hObject, eventdata, handles)
@@ -495,7 +529,7 @@ function distance_MB_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of distance_MB as text
 %        str2double(get(hObject,'String')) returns contents of distance_MB as a double
-
+update_display(hObject,eventdata,handles);
 
 % --- Executes during object creation, after setting all properties.
 function distance_MB_CreateFcn(hObject, eventdata, handles)
@@ -518,7 +552,7 @@ function distance_BP_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of distance_BP as text
 %        str2double(get(hObject,'String')) returns contents of distance_BP as a double
-
+update_display(hObject,eventdata,handles);
 
 % --- Executes during object creation, after setting all properties.
 function distance_BP_CreateFcn(hObject, eventdata, handles)
@@ -557,7 +591,7 @@ function units_toggle_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hint: get(hObject,'Value') returns toggle state of units_toggle
-
+update_display(hObject,eventdata,handles);
 
 % --- Executes on button press in menu.
 function menu_Callback(hObject, eventdata, handles)
@@ -566,4 +600,14 @@ function menu_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 guidata(hObject, handles);
 agv_simulation
+close(handles.figure1);
+
+
+% --- Executes on button press in monte_carlo.
+function monte_carlo_Callback(hObject, eventdata, handles)
+% hObject    handle to monte_carlo (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+data_tuple = get(handles.data_tuple_hidden,'value');
+agv_montecarlo(data_tuple);
 close(handles.figure1);
