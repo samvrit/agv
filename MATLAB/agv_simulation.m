@@ -81,7 +81,7 @@ function analytical_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 agv_analytical
-close(handles.figure1);
+% close(handles.figure1);
 
 % --- Executes on button press in montecarlo.
 function montecarlo_Callback(hObject, eventdata, handles)
@@ -89,4 +89,4 @@ function montecarlo_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 agv_montecarlo
-close(handles.figure1);
+% close(handles.figure1);

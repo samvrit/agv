@@ -600,7 +600,7 @@ function menu_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 guidata(hObject, handles);
 agv_simulation
-close(handles.figure1);
+% close(handles.figure1);
 
 
 % --- Executes on button press in monte_carlo.
@@ -610,4 +610,4 @@ function monte_carlo_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 data_tuple = get(handles.data_tuple_hidden,'value');
 agv_montecarlo(data_tuple);
-close(handles.figure1);
+% close(handles.figure1);

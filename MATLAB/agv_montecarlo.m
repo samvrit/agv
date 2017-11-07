@@ -752,10 +752,10 @@ set(handles.save_result,'Enable','on');
 y1 = hist(total_wait_time,50);
 y1 = y1/sum(y1);
 x1 = linspace(0,max(total_wait_time),length(y1));
-y2 = linspace(0,max(y1),20);
+y2 = linspace(0,1.1*max(y1),20);
 x2 = lead_time*ones(1,length(y2));
 plot(x1,y1,x2,y2)
-ylim([0 max(y1)]);
+ylim([0 1.1*max(y1)]);
 
 % --- Executes on button press in reset.
 function reset_Callback(hObject, eventdata, handles)
@@ -807,7 +807,7 @@ function menu_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 guidata(hObject, handles);
 agv_simulation
-close(handles.figure1);
+% close(handles.figure1);
 
 
 % --- Executes on button press in analytical.
@@ -826,4 +826,4 @@ if data_tuple == 0.0
 else
     agv_analytical(data_tuple);
 end
-close(handles.figure1);
+% close(handles.figure1);
