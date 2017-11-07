@@ -22,7 +22,7 @@ function varargout = agv_montecarlo(varargin)
 
 % Edit the above text to modify the response to help agv_montecarlo
 
-% Last Modified by GUIDE v2.5 05-Nov-2017 22:19:57
+% Last Modified by GUIDE v2.5 07-Nov-2017 16:47:56
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -62,6 +62,7 @@ if strcmp(get(hObject,'Visible'),'off')
     plot(rand(5));
 end
 
+set(handles.display_lead_time,'String','');
 if nargin == 4
     data_tuple = varargin{1};
     agv_speed = data_tuple(1,1);
@@ -71,6 +72,8 @@ if nargin == 4
     arrival_rate = data_tuple(1,14);
     mfg_rate = data_tuple(1,15);
     pkg_rate = data_tuple(1,16);
+    lead_time_requirement = data_tuple(1,19);
+    idle_time_requirement = data_tuple(1,20);
         
     set(handles.speed,'Value',agv_speed);
     set(handles.count_DS,'Value',agv_count(1));
@@ -91,6 +94,9 @@ if nargin == 4
     set(handles.arrival,'String',num2str(arrival_rate));
     set(handles.manufacturing,'String',num2str(mfg_rate));
     set(handles.packaging,'String',num2str(pkg_rate));
+    
+    set(handles.lead_time_req,'String',num2str(lead_time_requirement));
+    set(handles.idle_time_req,'String',num2str(idle_time_requirement));
 end
 % UIWAIT makes agv_montecarlo wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
@@ -653,8 +659,29 @@ arrival_rate = str2double(get(handles.arrival,'string'));
 mfg_rate = str2double(get(handles.manufacturing,'string'));
 pkg_rate = str2double(get(handles.packaging,'string'));
 
-data_tuple_def = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_rate,pkg_rate,0,0,0,0];
+lead_time_requirement = str2double(get(handles.lead_time_req,'String'));
+idle_time_requirement = str2double(get(handles.idle_time_req,'String'));
+
+data_tuple_def = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_rate,pkg_rate,0,0,0,0,lead_time_requirement,idle_time_requirement];
 set(handles.data_tuple_default,'Value',data_tuple_def);
+
+lead_time = get(handles.display_lead_time,'String');
+if strcmp(lead_time,'')
+    set(handles.req_status,'BackgroundColor',[0.94 0.94 0.94]);
+    set(handles.req_status,'String','');
+else
+    lead_time = str2double(lead_time);
+    idle_time = str2double(get(handles.display_idle_time,'String'));
+    if (lead_time <= lead_time_requirement) && (idle_time <= idle_time_requirement)
+        set(handles.req_status,'BackgroundColor',[0 1 0]);
+        set(handles.req_status,'ForegroundColor',[0 0 0]);
+        set(handles.req_status,'String','Requirements met!');
+    else
+        set(handles.req_status,'BackgroundColor',[1 0 0]);
+        set(handles.req_status,'ForegroundColor',[1 1 1]);
+        set(handles.req_status,'String','Requirements not met!');
+    end
+end
 
 function sim_iterations_Callback(hObject, eventdata, handles)
 % hObject    handle to sim_iterations (see GCBO)
@@ -732,8 +759,11 @@ arrival_rate = str2double(get(handles.arrival,'string'));
 mfg_rate = str2double(get(handles.manufacturing,'string'));
 pkg_rate = str2double(get(handles.packaging,'string'));
 
+lead_time_requirement = str2double(get(handles.lead_time_req,'String'));
+idle_time_requirement = str2double(get(handles.idle_time_req,'String'));
+
 [lead_time, ste, idle_time, total_wait_time] = montecarlo(agv_speed,agv_mean_load, agv_count, arrival_rate, node_distances, mfg_rate, pkg_rate, t);
-data_tuple = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_rate,pkg_rate,lead_time,ste,idle_time,t];
+data_tuple = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_rate,pkg_rate,lead_time,ste,idle_time,t,lead_time_requirement,idle_time_requirement];
 set(handles.data_tuple_hidden,'value',data_tuple);
 
 set(handles.run_sim,'Enable','on');
@@ -748,6 +778,15 @@ elseif button_state == get(handles.units_toggle,'Min')
     set(handles.display_standard_error,'string',num2str(ste));
     set(handles.lead_time_text,'string','Mean System Lead Time (hours)');
 end
+
+if (lead_time <= lead_time_requirement) && (idle_time <= idle_time_requirement)
+    set(handles.req_status,'BackgroundColor',[0 1 0]);
+    set(handles.req_status,'String','Requirements met!');
+else
+    set(handles.req_status,'BackgroundColor',[1 0 0]);
+    set(handles.req_status,'String','Requirements not met!');
+end
+
 set(handles.display_idle_time,'string',num2str(idle_time));
 set(handles.reset,'Enable','on');
 set(handles.save_result,'Enable','on');
@@ -791,6 +830,9 @@ set(handles.display_standard_error,'string','');
 set(handles.display_idle_time,'string','');
 set(handles.saved_text,'string','');
 
+set(handles.req_status,'BackgroundColor',[0.94 0.94 0.94]);
+set(handles.req_status,'String','');
+
 cla
 
 % --- Executes on button press in units_toggle.
@@ -829,3 +871,49 @@ else
     agv_analytical(data_tuple);
 end
 % close(handles.figure1);
+
+
+
+function lead_time_req_Callback(hObject, eventdata, handles)
+% hObject    handle to lead_time_req (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of lead_time_req as text
+%        str2double(get(hObject,'String')) returns contents of lead_time_req as a double
+update_display_mc(hObject,eventdata,handles);
+
+% --- Executes during object creation, after setting all properties.
+function lead_time_req_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to lead_time_req (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function idle_time_req_Callback(hObject, eventdata, handles)
+% hObject    handle to idle_time_req (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of idle_time_req as text
+%        str2double(get(hObject,'String')) returns contents of idle_time_req as a double
+update_display_mc(hObject,eventdata,handles);
+
+% --- Executes during object creation, after setting all properties.
+function idle_time_req_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to idle_time_req (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
