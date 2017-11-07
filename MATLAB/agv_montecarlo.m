@@ -731,11 +731,11 @@ arrival_rate = str2double(get(handles.arrival,'string'));
 mfg_rate = str2double(get(handles.manufacturing,'string'));
 pkg_rate = str2double(get(handles.packaging,'string'));
 
-[lead_time, ste, idle_time, total_wait_time] = mc_samvrit(agv_speed,agv_mean_load, agv_count, arrival_rate, node_distances, mfg_rate, pkg_rate, t);
+[lead_time, ste, idle_time, total_wait_time] = montecarlo(agv_speed,agv_mean_load, agv_count, arrival_rate, node_distances, mfg_rate, pkg_rate, t);
 data_tuple = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_rate,pkg_rate,lead_time,ste,idle_time,t];
 set(handles.data_tuple_hidden,'value',data_tuple);
 
-set(handles.sim_running_text,'string','');
+set(handles.sim_running_text,'string','Simulation completed!');
 button_state = get(handles.units_toggle,'Value');
 if button_state == get(handles.units_toggle,'Max')
 	set(handles.display_lead_time,'string',num2str(lead_time*60));
@@ -749,10 +749,13 @@ end
 set(handles.display_idle_time,'string',num2str(idle_time));
 set(handles.reset,'Enable','on');
 set(handles.save_result,'Enable','on');
-y = hist(total_wait_time,50);
-y = y/sum(y);
-x = linspace(0,max(total_wait_time),length(y));
-plot(x,y);
+y1 = hist(total_wait_time,50);
+y1 = y1/sum(y1);
+x1 = linspace(0,max(total_wait_time),length(y1));
+y2 = linspace(0,max(y1),20);
+x2 = lead_time*ones(1,length(y2));
+plot(x1,y1,x2,y2)
+ylim([0 max(y1)]);
 
 % --- Executes on button press in reset.
 function reset_Callback(hObject, eventdata, handles)
@@ -780,6 +783,7 @@ set(handles.run_sim,'Enable','on');
 set(handles.reset,'Enable','off');
 set(handles.save_result,'Enable','off');
 
+set(handles.sim_running_text,'string','');
 set(handles.display_lead_time,'string','');
 set(handles.display_standard_error,'string','');
 set(handles.display_idle_time,'string','');
