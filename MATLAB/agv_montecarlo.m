@@ -683,6 +683,7 @@ function run_sim_Callback(hObject, eventdata, handles)
 % hObject    handle to run_sim (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+set(handles.run_sim,'Enable','off');
 set(handles.sim_running_text,'string','Running Simulation');
 set(handles.speed,'Enable','off');
 set(handles.count_DS,'Enable','off');
@@ -735,6 +736,7 @@ pkg_rate = str2double(get(handles.packaging,'string'));
 data_tuple = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_rate,pkg_rate,lead_time,ste,idle_time,t];
 set(handles.data_tuple_hidden,'value',data_tuple);
 
+set(handles.run_sim,'Enable','on');
 set(handles.sim_running_text,'string','Simulation completed!');
 button_state = get(handles.units_toggle,'Value');
 if button_state == get(handles.units_toggle,'Max')
