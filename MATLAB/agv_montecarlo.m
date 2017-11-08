@@ -60,6 +60,7 @@ guidata(hObject, handles);
 % so window can get raised using agv_montecarlo.
 if strcmp(get(hObject,'Visible'),'off')
     plot(rand(5));
+    xlabel('System Lead Time (h)');
 end
 
 set(handles.display_lead_time,'String','');
@@ -796,6 +797,7 @@ x1 = linspace(0,max(total_wait_time),length(y1));
 y2 = linspace(0,1.1*max(y1),20);
 x2 = lead_time*ones(1,length(y2));
 plot(x1,y1,x2,y2)
+xlabel('System Lead Time (h)');
 ylim([0 1.1*max(y1)]);
 
 % --- Executes on button press in reset.
