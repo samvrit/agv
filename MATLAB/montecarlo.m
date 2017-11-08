@@ -1,4 +1,4 @@
-function [lead_time, ste, idle_time, total_wait_time] = montecarlo(agv_speed, ...
+function [lead_time, ste, idle_time, total_wait_time, sim_time] = montecarlo(agv_speed, ...
           agv_mean_load, agv_count, arrival_rate, node_distances, ...
           mfg_rate, pkg_rate, t)
       
@@ -171,6 +171,7 @@ end
 lead_time = mean(total_wait_time);
 idle_time = mfg_empty_time/c_curr_P;
 ste = std(total_wait_time)/sqrt(t);
+sim_time = c_curr_P;
 %fprintf('Mean System Lead Time = %0.4f \n',mean(total_wait_time));
 %fprintf('Manufacturing Node Idle Time = %0.4f \n',idle_time);
 %fprintf('Standard Error = %0.4f \n',std(total_wait_time)/sqrt(t));

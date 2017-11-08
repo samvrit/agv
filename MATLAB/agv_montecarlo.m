@@ -663,6 +663,11 @@ pkg_rate = str2double(get(handles.packaging,'string'));
 lead_time_requirement = str2double(get(handles.lead_time_req,'String'));
 idle_time_requirement = str2double(get(handles.idle_time_req,'String'));
 
+toggle_button_state = get(handles.units_toggle,'Value');
+if toggle_button_state
+    lead_time_requirement = lead_time_requirement*60;
+end
+
 data_tuple_def = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_rate,pkg_rate,0,0,0,0,lead_time_requirement,idle_time_requirement];
 set(handles.data_tuple_default,'Value',data_tuple_def);
 
@@ -763,7 +768,7 @@ pkg_rate = str2double(get(handles.packaging,'string'));
 lead_time_requirement = str2double(get(handles.lead_time_req,'String'));
 idle_time_requirement = str2double(get(handles.idle_time_req,'String'));
 
-[lead_time, ste, idle_time, total_wait_time] = montecarlo(agv_speed,agv_mean_load, agv_count, arrival_rate, node_distances, mfg_rate, pkg_rate, t);
+[lead_time, ste, idle_time, total_wait_time, simulation_time] = montecarlo(agv_speed,agv_mean_load, agv_count, arrival_rate, node_distances, mfg_rate, pkg_rate, t);
 data_tuple = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_rate,pkg_rate,lead_time,ste,idle_time,t,lead_time_requirement,idle_time_requirement];
 set(handles.data_tuple_hidden,'value',data_tuple);
 
@@ -788,6 +793,7 @@ else
     set(handles.req_status,'String','Requirements not met!');
 end
 
+set(handles.sim_time,'string',['Total Simulation Time: ',num2str(round(simulation_time,2)),' hours']);
 set(handles.display_idle_time,'string',num2str(idle_time));
 set(handles.reset,'Enable','on');
 set(handles.save_result,'Enable','on');
@@ -831,6 +837,7 @@ set(handles.display_lead_time,'string','');
 set(handles.display_standard_error,'string','');
 set(handles.display_idle_time,'string','');
 set(handles.saved_text,'string','');
+set(handles.sim_time,'string','');
 
 set(handles.req_status,'BackgroundColor',[0.94 0.94 0.94]);
 set(handles.req_status,'String','');
