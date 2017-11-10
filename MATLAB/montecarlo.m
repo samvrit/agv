@@ -3,7 +3,7 @@ function [lead_time, ste, idle_time, total_wait_time, sim_time, sim_run_time] = 
           mfg_rate, pkg_rate, t)
 tic;      
 if(nargin < 8)  % if the number of inputs to the function is less than 7, use fixed values
-    t = 10000;
+    t = 1000000;
     agv_speed = 4.9;                % km/h [based on Otto]
     
     lambda_D = 200;                 % Delivery Node arrival rate
