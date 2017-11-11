@@ -1,9 +1,10 @@
-function [lead_time, ste, idle_time, total_wait_time, sim_time, sim_run_time] = montecarlo(agv_speed, ...
+function [lead_time, ste1, idle_time, ste2, total_wait_time, sim_time, sim_run_time, K] = montecarlo(agv_speed, ...
           agv_mean_load, agv_count, arrival_rate, node_distances, ...
-          mfg_rate, pkg_rate, t)
+          mfg_rate, pkg_rate, t, n)
 tic;      
 if(nargin < 8)  % if the number of inputs to the function is less than 7, use fixed values
-    t = 1000000;
+    t = 10000;
+    n = 10;
     agv_speed = 4.9;                % km/h [based on Otto]
     
     lambda_D = 200;                 % Delivery Node arrival rate
@@ -60,119 +61,132 @@ serv_time_S = 1/mu_SM;
 serv_time_M2 = 1/mu_MB;
 serv_time_B = 1/mu_BP;
 
-a_prev_D = 0;
-c_prev_D = 0;
-c_prev_S = 0;
-c_prev_M1 = 0;
-c_prev_M2 = 0;
-c_prev_B = 0;
-c_prev_P = 0;
-mfg_empty_time = 0;
 
-queue_wait_time = zeros(t,6);
-wait_time = zeros(t,6);
-total_wait_time = zeros(t,1);
+mean_lead_time = zeros(n,1);
+mean_idle_time = zeros(n,1);
+    
+for i = 1:n
+    a_prev_D = 0;
+    c_prev_D = 0;
+    c_prev_S = 0;
+    c_prev_M1 = 0;
+    c_prev_M2 = 0;
+    c_prev_B = 0;
+    c_prev_P = 0;
+    mfg_empty_time = 0;
 
-for i = 1:t
-    %% Delivery Node
-    a_curr_D = a_prev_D + random(pd1);      % current arrival time
+    queue_wait_time = zeros(t,6);
+    wait_time = zeros(t,6);
+    total_wait_time = zeros(t,1);
     
-    if a_curr_D >= c_prev_D       % check if arrival is after previous service
-        queue_wait_time(i,1) = 0;       % if yes, then wait time is zero
-    else
-        queue_wait_time(i,1) = c_prev_D - a_curr_D;     % else calculate wait time
+    for j = 1:t
+        %% Delivery Node
+        a_curr_D = a_prev_D + random(pd1);      % current arrival time
+
+        if a_curr_D >= c_prev_D       % check if arrival is after previous service
+            queue_wait_time(j,1) = 0;       % if yes, then wait time is zero
+        else
+            queue_wait_time(j,1) = c_prev_D - a_curr_D;     % else calculate wait time
+        end
+        c_curr_D = a_curr_D + queue_wait_time(j,1) + serv_time_D; % calculate completion time
+        wait_time(j,1) = queue_wait_time(j,1) + serv_time_D; % calculate time in system
+        total_wait_time(j) = total_wait_time(j) + wait_time(j,1);
+
+        a_prev_D = a_curr_D;        % update arrival time
+        c_prev_D = c_curr_D;        % update completion time
+
+        %% Storage Node
+        a_curr_S = c_curr_D;    % arrival at storage node is same as the departure time from delivery node
+
+        if a_curr_S >= c_prev_S
+            queue_wait_time(j,2) = 0;
+        else
+            queue_wait_time(j,2) = c_prev_S - a_curr_S;
+        end
+        c_curr_S = a_curr_S + queue_wait_time(j,2) + serv_time_S;
+        wait_time(j,2) = queue_wait_time(j,2) + serv_time_S;
+
+        total_wait_time(j) = total_wait_time(j) + wait_time(j,2);
+
+        c_prev_S = c_curr_S;
+
+        %% Manufacturing Node
+        a_curr_M1 = c_curr_S;
+        serv_time_M1 = random(pd2);
+
+        if a_curr_M1 >= c_prev_M1
+            mfg_empty_time = mfg_empty_time + (a_curr_M1 - c_prev_M1);
+            queue_wait_time(j,3) = 0;
+        else
+            queue_wait_time(j,3) = c_prev_M1 - a_curr_M1;
+        end
+        c_curr_M1 = a_curr_M1 + queue_wait_time(j,3) + serv_time_M1;
+        wait_time(j,3) = queue_wait_time(j,3) + serv_time_M1;
+
+        total_wait_time(j) = total_wait_time(j) + wait_time(j,3);
+
+        c_prev_M1 = c_curr_M1;
+
+        %% Pseudo Manufacturing Transport Node
+        a_curr_M2 = c_curr_M1;
+
+        if a_curr_M2 >= c_prev_M2
+            queue_wait_time(j,4) = 0;
+        else
+            queue_wait_time(j,4) = c_prev_M2 - a_curr_M2;
+        end
+        c_curr_M2 = a_curr_M2 + queue_wait_time(j,4) + serv_time_M2;
+        wait_time(j,4) = queue_wait_time(j,4) + serv_time_M1;
+
+        total_wait_time(j) = total_wait_time(j) + wait_time(j,4);
+
+        c_prev_M2 = c_curr_M2;
+
+        %% Buffer Node
+        a_curr_B = c_curr_M2;
+
+        if a_curr_B >= c_prev_B
+            queue_wait_time(j,5) = 0;
+        else
+            queue_wait_time(j,5) = c_prev_B - a_curr_B;
+        end
+        c_curr_B = a_curr_B + queue_wait_time(j,5) + serv_time_B;
+        wait_time(j,5) = queue_wait_time(j,5) + serv_time_B;
+
+        total_wait_time(j) = total_wait_time(j) + wait_time(j,5);
+
+        c_prev_B = c_curr_B;
+
+        %% Packaging Node
+        a_curr_P = c_curr_B;
+        serv_time_P = random(pd3);
+
+        if a_curr_P >= c_prev_P
+            queue_wait_time(j,6) = 0;
+        else
+            queue_wait_time(j,6) = c_prev_P - a_curr_P;
+        end
+        c_curr_P = a_curr_P + queue_wait_time(j,6) + serv_time_P;
+        wait_time(j,6) = queue_wait_time(j,6) + serv_time_P;
+
+        total_wait_time(j) = total_wait_time(j) + wait_time(j,6);
+
+        c_prev_P = c_curr_P;
+
     end
-    c_curr_D = a_curr_D + queue_wait_time(i,1) + serv_time_D; % calculate completion time
-    wait_time(i,1) = queue_wait_time(i,1) + serv_time_D; % calculate time in system
-    total_wait_time(i) = total_wait_time(i) + wait_time(i,1);
-    
-    a_prev_D = a_curr_D;        % update arrival time
-    c_prev_D = c_curr_D;        % update completion time
-    
-    %% Storage Node
-    a_curr_S = c_curr_D;    % arrival at storage node is same as the departure time from delivery node
-    
-    if a_curr_S >= c_prev_S
-        queue_wait_time(i,2) = 0;
-    else
-        queue_wait_time(i,2) = c_prev_S - a_curr_S;
-    end
-    c_curr_S = a_curr_S + queue_wait_time(i,2) + serv_time_S;
-    wait_time(i,2) = queue_wait_time(i,2) + serv_time_S;
-    
-    total_wait_time(i) = total_wait_time(i) + wait_time(i,2);
-    
-    c_prev_S = c_curr_S;
-    
-    %% Manufacturing Node
-    a_curr_M1 = c_curr_S;
-    serv_time_M1 = random(pd2);
-    
-    if a_curr_M1 >= c_prev_M1
-        mfg_empty_time = mfg_empty_time + (a_curr_M1 - c_prev_M1);
-        queue_wait_time(i,3) = 0;
-    else
-        queue_wait_time(i,3) = c_prev_M1 - a_curr_M1;
-    end
-    c_curr_M1 = a_curr_M1 + queue_wait_time(i,3) + serv_time_M1;
-    wait_time(i,3) = queue_wait_time(i,3) + serv_time_M1;
-    
-    total_wait_time(i) = total_wait_time(i) + wait_time(i,3);
-    
-    c_prev_M1 = c_curr_M1;
-    
-    %% Pseudo Manufacturing Transport Node
-    a_curr_M2 = c_curr_M1;
-    
-    if a_curr_M2 >= c_prev_M2
-        queue_wait_time(i,4) = 0;
-    else
-        queue_wait_time(i,4) = c_prev_M2 - a_curr_M2;
-    end
-    c_curr_M2 = a_curr_M2 + queue_wait_time(i,4) + serv_time_M2;
-    wait_time(i,4) = queue_wait_time(i,4) + serv_time_M1;
-    
-    total_wait_time(i) = total_wait_time(i) + wait_time(i,4);
-    
-    c_prev_M2 = c_curr_M2;
-    
-    %% Buffer Node
-    a_curr_B = c_curr_M2;
-    
-    if a_curr_B >= c_prev_B
-        queue_wait_time(i,5) = 0;
-    else
-        queue_wait_time(i,5) = c_prev_B - a_curr_B;
-    end
-    c_curr_B = a_curr_B + queue_wait_time(i,5) + serv_time_B;
-    wait_time(i,5) = queue_wait_time(i,5) + serv_time_B;
-    
-    total_wait_time(i) = total_wait_time(i) + wait_time(i,5);
-    
-    c_prev_B = c_curr_B;
-    
-    %% Packaging Node
-    a_curr_P = c_curr_B;
-    serv_time_P = random(pd3);
-    
-    if a_curr_P >= c_prev_P
-        queue_wait_time(i,6) = 0;
-    else
-        queue_wait_time(i,6) = c_prev_P - a_curr_P;
-    end
-    c_curr_P = a_curr_P + queue_wait_time(i,6) + serv_time_P;
-    wait_time(i,6) = queue_wait_time(i,6) + serv_time_P;
-    
-    total_wait_time(i) = total_wait_time(i) + wait_time(i,6);
-    
-    c_prev_P = c_curr_P;
-    
+    mean_lead_time(i) = mean(total_wait_time);
+    mean_idle_time(i) = mfg_empty_time/c_curr_P;
+    fprintf('Run %d: Lead Time = %.2f | Idle Time = %.2f \n',i,mean_lead_time(i),mean_idle_time(i));
 end
-lead_time = mean(total_wait_time);
-idle_time = mfg_empty_time/c_curr_P;
-ste = std(total_wait_time)/sqrt(t);
+lead_time = mean(mean_lead_time);
+idle_time = mean(mean_idle_time);
+ste1 = std(mean_lead_time)/sqrt(length(mean_lead_time));
+ste2 = std(mean_idle_time)/sqrt(length(mean_idle_time));
 sim_time = c_curr_P;
 sim_run_time = toc;
+C = cumsum(total_wait_time);
+D = 1:t;
+K = C./D';
 %fprintf('Mean System Lead Time = %0.4f \n',mean(total_wait_time));
 %fprintf('Manufacturing Node Idle Time = %0.4f \n',idle_time);
 %fprintf('Standard Error = %0.4f \n',std(total_wait_time)/sqrt(t));

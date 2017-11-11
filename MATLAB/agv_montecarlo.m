@@ -22,7 +22,7 @@ function varargout = agv_montecarlo(varargin)
 
 % Edit the above text to modify the response to help agv_montecarlo
 
-% Last Modified by GUIDE v2.5 07-Nov-2017 16:47:56
+% Last Modified by GUIDE v2.5 11-Nov-2017 17:42:59
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -59,7 +59,7 @@ guidata(hObject, handles);
 % This sets up the initial plot - only do when we are invisible
 % so window can get raised using agv_montecarlo.
 if strcmp(get(hObject,'Visible'),'off')
-    plot(rand(5));
+    %plot(rand(5));
     xlabel('System Lead Time (h)');
 end
 
@@ -228,17 +228,17 @@ function units_toggle_Callback(hObject, eventdata, handles)
 
 % Hint: get(hObject,'Value') returns toggle state of units_toggle
 lead_time = str2double(get(handles.display_lead_time,'string'));
-ste = str2double(get(handles.display_standard_error,'string'));
+ste = str2double(get(handles.display_standard_error_lead_time,'string'));
 button_state = get(hObject,'Value');
 if button_state == get(handles.units_toggle,'Max')
     set(hObject,'Value',button_state);
 	set(handles.display_lead_time,'string',num2str(lead_time*60));
-    set(handles.display_standard_error,'string',num2str(ste*60));
+    set(handles.display_standard_error_lead_time,'string',num2str(ste*60));
     set(handles.lead_time_text,'string','Mean System Lead Time (min)');
 elseif button_state == get(handles.units_toggle,'Min')
     set(hObject,'Value',button_state);
 	set(handles.display_lead_time,'string',num2str(lead_time/60));
-    set(handles.display_standard_error,'string',num2str(ste/60));
+    set(handles.display_standard_error_lead_time,'string',num2str(ste/60));
     set(handles.lead_time_text,'string','Mean System Lead Time (hours)');
 end
 
@@ -668,7 +668,7 @@ if toggle_button_state
     lead_time_requirement = lead_time_requirement*60;
 end
 
-data_tuple_def = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_rate,pkg_rate,0,0,0,0,lead_time_requirement,idle_time_requirement];
+data_tuple_def = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_rate,pkg_rate,0,0,0,0,0,lead_time_requirement,idle_time_requirement];
 set(handles.data_tuple_default,'Value',data_tuple_def);
 
 lead_time = get(handles.display_lead_time,'String');
@@ -735,6 +735,7 @@ set(handles.arrival,'Enable','off');
 set(handles.manufacturing,'Enable','off');
 set(handles.packaging,'Enable','off');
 set(handles.sim_iterations,'Enable','off');
+set(handles.iterations,'Enable','off');
 pause(0.05);
 
 agv_speed = round(get(handles.speed,'value'),1);
@@ -761,6 +762,7 @@ node_distances(3) = str2double(get(handles.distance_MB,'string'));
 node_distances(4) = str2double(get(handles.distance_BP,'string'));
 
 t = str2double(get(handles.sim_iterations,'string'));
+n = str2double(get(handles.iterations,'string'));
 arrival_rate = str2double(get(handles.arrival,'string'));
 mfg_rate = str2double(get(handles.manufacturing,'string'));
 pkg_rate = str2double(get(handles.packaging,'string'));
@@ -768,20 +770,27 @@ pkg_rate = str2double(get(handles.packaging,'string'));
 lead_time_requirement = str2double(get(handles.lead_time_req,'String'));
 idle_time_requirement = str2double(get(handles.idle_time_req,'String'));
 
-[lead_time, ste, idle_time, total_wait_time, simulation_time, simulation_runtime] = montecarlo(agv_speed,agv_mean_load, agv_count, arrival_rate, node_distances, mfg_rate, pkg_rate, t);
-data_tuple = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_rate,pkg_rate,lead_time,ste,idle_time,t,lead_time_requirement,idle_time_requirement];
+[lead_time, ste1, idle_time, ste2, total_wait_time, simulation_time, simulation_runtime, cumulative_avg] = montecarlo(agv_speed,agv_mean_load, agv_count, arrival_rate, node_distances, mfg_rate, pkg_rate, t, n);
+data_tuple = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_rate,pkg_rate,lead_time,ste1,idle_time,ste2,t,lead_time_requirement,idle_time_requirement];
 set(handles.data_tuple_hidden,'value',data_tuple);
+set(handles.lead_time_hidden,'value',total_wait_time);
+set(handles.cumulative_hidden,'value',cumulative_avg);
+set(handles.lead_time_dist_hidden,'value',total_wait_time);
+set(handles.mean_lead_time_hidden,'value',lead_time);
 
 set(handles.run_sim,'Enable','on');
+set(handles.lead_time_graph,'Enable','on');
+set(handles.cumulative_graph,'Enable','on');
+set(handles.lead_time_dist_graph,'Enable','on');
 set(handles.sim_running_text,'string','Simulation completed!');
 button_state = get(handles.units_toggle,'Value');
 if button_state == get(handles.units_toggle,'Max')
 	set(handles.display_lead_time,'string',num2str(lead_time*60));
-    set(handles.display_standard_error,'string',num2str(ste*60));
+    set(handles.display_standard_error_lead_time,'string',num2str(ste1*60));
     set(handles.lead_time_text,'string','Mean System Lead Time (min)');
 elseif button_state == get(handles.units_toggle,'Min')
 	set(handles.display_lead_time,'string',num2str(lead_time));
-    set(handles.display_standard_error,'string',num2str(ste));
+    set(handles.display_standard_error_lead_time,'string',num2str(ste1));
     set(handles.lead_time_text,'string','Mean System Lead Time (hours)');
 end
 
@@ -795,7 +804,8 @@ end
 
 set(handles.sim_time,'string',['Total Simulation Time: ',num2str(round(simulation_time,2)),' hours']);
 set(handles.display_runtime,'string',['Simulation Runtime: ',num2str(round(simulation_runtime,2)),' seconds']);
-set(handles.display_idle_time,'string',num2str(idle_time));
+set(handles.display_idle_time,'string',num2str(round(idle_time,2)));
+set(handles.display_standard_error_idle_time,'string',num2str(round(ste2,2)));
 set(handles.reset,'Enable','on');
 set(handles.save_result,'Enable','on');
 y1 = hist(total_wait_time,50);
@@ -805,6 +815,7 @@ y2 = linspace(0,1.1*max(y1),20);
 x2 = lead_time*ones(1,length(y2));
 plot(x1,y1,x2,y2)
 xlabel('System Lead Time (h)');
+ylabel('Probability');
 ylim([0 1.1*max(y1)]);
 
 % --- Executes on button press in reset.
@@ -829,13 +840,18 @@ set(handles.arrival,'Enable','on');
 set(handles.manufacturing,'Enable','on');
 set(handles.packaging,'Enable','on');
 set(handles.sim_iterations,'Enable','on');
+set(handles.iterations,'Enable','on');
 set(handles.run_sim,'Enable','on');
 set(handles.reset,'Enable','off');
 set(handles.save_result,'Enable','off');
+set(handles.lead_time_graph,'Enable','off');
+set(handles.cumulative_graph,'Enable','off');
+set(handles.lead_time_dist_graph,'Enable','off');
 
 set(handles.sim_running_text,'string','');
 set(handles.display_lead_time,'string','');
-set(handles.display_standard_error,'string','');
+set(handles.display_standard_error_lead_time,'string','');
+set(handles.display_standard_error_idle_time,'string','');
 set(handles.display_idle_time,'string','');
 set(handles.saved_text,'string','');
 set(handles.sim_time,'string','');
@@ -927,3 +943,65 @@ function idle_time_req_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+
+function iterations_Callback(hObject, eventdata, handles)
+% hObject    handle to iterations (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of iterations as text
+%        str2double(get(hObject,'String')) returns contents of iterations as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function iterations_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to iterations (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on button press in cumulative_graph.
+function cumulative_graph_Callback(hObject, eventdata, handles)
+% hObject    handle to cumulative_graph (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+cumulative_average = get(handles.cumulative_hidden,'value');
+plot(cumulative_average);
+xlabel('Iteration');
+ylabel('Lead Time (h)');
+
+% --- Executes on button press in lead_time_graph.
+function lead_time_graph_Callback(hObject, eventdata, handles)
+% hObject    handle to lead_time_graph (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+lead_time = get(handles.lead_time_hidden,'value');
+plot(lead_time);
+xlabel('Iteration');
+ylabel('Lead Time (h)');
+
+
+% --- Executes on button press in lead_time_dist_graph.
+function lead_time_dist_graph_Callback(hObject, eventdata, handles)
+% hObject    handle to lead_time_dist_graph (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+total_wait_time = get(handles.lead_time_hidden,'value');
+lead_time = get(handles.mean_lead_time_hidden,'value');
+y1 = hist(total_wait_time,50);
+y1 = y1/sum(y1);
+x1 = linspace(0,max(total_wait_time),length(y1));
+y2 = linspace(0,1.1*max(y1),20);
+x2 = lead_time*ones(1,length(y2));
+plot(x1,y1,x2,y2)
+xlabel('System Lead Time (h)');
+ylabel('Probability');
+ylim([0 1.1*max(y1)]);
