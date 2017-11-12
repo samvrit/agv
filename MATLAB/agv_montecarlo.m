@@ -1039,3 +1039,5 @@ set(handles.idle_time_req,'String','50');
 
 set(handles.sim_iterations,'String','10000');
 set(handles.iterations,'String','5');
+
+update_display_mc(hObject,eventdata,handles);

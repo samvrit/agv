@@ -22,7 +22,7 @@ function varargout = agv_analytical(varargin)
 
 % Edit the above text to modify the response to help agv_analytical
 
-% Last Modified by GUIDE v2.5 11-Nov-2017 23:20:14
+% Last Modified by GUIDE v2.5 11-Nov-2017 23:37:22
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -76,8 +76,8 @@ if nargin == 4
     arrival_rate = data_tuple(1,14);
     mfg_rate = data_tuple(1,15);
     pkg_rate = data_tuple(1,16);
-    lead_time_requirement = data_tuple(1,21);
-    idle_time_requirement = data_tuple(1,22);
+    lead_time_requirement = data_tuple(1,22);
+    idle_time_requirement = data_tuple(1,23);
         
     set(handles.speed,'Value',agv_speed);
     set(handles.count_DS,'Value',agv_count(1));
@@ -323,7 +323,7 @@ else
     set(handles.nogo,'String','');
 end
 
-if (lead_time <= lead_time_requirement) && (idle_time <= idle_time_requirement)
+if (lead_time <= lead_time_requirement) && (idle_time <= idle_time_requirement/100)
     set(handles.req_status,'BackgroundColor',[0 1 0]);
     set(handles.req_status,'ForegroundColor',[0 0 0]);
     set(handles.req_status,'String','Requirements met!');
@@ -704,3 +704,5 @@ set(handles.distance_BP,'String','0.04');
 
 set(handles.lead_time_req,'String','0.5');
 set(handles.idle_time_req,'String','50');
+
+update_display(hObject,eventdata,handles);
