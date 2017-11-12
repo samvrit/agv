@@ -855,6 +855,7 @@ set(handles.display_lead_time,'string','');
 set(handles.display_standard_error_lead_time,'string','');
 set(handles.display_standard_error_idle_time,'string','');
 set(handles.display_idle_time,'string','');
+set(handles.display_runtime,'string','');
 set(handles.saved_text,'string','');
 set(handles.sim_time,'string','');
 
