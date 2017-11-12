@@ -22,7 +22,7 @@ function varargout = agv_analytical(varargin)
 
 % Edit the above text to modify the response to help agv_analytical
 
-% Last Modified by GUIDE v2.5 07-Nov-2017 16:43:39
+% Last Modified by GUIDE v2.5 11-Nov-2017 23:20:14
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -306,7 +306,7 @@ elseif button_state == get(handles.units_toggle,'Min')
 	set(handles.display_lead_time,'string',num2str(lead_time));
     set(handles.lead_time_text,'string','System Lead Time (hours)');
 end
-set(handles.display_idle_time,'string',num2str(idle_time));
+set(handles.display_idle_time,'string',num2str(idle_time*100));
 
 % Display a green box when system is stable, and a red box when system is
 % unstable
@@ -675,3 +675,32 @@ function idle_time_req_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes on button press in reset_inputs.
+function reset_inputs_Callback(hObject, eventdata, handles)
+% hObject    handle to reset_inputs (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+set(handles.speed,'Value',4.9);
+set(handles.count_DS,'Value',10);
+set(handles.count_SM,'Value',11);
+set(handles.count_MB,'Value',15);
+set(handles.count_BP,'Value',16);
+
+set(handles.load_DS,'String','1');
+set(handles.load_SM,'String','1');
+set(handles.load_MB,'String','1');
+set(handles.load_BP,'String','1');
+
+set(handles.arrival,'String','200');
+set(handles.manufacturing,'String','300');
+set(handles.packaging,'String','600');
+
+set(handles.distance_DS,'String','0.04');
+set(handles.distance_SM,'String','0.04');
+set(handles.distance_MB,'String','0.04');
+set(handles.distance_BP,'String','0.04');
+
+set(handles.lead_time_req,'String','0.5');
+set(handles.idle_time_req,'String','50');

@@ -22,7 +22,7 @@ function varargout = agv_montecarlo(varargin)
 
 % Edit the above text to modify the response to help agv_montecarlo
 
-% Last Modified by GUIDE v2.5 11-Nov-2017 17:42:59
+% Last Modified by GUIDE v2.5 11-Nov-2017 23:22:46
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -232,13 +232,13 @@ ste = str2double(get(handles.display_standard_error_lead_time,'string'));
 button_state = get(hObject,'Value');
 if button_state == get(handles.units_toggle,'Max')
     set(hObject,'Value',button_state);
-	set(handles.display_lead_time,'string',num2str(lead_time*60));
-    set(handles.display_standard_error_lead_time,'string',num2str(ste*60));
+	set(handles.display_lead_time,'string',num2str(round(lead_time*60,2)));
+    set(handles.display_standard_error_lead_time,'string',num2str(round(ste*60,2)));
     set(handles.lead_time_text,'string','Mean System Lead Time (min)');
 elseif button_state == get(handles.units_toggle,'Min')
     set(hObject,'Value',button_state);
-	set(handles.display_lead_time,'string',num2str(lead_time/60));
-    set(handles.display_standard_error_lead_time,'string',num2str(ste/60));
+	set(handles.display_lead_time,'string',num2str(round(lead_time/60,2)));
+    set(handles.display_standard_error_lead_time,'string',num2str(round(ste/60,2)));
     set(handles.lead_time_text,'string','Mean System Lead Time (hours)');
 end
 
@@ -736,6 +736,7 @@ set(handles.manufacturing,'Enable','off');
 set(handles.packaging,'Enable','off');
 set(handles.sim_iterations,'Enable','off');
 set(handles.iterations,'Enable','off');
+set(handles.reset_inputs,'Enable','off');
 pause(0.05);
 
 agv_speed = round(get(handles.speed,'value'),1);
@@ -785,12 +786,12 @@ set(handles.lead_time_dist_graph,'Enable','on');
 set(handles.sim_running_text,'string','Simulation completed!');
 button_state = get(handles.units_toggle,'Value');
 if button_state == get(handles.units_toggle,'Max')
-	set(handles.display_lead_time,'string',num2str(lead_time*60));
-    set(handles.display_standard_error_lead_time,'string',num2str(ste1*60));
+	set(handles.display_lead_time,'string',num2str(round(lead_time*60,2)));
+    set(handles.display_standard_error_lead_time,'string',num2str(round(ste1*60,2)));
     set(handles.lead_time_text,'string','Mean System Lead Time (min)');
 elseif button_state == get(handles.units_toggle,'Min')
-	set(handles.display_lead_time,'string',num2str(lead_time));
-    set(handles.display_standard_error_lead_time,'string',num2str(ste1));
+	set(handles.display_lead_time,'string',num2str(round(lead_time,2)));
+    set(handles.display_standard_error_lead_time,'string',num2str(round(ste1,2)));
     set(handles.lead_time_text,'string','Mean System Lead Time (hours)');
 end
 
@@ -804,8 +805,8 @@ end
 
 set(handles.sim_time,'string',['Total Simulation Time: ',num2str(round(simulation_time,2)),' hours']);
 set(handles.display_runtime,'string',['Simulation Runtime: ',num2str(round(simulation_runtime,2)),' seconds']);
-set(handles.display_idle_time,'string',num2str(round(idle_time,2)));
-set(handles.display_standard_error_idle_time,'string',num2str(round(ste2,2)));
+set(handles.display_idle_time,'string',num2str(round(idle_time*100,2)));
+set(handles.display_standard_error_idle_time,'string',num2str(round(ste2*100,2)));
 set(handles.reset,'Enable','on');
 set(handles.save_result,'Enable','on');
 y1 = hist(total_wait_time,50);
@@ -842,6 +843,7 @@ set(handles.packaging,'Enable','on');
 set(handles.sim_iterations,'Enable','on');
 set(handles.iterations,'Enable','on');
 set(handles.run_sim,'Enable','on');
+set(handles.reset_inputs,'Enable','on');
 set(handles.reset,'Enable','off');
 set(handles.save_result,'Enable','off');
 set(handles.lead_time_graph,'Enable','off');
@@ -1005,3 +1007,35 @@ plot(x1,y1,x2,y2)
 xlabel('System Lead Time (h)');
 ylabel('Probability');
 ylim([0 1.1*max(y1)]);
+
+
+% --- Executes on button press in reset_inputs.
+function reset_inputs_Callback(hObject, eventdata, handles)
+% hObject    handle to reset_inputs (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+set(handles.speed,'Value',4.9);
+set(handles.count_DS,'Value',10);
+set(handles.count_SM,'Value',11);
+set(handles.count_MB,'Value',15);
+set(handles.count_BP,'Value',16);
+
+set(handles.load_DS,'String','1');
+set(handles.load_SM,'String','1');
+set(handles.load_MB,'String','1');
+set(handles.load_BP,'String','1');
+
+set(handles.arrival,'String','200');
+set(handles.manufacturing,'String','300');
+set(handles.packaging,'String','600');
+
+set(handles.distance_DS,'String','0.04');
+set(handles.distance_SM,'String','0.04');
+set(handles.distance_MB,'String','0.04');
+set(handles.distance_BP,'String','0.04');
+
+set(handles.lead_time_req,'String','0.5');
+set(handles.idle_time_req,'String','50');
+
+set(handles.sim_iterations,'String','10000');
+set(handles.iterations,'String','5');
