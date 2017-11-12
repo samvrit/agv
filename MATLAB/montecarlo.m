@@ -176,7 +176,7 @@ for i = 1:n
     end
     mean_lead_time(i) = mean(total_wait_time);
     mean_idle_time(i) = mfg_empty_time/c_curr_P;
-    fprintf('Run %d: Lead Time = %.2f | Idle Time = %.2f \n',i,mean_lead_time(i),mean_idle_time(i));
+    % fprintf('Run %d: Lead Time = %.2f | Idle Time = %.2f \n',i,mean_lead_time(i),mean_idle_time(i));
 end
 lead_time = mean(mean_lead_time);
 idle_time = mean(mean_idle_time);
