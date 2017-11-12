@@ -717,6 +717,7 @@ function run_sim_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 set(handles.run_sim,'Enable','off');
+set(handles.save_result,'Enable','off');
 set(handles.sim_running_text,'string','Running Simulation');
 set(handles.speed,'Enable','off');
 set(handles.count_DS,'Enable','off');
@@ -737,6 +738,21 @@ set(handles.packaging,'Enable','off');
 set(handles.sim_iterations,'Enable','off');
 set(handles.iterations,'Enable','off');
 set(handles.reset_inputs,'Enable','off');
+set(handles.lead_time_req,'Enable','off');
+set(handles.idle_time_req,'Enable','off');
+
+set(handles.display_lead_time,'string','');
+set(handles.display_standard_error_lead_time,'string','');
+set(handles.sim_time,'string','');
+set(handles.display_runtime,'string','');
+set(handles.display_idle_time,'string','');
+set(handles.display_standard_error_idle_time,'string','');
+
+set(handles.req_status,'BackgroundColor',[0.94 0.94 0.94]);
+set(handles.req_status,'String','');
+
+cla
+
 pause(0.05);
 
 agv_speed = round(get(handles.speed,'value'),1);
@@ -780,9 +796,13 @@ set(handles.lead_time_dist_hidden,'value',total_wait_time);
 set(handles.mean_lead_time_hidden,'value',lead_time);
 
 set(handles.run_sim,'Enable','on');
+set(handles.save_result,'Enable','on');
 set(handles.lead_time_graph,'Enable','on');
 set(handles.cumulative_graph,'Enable','on');
 set(handles.lead_time_dist_graph,'Enable','on');
+set(handles.lead_time_req,'Enable','on');
+set(handles.idle_time_req,'Enable','on');
+
 set(handles.sim_running_text,'string','Simulation completed!');
 button_state = get(handles.units_toggle,'Value');
 if button_state == get(handles.units_toggle,'Max')
