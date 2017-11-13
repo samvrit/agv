@@ -76,8 +76,8 @@ if nargin == 4
     arrival_rate = data_tuple(1,14);
     mfg_rate = data_tuple(1,15);
     pkg_rate = data_tuple(1,16);
-    lead_time_requirement = data_tuple(1,22);
-    idle_time_requirement = data_tuple(1,23);
+    lead_time_requirement = data_tuple(1,23);
+    idle_time_requirement = data_tuple(1,24);
         
     set(handles.speed,'Value',agv_speed);
     set(handles.count_DS,'Value',agv_count(1));

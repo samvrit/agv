@@ -217,7 +217,10 @@ A = xlsread('results_montecarlo.xlsx');
 end_index = size(A,1);
 write_index = end_index+2;  % 2 is added to account for the Headings row
 data_tuple = get(handles.data_tuple_hidden,'value');
-xlswrite('results_montecarlo.xlsx',data_tuple,['A',num2str(write_index),':T',num2str(write_index)]);
+Alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+data_tuple_length = length(data_tuple);
+end_column = Alphabet(data_tuple_length);
+xlswrite('results_montecarlo.xlsx',data_tuple,['A',num2str(write_index),':',end_column,num2str(write_index)]);
 set(handles.saved_text,'string','Saved!'); % enable the button after action is performed
 
 % --- Executes on button press in units_toggle.
@@ -668,7 +671,7 @@ if toggle_button_state
     lead_time_requirement = lead_time_requirement*60;
 end
 
-data_tuple_def = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_rate,pkg_rate,0,0,0,0,0,lead_time_requirement,idle_time_requirement];
+data_tuple_def = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_rate,pkg_rate,0,0,0,0,0,0,lead_time_requirement,idle_time_requirement];
 set(handles.data_tuple_default,'Value',data_tuple_def);
 
 lead_time = get(handles.display_lead_time,'String');
@@ -788,7 +791,7 @@ lead_time_requirement = str2double(get(handles.lead_time_req,'String'));
 idle_time_requirement = str2double(get(handles.idle_time_req,'String'));
 
 [lead_time, ste1, idle_time, ste2, total_wait_time, simulation_time, simulation_runtime, cumulative_avg] = montecarlo(agv_speed,agv_mean_load, agv_count, arrival_rate, node_distances, mfg_rate, pkg_rate, t, n);
-data_tuple = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_rate,pkg_rate,lead_time,ste1,idle_time,ste2,t,lead_time_requirement,idle_time_requirement];
+data_tuple = [agv_speed,agv_count,agv_mean_load,node_distances,arrival_rate,mfg_rate,pkg_rate,lead_time,ste1,idle_time,ste2,t,n,lead_time_requirement,idle_time_requirement];
 set(handles.data_tuple_hidden,'value',data_tuple);
 set(handles.lead_time_hidden,'value',total_wait_time);
 set(handles.cumulative_hidden,'value',cumulative_avg);
