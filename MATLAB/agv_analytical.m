@@ -300,13 +300,13 @@ set(handles.display_data_table,'data',data_table);
 % Read the toggle button status to switch between output units for System Lead Time
 button_state = get(handles.units_toggle,'Value');
 if button_state == get(handles.units_toggle,'Max')
-	set(handles.display_lead_time,'string',num2str(lead_time*60));
+	set(handles.display_lead_time,'string',num2str(round(lead_time*60,3)));
     set(handles.lead_time_text,'string','System Lead Time (min)');
 elseif button_state == get(handles.units_toggle,'Min')
-	set(handles.display_lead_time,'string',num2str(lead_time));
+	set(handles.display_lead_time,'string',num2str(round(lead_time,3)));
     set(handles.lead_time_text,'string','System Lead Time (hours)');
 end
-set(handles.display_idle_time,'string',num2str(idle_time*100));
+set(handles.display_idle_time,'string',num2str(round(idle_time*100,2)));
 
 % Display a green box when system is stable, and a red box when system is
 % unstable

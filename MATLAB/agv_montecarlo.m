@@ -99,6 +99,17 @@ if nargin == 4
     set(handles.lead_time_req,'String',num2str(lead_time_requirement));
     set(handles.idle_time_req,'String',num2str(idle_time_requirement));
 end
+
+if get(handles.lead_time_hidden,'Value') ~= 0
+    lead_time = get(handles.lead_time_hidden,'Value');
+    button_state = get(handles.units_toggle,'Value');
+    if(button_state)
+        set(handles.display_lead_time,'String',num2str(round(lead_time*60,3)));
+    else
+        set(handles.display_lead_time,'String',num2str(round(lead_time,3)));
+    end
+end
+
 % UIWAIT makes agv_montecarlo wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 handles.timer = timer(...
@@ -240,8 +251,8 @@ if button_state == get(handles.units_toggle,'Max')
     set(handles.lead_time_text,'string','Mean System Lead Time (min)');
 elseif button_state == get(handles.units_toggle,'Min')
     set(hObject,'Value',button_state);
-	set(handles.display_lead_time,'string',num2str(round(lead_time/60,2)));
-    set(handles.display_standard_error_lead_time,'string',num2str(round(ste/60,2)));
+	set(handles.display_lead_time,'string',num2str(round(lead_time/60,3)));
+    set(handles.display_standard_error_lead_time,'string',num2str(round(ste/60,3)));
     set(handles.lead_time_text,'string','Mean System Lead Time (hours)');
 end
 
@@ -813,8 +824,8 @@ if button_state == get(handles.units_toggle,'Max')
     set(handles.display_standard_error_lead_time,'string',num2str(round(ste1*60,2)));
     set(handles.lead_time_text,'string','Mean System Lead Time (min)');
 elseif button_state == get(handles.units_toggle,'Min')
-	set(handles.display_lead_time,'string',num2str(round(lead_time,2)));
-    set(handles.display_standard_error_lead_time,'string',num2str(round(ste1,2)));
+	set(handles.display_lead_time,'string',num2str(round(lead_time,3)));
+    set(handles.display_standard_error_lead_time,'string',num2str(round(ste1,3)));
     set(handles.lead_time_text,'string','Mean System Lead Time (hours)');
 end
 
