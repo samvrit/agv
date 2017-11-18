@@ -1,5 +1,6 @@
-A = xlsread('results_analytical.xlsx','Test Cases');
-n = length(A);
+filename = 'results_analytical.xlsx';
+A = xlsread(filename,'Test Cases');
+n = size(A,1);
 idle_time = zeros(1,n);
 lead_time = zeros(1,n);
 data_tuple = zeros(n,18);
@@ -14,6 +15,7 @@ for i = 1:n
     [~, lead_time(i), idle_time(i)] = agv_plant(agv_speed, ...
           agv_mean_load, agv_count, arrival_rate, node_distances, ...
           mfg_rate, pkg_rate);
+    fprintf('Row %d \n',i);
     data_tuple(i,:) = [agv_speed, agv_count, agv_mean_load, node_distances, arrival_rate, mfg_rate, pkg_rate, lead_time(i), idle_time(i)];
 end
-xlswrite('results_analytical.xlsx',data_tuple,'Results','A2');
+xlswrite(filename,data_tuple,'Results','A2');

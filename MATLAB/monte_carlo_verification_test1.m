@@ -1,4 +1,5 @@
-A = xlsread('results_montecarlo.xlsx','Test Cases');    % read the test cases
+filename = 'results_montecarlo.xlsx';
+A = xlsread(filename,'Test Cases');    % read the test cases
 n = size(A,1);  % get the size of the test case table
 idle_time = zeros(1,n); % initialize variables
 ste1 = zeros(1,n);
@@ -15,9 +16,10 @@ for i = 1:size(A,1)
     node_distances = A(i,10:13);
     mfg_rate = A(i,15);
     pkg_rate = A(i,16);
-    [lead_time(i), ste1(i), idle_time(i), ste2(i), ~, ~, ~, ~] = montecarlo(agv_speed, ...
+    [lead_time(i), ste1(i), idle_time(i), ste2(i), ~, ~, sim_time, ~] = montecarlo(agv_speed, ...
           agv_mean_load, agv_count, arrival_rate, node_distances, ...
           mfg_rate, pkg_rate, t, nn);   % call the monte carlo function with the parameters
+    fprintf('Run %d | Runtime: %.2f \n',i,sim_time);
     data_tuple(i,:) = [agv_speed, agv_count, agv_mean_load, node_distances, arrival_rate, mfg_rate, pkg_rate, lead_time(i), ste1(i), idle_time(i), ste2(i), t, nn]; % store all the data in a data tuple
 end
-xlswrite('results_montecarlo.xlsx',data_tuple,'Results','A2');  % write the data in the data tuple
+xlswrite(filename,data_tuple,'Results','A2');  % write the data in the data tuple
