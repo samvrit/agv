@@ -63,7 +63,14 @@ if strcmp(get(hObject,'Visible'),'off')
     xlabel('System Lead Time (h)');
 end
 
-set(handles.display_lead_time,'String','');
+% clear the display_lead_time field only when not switched from the
+% analytical model
+if get(handles.lead_time_hidden,'Value') == 0
+    set(handles.display_lead_time,'String','');
+end
+
+% if arguments are passed from the analytical model, read them and process
+% them
 if nargin == 4
     data_tuple = varargin{1};
     agv_speed = data_tuple(1,1);
@@ -100,15 +107,6 @@ if nargin == 4
     set(handles.idle_time_req,'String',num2str(idle_time_requirement));
 end
 
-if get(handles.lead_time_hidden,'Value') ~= 0
-    lead_time = get(handles.lead_time_hidden,'Value');
-    button_state = get(handles.units_toggle,'Value');
-    if(button_state)
-        set(handles.display_lead_time,'String',num2str(round(lead_time*60,3)));
-    else
-        set(handles.display_lead_time,'String',num2str(round(lead_time,3)));
-    end
-end
 
 % UIWAIT makes agv_montecarlo wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
