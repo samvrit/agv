@@ -19,7 +19,7 @@ for i = 1:size(A,1)
     [lead_time(i), ste1(i), idle_time(i), ste2(i), ~, ~, sim_time, ~] = montecarlo(agv_speed, ...
           agv_mean_load, agv_count, arrival_rate, node_distances, ...
           mfg_rate, pkg_rate, t, nn);   % call the monte carlo function with the parameters
-    fprintf('Run %d | Runtime: %.2f \n',i,sim_time);
+    % fprintf('Run %d | Runtime: %.2f \n',i,sim_time);
     data_tuple(i,:) = [agv_speed, agv_count, agv_mean_load, node_distances, arrival_rate, mfg_rate, pkg_rate, lead_time(i), ste1(i), idle_time(i), ste2(i), t, nn]; % store all the data in a data tuple
 end
 xlswrite(filename,data_tuple,'Results','A2');  % write the data in the data tuple

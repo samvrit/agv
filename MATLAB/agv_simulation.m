@@ -22,7 +22,7 @@ function varargout = agv_simulation(varargin)
 
 % Edit the above text to modify the response to help agv_simulation
 
-% Last Modified by GUIDE v2.5 05-Nov-2017 18:12:44
+% Last Modified by GUIDE v2.5 18-Nov-2017 23:28:51
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -90,3 +90,18 @@ function montecarlo_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 agv_montecarlo
 % close(handles.figure1);
+
+
+% --- Executes on button press in sensitivity.
+function sensitivity_Callback(hObject, eventdata, handles)
+% hObject    handle to sensitivity (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+sensitivity_analysis
+
+% --- Executes on button press in tradeoff.
+function tradeoff_Callback(hObject, eventdata, handles)
+% hObject    handle to tradeoff (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+tradeoff_analysis
