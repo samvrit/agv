@@ -19,3 +19,4 @@ for i = 1:n
     data_tuple(i,:) = [agv_speed, agv_count, agv_mean_load, node_distances, arrival_rate, mfg_rate, pkg_rate, lead_time(i), idle_time(i)];
 end
 xlswrite(filename,data_tuple,'Results','A2');
+winopen(filename);
