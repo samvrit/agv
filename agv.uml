@@ -898,6 +898,7 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_7HyOAtP6EeeO2erEiVW5rQ" name="agv config 1" type="_3WyooNP6EeeO2erEiVW5rQ" aggregation="composite" association="_7Hxm8NP6EeeO2erEiVW5rQ"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_7Sm98tP6EeeO2erEiVW5rQ" name="agv config 2" type="_3iosQNP6EeeO2erEiVW5rQ" aggregation="composite" association="_7Slv0NP6EeeO2erEiVW5rQ"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_7cnOgtP6EeeO2erEiVW5rQ" name="agv config 3" type="_9Pq9ANP5EeeO2erEiVW5rQ" aggregation="composite" association="_7cmncNP6EeeO2erEiVW5rQ"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_C6QkcNP-EeeO2erEiVW5rQ" name="Performs tradeoff analysis"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_9Pq9ANP5EeeO2erEiVW5rQ" name="AGV Config 3"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_3WyooNP6EeeO2erEiVW5rQ" name="AGV Config 1"/>

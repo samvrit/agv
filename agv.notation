@@ -4409,6 +4409,10 @@
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_43CI2dP5EeeO2erEiVW5rQ"/>
       </children>
       <children xmi:type="notation:BasicCompartment" xmi:id="_43CI2tP5EeeO2erEiVW5rQ" type="Class_OperationCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_C7QqANP-EeeO2erEiVW5rQ" type="Operation_ClassOperationLabel">
+          <element xmi:type="uml:Operation" href="agv.uml#_C6QkcNP-EeeO2erEiVW5rQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_C7QqAdP-EeeO2erEiVW5rQ"/>
+        </children>
         <styles xmi:type="notation:TitleStyle" xmi:id="_43CI29P5EeeO2erEiVW5rQ"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_43CI3NP5EeeO2erEiVW5rQ"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_43CI3dP5EeeO2erEiVW5rQ"/>
