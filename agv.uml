@@ -150,6 +150,11 @@
         <ownedOperation xmi:type="uml:Operation" xmi:id="_2UetcJyLEeedDad2B7fIyQ" name="sinulate_agv_system"/>
       </nestedClassifier>
       <nestedClassifier xmi:type="uml:Class" xmi:id="_E2-YcJyKEeedDad2B7fIyQ" name="Monte Carlo Model">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_CzxGcNP0EeeO2erEiVW5rQ" name="copyof_delivery node module_1" type="_pWI1gNPzEeeO2erEiVW5rQ" aggregation="composite" association="_CzsN8NP0EeeO2erEiVW5rQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Dd7dwNP0EeeO2erEiVW5rQ" name="copyof_storage node module_1" type="_vrE-VdPzEeeO2erEiVW5rQ" aggregation="composite" association="_Dd6PoNP0EeeO2erEiVW5rQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_Dvw0otP0EeeO2erEiVW5rQ" name="copyof_mechanical node module_1" type="_vrDwMNPzEeeO2erEiVW5rQ" aggregation="composite" association="_DvwNkNP0EeeO2erEiVW5rQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_EAZRotP0EeeO2erEiVW5rQ" name="copyof_buffer node module_1" type="_vrE-UNPzEeeO2erEiVW5rQ" aggregation="composite" association="_EAYqkNP0EeeO2erEiVW5rQ"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_EQAa8tP0EeeO2erEiVW5rQ" name="copyof_packaging_node module_1" type="_vrEXQNPzEeeO2erEiVW5rQ" aggregation="composite" association="_EP_z4NP0EeeO2erEiVW5rQ"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_I9B88JyMEeedDad2B7fIyQ" name="perform_MC_computations"/>
       </nestedClassifier>
       <nestedClassifier xmi:type="uml:Class" xmi:id="_FMofYJyKEeedDad2B7fIyQ" name="Analytical Model">
@@ -589,7 +594,10 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_3ZFz8J_fEeeuG9DwRy2O0A" name="distance_d_bp"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_V0AeQJ_gEeeuG9DwRy2O0A" name="num_of_agvs__bp"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_lBYPEJ_aEeeuG9DwRy2O0A" name="Packaging_Node Module"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_lBYPEJ_aEeeuG9DwRy2O0A" name="Packaging_Node Module">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_RxYAINPyEeeO2erEiVW5rQ" name="arrival_rate_p"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_bXrMANPyEeeO2erEiVW5rQ" name="service_rate_mu_p"/>
+    </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_rdog0J_aEeeuG9DwRy2O0A" memberEnd="_rdpH4p_aEeeuG9DwRy2O0A _rdpH45_aEeeuG9DwRy2O0A">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rdpH4J_aEeeuG9DwRy2O0A" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rdpH4Z_aEeeuG9DwRy2O0A" key="nature" value="UML_Nature"/>
@@ -813,6 +821,65 @@
       <node xmi:type="uml:OpaqueAction" xmi:id="_HwXe8KMCEeeiSPQMJOQDHg" name="Tabulate Results" incoming="_SdoS4KMCEeeiSPQMJOQDHg" outgoing="_TUykYKMCEeeiSPQMJOQDHg" inPartition="_WlDQsKMBEeeiSPQMJOQDHg"/>
       <node xmi:type="uml:FlowFinalNode" xmi:id="_Jj7HQKMCEeeiSPQMJOQDHg" name="Stop" incoming="_TUykYKMCEeeiSPQMJOQDHg" inPartition="_WlDQsKMBEeeiSPQMJOQDHg"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_pWI1gNPzEeeO2erEiVW5rQ" name="CopyOf_Delivery Node Module_1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_pWI1gdPzEeeO2erEiVW5rQ" name="arrival_rate__lamda_d"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_pWI1gtPzEeeO2erEiVW5rQ" name="service_rate__mu_ds"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_pWI1g9PzEeeO2erEiVW5rQ" name="distance__d_ds"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_pWI1hNPzEeeO2erEiVW5rQ" name="num_of_agvs__n_ds"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_vrDwMNPzEeeO2erEiVW5rQ" name="CopyOf_Mechanical Node Module_1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vrDwMdPzEeeO2erEiVW5rQ" name="lambda_sm"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vrDwMtPzEeeO2erEiVW5rQ" name="mu_m"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vrDwM9PzEeeO2erEiVW5rQ" name="lambda_mb"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vrDwNNPzEeeO2erEiVW5rQ" name="mu_mb"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vrDwNdPzEeeO2erEiVW5rQ" name="n_mb"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_vrEXQNPzEeeO2erEiVW5rQ" name="CopyOf_Packaging_Node Module_1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vrEXQdPzEeeO2erEiVW5rQ" name="arrival_rate_p"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vrEXQtPzEeeO2erEiVW5rQ" name="service_rate_mu_p"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_vrE-UNPzEeeO2erEiVW5rQ" name="CopyOf_Buffer Node Module_1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vrE-UdPzEeeO2erEiVW5rQ" name="arrival rate__lambda_b"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vrE-UtPzEeeO2erEiVW5rQ" name="service_rate__mu_bp"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vrE-U9PzEeeO2erEiVW5rQ" name="distance_d_bp"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vrE-VNPzEeeO2erEiVW5rQ" name="num_of_agvs__bp"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_vrE-VdPzEeeO2erEiVW5rQ" name="CopyOf_Storage Node Module_1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vrE-VtPzEeeO2erEiVW5rQ" name="arrival_rate__lamda_s"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vrE-V9PzEeeO2erEiVW5rQ" name="service_rate__mu_sm"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vrE-WNPzEeeO2erEiVW5rQ" name="distance__d_sm"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vrE-WdPzEeeO2erEiVW5rQ" name="num_of_agvs__n_sm"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_CzsN8NP0EeeO2erEiVW5rQ" memberEnd="_CzxGcNP0EeeO2erEiVW5rQ _CzxtgNP0EeeO2erEiVW5rQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CzvRQNP0EeeO2erEiVW5rQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Czv4UNP0EeeO2erEiVW5rQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_CzxtgNP0EeeO2erEiVW5rQ" name="monte carlo model" type="_E2-YcJyKEeedDad2B7fIyQ" association="_CzsN8NP0EeeO2erEiVW5rQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Dd6PoNP0EeeO2erEiVW5rQ" memberEnd="_Dd7dwNP0EeeO2erEiVW5rQ _Dd7dwdP0EeeO2erEiVW5rQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Dd62sNP0EeeO2erEiVW5rQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Dd62sdP0EeeO2erEiVW5rQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Dd7dwdP0EeeO2erEiVW5rQ" name="monte carlo model" type="_E2-YcJyKEeedDad2B7fIyQ" association="_Dd6PoNP0EeeO2erEiVW5rQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_DvwNkNP0EeeO2erEiVW5rQ" memberEnd="_Dvw0otP0EeeO2erEiVW5rQ _Dvw0o9P0EeeO2erEiVW5rQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Dvw0oNP0EeeO2erEiVW5rQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Dvw0odP0EeeO2erEiVW5rQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Dvw0o9P0EeeO2erEiVW5rQ" name="monte carlo model" type="_E2-YcJyKEeedDad2B7fIyQ" association="_DvwNkNP0EeeO2erEiVW5rQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_EAYqkNP0EeeO2erEiVW5rQ" memberEnd="_EAZRotP0EeeO2erEiVW5rQ _EAZ4sNP0EeeO2erEiVW5rQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EAZRoNP0EeeO2erEiVW5rQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EAZRodP0EeeO2erEiVW5rQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_EAZ4sNP0EeeO2erEiVW5rQ" name="monte carlo model" type="_E2-YcJyKEeedDad2B7fIyQ" association="_EAYqkNP0EeeO2erEiVW5rQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_EP_z4NP0EeeO2erEiVW5rQ" memberEnd="_EQAa8tP0EeeO2erEiVW5rQ _EQBCANP0EeeO2erEiVW5rQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EQAa8NP0EeeO2erEiVW5rQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EQAa8dP0EeeO2erEiVW5rQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_EQBCANP0EeeO2erEiVW5rQ" name="monte carlo model" type="_E2-YcJyKEeedDad2B7fIyQ" association="_EP_z4NP0EeeO2erEiVW5rQ"/>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_pPeLAJmWEeeRmJXlhU4K0Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pPnU8JmWEeeRmJXlhU4K0Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#/"/>
@@ -948,4 +1015,9 @@
   <Blocks:Block xmi:id="_LvEEEKGMEeelW6TDoKSA3w" base_Class="_Lu6TEKGMEeelW6TDoKSA3w"/>
   <Blocks:Block xmi:id="_XtRigKGMEeelW6TDoKSA3w" base_Class="_XtIYkKGMEeelW6TDoKSA3w"/>
   <Blocks:Block xmi:id="_m63uEKGMEeelW6TDoKSA3w" base_Class="_m6t9EKGMEeelW6TDoKSA3w"/>
+  <Blocks:Block xmi:id="_pWR_cNPzEeeO2erEiVW5rQ" base_Class="_pWI1gNPzEeeO2erEiVW5rQ"/>
+  <Blocks:Block xmi:id="_vrKd4NPzEeeO2erEiVW5rQ" base_Class="_vrEXQNPzEeeO2erEiVW5rQ"/>
+  <Blocks:Block xmi:id="_vrZHYNPzEeeO2erEiVW5rQ" base_Class="_vrDwMNPzEeeO2erEiVW5rQ"/>
+  <Blocks:Block xmi:id="_vrl7sNPzEeeO2erEiVW5rQ" base_Class="_vrE-UNPzEeeO2erEiVW5rQ"/>
+  <Blocks:Block xmi:id="_vrywANPzEeeO2erEiVW5rQ" base_Class="_vrE-VdPzEeeO2erEiVW5rQ"/>
 </xmi:XMI>
