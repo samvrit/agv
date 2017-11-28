@@ -140,13 +140,9 @@
         <ownedAttribute xmi:type="uml:Property" xmi:id="_IWHhI51AEeeT4te6romiIA" name="node service rates" type="_F5zPsJ1AEeeT4te6romiIA" aggregation="composite" association="_IWHhIJ1AEeeT4te6romiIA"/>
       </nestedClassifier>
       <nestedClassifier xmi:type="uml:Class" xmi:id="_ESwREJyKEeedDad2B7fIyQ" name="AGV System Simulation">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_yctnI5yKEeedDad2B7fIyQ" type="_FMofYJyKEeedDad2B7fIyQ" aggregation="composite" association="_yctnIJyKEeedDad2B7fIyQ"/>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_yp_1MpyKEeedDad2B7fIyQ" type="_E2-YcJyKEeedDad2B7fIyQ" aggregation="composite" association="_yp9Y8JyKEeedDad2B7fIyQ">
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qhLegJyLEeedDad2B7fIyQ" value="1"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qhQXAJyLEeedDad2B7fIyQ" value="1"/>
-        </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_heMOQp0_EeeT4te6romiIA" name="timesteps" type="_eZMzQJ0_EeeT4te6romiIA" aggregation="composite" association="_hd5TUJ0_EeeT4te6romiIA"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_9Nyh0J0_EeeT4te6romiIA" name="agv parameters" type="_7t1yAJ0_EeeT4te6romiIA" aggregation="composite" association="_9Now0J0_EeeT4te6romiIA"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_YIb2ktP3EeeO2erEiVW5rQ" name="main program" type="_PIankNP3EeeO2erEiVW5rQ" aggregation="composite" association="_YIbPgNP3EeeO2erEiVW5rQ"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_2UetcJyLEeedDad2B7fIyQ" name="sinulate_agv_system"/>
       </nestedClassifier>
       <nestedClassifier xmi:type="uml:Class" xmi:id="_E2-YcJyKEeedDad2B7fIyQ" name="Monte Carlo Model">
@@ -419,18 +415,6 @@
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_yK2bEZyKEeedDad2B7fIyQ" key="nature" value="UML_Nature"/>
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_yK2bE5yKEeedDad2B7fIyQ" type="_OfJMkJyKEeedDad2B7fIyQ" association="_yKz-0JyKEeedDad2B7fIyQ"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_yctnIJyKEeedDad2B7fIyQ" memberEnd="_yctnI5yKEeedDad2B7fIyQ _ycwDYJyKEeedDad2B7fIyQ">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_yctnIZyKEeedDad2B7fIyQ" source="org.eclipse.papyrus">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_yctnIpyKEeedDad2B7fIyQ" key="nature" value="UML_Nature"/>
-      </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_ycwDYJyKEeedDad2B7fIyQ" type="_ESwREJyKEeedDad2B7fIyQ" association="_yctnIJyKEeedDad2B7fIyQ"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_yp9Y8JyKEeedDad2B7fIyQ" memberEnd="_yp_1MpyKEeedDad2B7fIyQ _yp_1M5yKEeedDad2B7fIyQ">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_yp_1MJyKEeedDad2B7fIyQ" source="org.eclipse.papyrus">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_yp_1MZyKEeedDad2B7fIyQ" key="nature" value="UML_Nature"/>
-      </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_yp_1M5yKEeedDad2B7fIyQ" type="_ESwREJyKEeedDad2B7fIyQ" association="_yp9Y8JyKEeedDad2B7fIyQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Actor" xmi:id="_zwqiUJyKEeedDad2B7fIyQ" name="Actor1"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_0YrkkJyKEeedDad2B7fIyQ" name="Facilty Planner" memberEnd="_0Yrkk5yKEeedDad2B7fIyQ _0YrklJyKEeedDad2B7fIyQ">
@@ -880,6 +864,88 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_EQBCANP0EeeO2erEiVW5rQ" name="monte carlo model" type="_E2-YcJyKEeedDad2B7fIyQ" association="_EP_z4NP0EeeO2erEiVW5rQ"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_PIankNP3EeeO2erEiVW5rQ" name="Main Program">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_XtxT0tP3EeeO2erEiVW5rQ" name="analytical model" type="_FMofYJyKEeedDad2B7fIyQ" aggregation="composite" association="_XtwswNP3EeeO2erEiVW5rQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_X7YSAtP3EeeO2erEiVW5rQ" name="monte carlo model" type="_E2-YcJyKEeedDad2B7fIyQ" aggregation="composite" association="_X7Xq8NP3EeeO2erEiVW5rQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_yFGQEtP7EeeO2erEiVW5rQ" name="sensitivity analysis module" type="_1NCjUNP5EeeO2erEiVW5rQ" aggregation="composite" association="_yFFB8NP7EeeO2erEiVW5rQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_y22dIdP7EeeO2erEiVW5rQ" name="tradeoff analysis module" type="_42puUNP5EeeO2erEiVW5rQ" aggregation="composite" association="_y21PANP7EeeO2erEiVW5rQ"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_RYHZUNP3EeeO2erEiVW5rQ" name="Choose between Analytical or MC Module"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_XtwswNP3EeeO2erEiVW5rQ" memberEnd="_XtxT0tP3EeeO2erEiVW5rQ _Xtx64NP3EeeO2erEiVW5rQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_XtxT0NP3EeeO2erEiVW5rQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XtxT0dP3EeeO2erEiVW5rQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Xtx64NP3EeeO2erEiVW5rQ" name="main program" type="_PIankNP3EeeO2erEiVW5rQ" association="_XtwswNP3EeeO2erEiVW5rQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_X7Xq8NP3EeeO2erEiVW5rQ" memberEnd="_X7YSAtP3EeeO2erEiVW5rQ _X7YSA9P3EeeO2erEiVW5rQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_X7YSANP3EeeO2erEiVW5rQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_X7YSAdP3EeeO2erEiVW5rQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_X7YSA9P3EeeO2erEiVW5rQ" name="main program" type="_PIankNP3EeeO2erEiVW5rQ" association="_X7Xq8NP3EeeO2erEiVW5rQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_YIbPgNP3EeeO2erEiVW5rQ" memberEnd="_YIb2ktP3EeeO2erEiVW5rQ _YIb2k9P3EeeO2erEiVW5rQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YIb2kNP3EeeO2erEiVW5rQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_YIb2kdP3EeeO2erEiVW5rQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_YIb2k9P3EeeO2erEiVW5rQ" name="agv system simulation" type="_ESwREJyKEeedDad2B7fIyQ" association="_YIbPgNP3EeeO2erEiVW5rQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_1NCjUNP5EeeO2erEiVW5rQ" name="Sensitivity Analysis Module">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_mKe4MtP7EeeO2erEiVW5rQ" name="input factors" type="_g40KQNP7EeeO2erEiVW5rQ" aggregation="composite" association="_mKeRINP7EeeO2erEiVW5rQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_mYNLItP7EeeO2erEiVW5rQ" name="tornado diagram module" type="_hEP-MNP7EeeO2erEiVW5rQ" aggregation="composite" association="_mYMkENP7EeeO2erEiVW5rQ"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_IZBakNP7EeeO2erEiVW5rQ" name="performs sensitivty analysis"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_42puUNP5EeeO2erEiVW5rQ" name="Tradeoff Analysis Module">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_7HyOAtP6EeeO2erEiVW5rQ" name="agv config 1" type="_3WyooNP6EeeO2erEiVW5rQ" aggregation="composite" association="_7Hxm8NP6EeeO2erEiVW5rQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_7Sm98tP6EeeO2erEiVW5rQ" name="agv config 2" type="_3iosQNP6EeeO2erEiVW5rQ" aggregation="composite" association="_7Slv0NP6EeeO2erEiVW5rQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_7cnOgtP6EeeO2erEiVW5rQ" name="agv config 3" type="_9Pq9ANP5EeeO2erEiVW5rQ" aggregation="composite" association="_7cmncNP6EeeO2erEiVW5rQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_9Pq9ANP5EeeO2erEiVW5rQ" name="AGV Config 3"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_3WyooNP6EeeO2erEiVW5rQ" name="AGV Config 1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_3iosQNP6EeeO2erEiVW5rQ" name="AGV Config 2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_7Hxm8NP6EeeO2erEiVW5rQ" memberEnd="_7HyOAtP6EeeO2erEiVW5rQ _7HyOA9P6EeeO2erEiVW5rQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7HyOANP6EeeO2erEiVW5rQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7HyOAdP6EeeO2erEiVW5rQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_7HyOA9P6EeeO2erEiVW5rQ" name="tradeoff analysis" type="_42puUNP5EeeO2erEiVW5rQ" association="_7Hxm8NP6EeeO2erEiVW5rQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_7Slv0NP6EeeO2erEiVW5rQ" memberEnd="_7Sm98tP6EeeO2erEiVW5rQ _7Sm989P6EeeO2erEiVW5rQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7Sm98NP6EeeO2erEiVW5rQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7Sm98dP6EeeO2erEiVW5rQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_7Sm989P6EeeO2erEiVW5rQ" name="tradeoff analysis" type="_42puUNP5EeeO2erEiVW5rQ" association="_7Slv0NP6EeeO2erEiVW5rQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_7cmncNP6EeeO2erEiVW5rQ" memberEnd="_7cnOgtP6EeeO2erEiVW5rQ _7cn1kNP6EeeO2erEiVW5rQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7cnOgNP6EeeO2erEiVW5rQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7cnOgdP6EeeO2erEiVW5rQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_7cn1kNP6EeeO2erEiVW5rQ" name="tradeoff analysis" type="_42puUNP5EeeO2erEiVW5rQ" association="_7cmncNP6EeeO2erEiVW5rQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_g40KQNP7EeeO2erEiVW5rQ" name="Input Factors"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_hEP-MNP7EeeO2erEiVW5rQ" name="Tornado Diagram Module"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_mKeRINP7EeeO2erEiVW5rQ" memberEnd="_mKe4MtP7EeeO2erEiVW5rQ _mKffQNP7EeeO2erEiVW5rQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mKe4MNP7EeeO2erEiVW5rQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mKe4MdP7EeeO2erEiVW5rQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_mKffQNP7EeeO2erEiVW5rQ" name="sensitivity analysis module" type="_1NCjUNP5EeeO2erEiVW5rQ" association="_mKeRINP7EeeO2erEiVW5rQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_mYMkENP7EeeO2erEiVW5rQ" memberEnd="_mYNLItP7EeeO2erEiVW5rQ _mYNLI9P7EeeO2erEiVW5rQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mYNLINP7EeeO2erEiVW5rQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mYNLIdP7EeeO2erEiVW5rQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_mYNLI9P7EeeO2erEiVW5rQ" name="sensitivity analysis module" type="_1NCjUNP5EeeO2erEiVW5rQ" association="_mYMkENP7EeeO2erEiVW5rQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_yFFB8NP7EeeO2erEiVW5rQ" memberEnd="_yFGQEtP7EeeO2erEiVW5rQ _yFGQE9P7EeeO2erEiVW5rQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_yFGQENP7EeeO2erEiVW5rQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_yFGQEdP7EeeO2erEiVW5rQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_yFGQE9P7EeeO2erEiVW5rQ" name="main program" type="_PIankNP3EeeO2erEiVW5rQ" association="_yFFB8NP7EeeO2erEiVW5rQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_y21PANP7EeeO2erEiVW5rQ" memberEnd="_y22dIdP7EeeO2erEiVW5rQ _y23EMNP7EeeO2erEiVW5rQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_y212ENP7EeeO2erEiVW5rQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_y22dINP7EeeO2erEiVW5rQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_y23EMNP7EeeO2erEiVW5rQ" name="main program" type="_PIankNP3EeeO2erEiVW5rQ" association="_y21PANP7EeeO2erEiVW5rQ"/>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_pPeLAJmWEeeRmJXlhU4K0Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pPnU8JmWEeeRmJXlhU4K0Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#/"/>
@@ -1020,4 +1086,12 @@
   <Blocks:Block xmi:id="_vrZHYNPzEeeO2erEiVW5rQ" base_Class="_vrDwMNPzEeeO2erEiVW5rQ"/>
   <Blocks:Block xmi:id="_vrl7sNPzEeeO2erEiVW5rQ" base_Class="_vrE-UNPzEeeO2erEiVW5rQ"/>
   <Blocks:Block xmi:id="_vrywANPzEeeO2erEiVW5rQ" base_Class="_vrE-VdPzEeeO2erEiVW5rQ"/>
+  <Blocks:Block xmi:id="_PIm00NP3EeeO2erEiVW5rQ" base_Class="_PIankNP3EeeO2erEiVW5rQ"/>
+  <Blocks:Block xmi:id="_1NLtQNP5EeeO2erEiVW5rQ" base_Class="_1NCjUNP5EeeO2erEiVW5rQ"/>
+  <Blocks:Block xmi:id="_42yRMNP5EeeO2erEiVW5rQ" base_Class="_42puUNP5EeeO2erEiVW5rQ"/>
+  <Blocks:Block xmi:id="_9Py40NP5EeeO2erEiVW5rQ" base_Class="_9Pq9ANP5EeeO2erEiVW5rQ"/>
+  <Blocks:Block xmi:id="_3W7LgNP6EeeO2erEiVW5rQ" base_Class="_3WyooNP6EeeO2erEiVW5rQ"/>
+  <Blocks:Block xmi:id="_3ivZ8NP6EeeO2erEiVW5rQ" base_Class="_3iosQNP6EeeO2erEiVW5rQ"/>
+  <Blocks:Block xmi:id="_g48GENP7EeeO2erEiVW5rQ" base_Class="_g40KQNP7EeeO2erEiVW5rQ"/>
+  <Blocks:Block xmi:id="_hEX6ANP7EeeO2erEiVW5rQ" base_Class="_hEP-MNP7EeeO2erEiVW5rQ"/>
 </xmi:XMI>
