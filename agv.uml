@@ -506,7 +506,7 @@
     <packagedElement xmi:type="uml:Package" xmi:id="_wRZvoJ1aEeeTYtPO4uDvYg" name="AGV System Simulation">
       <packagedElement xmi:type="uml:UseCase" xmi:id="_zRbLEJ1aEeeTYtPO4uDvYg" name="UseCase1: Perform Performance Analysis"/>
       <packagedElement xmi:type="uml:UseCase" xmi:id="_5qYRMJ1aEeeTYtPO4uDvYg" name="UseCase2: Perform Sensitivity Analysis"/>
-      <packagedElement xmi:type="uml:UseCase" xmi:id="_9UPT0J1aEeeTYtPO4uDvYg" name="UseCase3: Perform Model Consistency Analysis"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_9UPT0J1aEeeTYtPO4uDvYg" name="UseCase3: Perform Tradeoff Analysis"/>
     </packagedElement>
     <packagedElement xmi:type="uml:ExecutionEnvironment" xmi:id="_DTW9oJ1bEeeTYtPO4uDvYg" name="Computer">
       <nestedClassifier xmi:type="uml:ExecutionEnvironment" xmi:id="_Fcf0YJ1bEeeTYtPO4uDvYg" name="Matlab"/>
@@ -946,6 +946,28 @@
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_y22dINP7EeeO2erEiVW5rQ" key="nature" value="UML_Nature"/>
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_y23EMNP7EeeO2erEiVW5rQ" name="main program" type="_PIankNP3EeeO2erEiVW5rQ" association="_y21PANP7EeeO2erEiVW5rQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Actor" xmi:id="_A7IXINRzEeeO2erEiVW5rQ" name="AGV Simulation Dev Team"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Ec9fINRzEeeO2erEiVW5rQ" memberEnd="_Ec9fI9RzEeeO2erEiVW5rQ _Ec9fJNRzEeeO2erEiVW5rQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Ec9fIdRzEeeO2erEiVW5rQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Ec9fItRzEeeO2erEiVW5rQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Ec9fI9RzEeeO2erEiVW5rQ" name="usecase1: perform performance analysis" type="_zRbLEJ1aEeeTYtPO4uDvYg" association="_Ec9fINRzEeeO2erEiVW5rQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Ec9fJNRzEeeO2erEiVW5rQ" name="agv simulation dev team" type="_A7IXINRzEeeO2erEiVW5rQ" association="_Ec9fINRzEeeO2erEiVW5rQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_FFp20NRzEeeO2erEiVW5rQ" memberEnd="_FFp209RzEeeO2erEiVW5rQ _FFp21NRzEeeO2erEiVW5rQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FFp20dRzEeeO2erEiVW5rQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FFp20tRzEeeO2erEiVW5rQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_FFp209RzEeeO2erEiVW5rQ" name="usecase2: perform sensitivity analysis" type="_5qYRMJ1aEeeTYtPO4uDvYg" association="_FFp20NRzEeeO2erEiVW5rQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_FFp21NRzEeeO2erEiVW5rQ" name="agv simulation dev team" type="_A7IXINRzEeeO2erEiVW5rQ" association="_FFp20NRzEeeO2erEiVW5rQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_FZD7ANRzEeeO2erEiVW5rQ" memberEnd="_FZD7A9RzEeeO2erEiVW5rQ _FZD7BNRzEeeO2erEiVW5rQ">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FZD7AdRzEeeO2erEiVW5rQ" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FZD7AtRzEeeO2erEiVW5rQ" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_FZD7A9RzEeeO2erEiVW5rQ" name="usecase3: perform tradeoff analysis" type="_9UPT0J1aEeeTYtPO4uDvYg" association="_FZD7ANRzEeeO2erEiVW5rQ"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_FZD7BNRzEeeO2erEiVW5rQ" name="agv simulation dev team" type="_A7IXINRzEeeO2erEiVW5rQ" association="_FZD7ANRzEeeO2erEiVW5rQ"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_pPeLAJmWEeeRmJXlhU4K0Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pPnU8JmWEeeRmJXlhU4K0Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
