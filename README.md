@@ -26,3 +26,5 @@ The simulation analyses the following system metrics:
 As long as MATLAB 2012 or higher, and MS Excel are installed on the Windows PC, no additional installation is required.
 Just clone the repository into a local folder, and navigate to the "MATLAB" folder. Run the "agv_simulation.m" through MATLAB to get started.
 A user's manual for the simulation is included in the "MATLAB" folder.
+
+**Project Team Members / Contributors**: Kersasp Cawasji, Kunal Mehta, Rishabh Agarwal, Amar Vamsi Krishna, Samvrit Srinivas
